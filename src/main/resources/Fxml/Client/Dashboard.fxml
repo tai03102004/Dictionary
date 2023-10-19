@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.DashboardController">
+   <styleClass>
+      <String fx:value="round-layout" />
+      <String fx:value="white-background" />
+   </styleClass>
+   <HBox layoutX="60.0" layoutY="25.0" prefHeight="30.0" prefWidth="242.0" styleClass="round-layout" stylesheets="@../../Styles/Home.css">
+      <TextField prefHeight="31.0" prefWidth="270.0" promptText="Search" styleClass="text-field" stylesheets="@../../Styles/Home.css" />
+      <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../../../../../../../images.png" />
+      </ImageView>
+   </HBox>
+   <HBox alignment="CENTER" layoutX="658.0" layoutY="5.0" prefHeight="32.0" prefWidth="192.0">
+      <Label text="David  Henry    " textOverrun="CLIP">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <Image url="@../../../../../../../../conan-134737.jpg" />
+      </ImageView>
+   </HBox>
+   <Label layoutX="60.0" layoutY="85.0" prefHeight="50.0" prefWidth="480.0" text="Dưới đây là một số cuốn sách hay giúp bạn luyện tiếng anh hiệu quả" />
+   <ScrollPane layoutX="60.0" layoutY="141.0" prefHeight="200.0" prefWidth="664.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" />
+   </ScrollPane>
+   <ScrollPane layoutX="60.0" layoutY="409.0" prefHeight="250.0" prefWidth="664.0" />
+</AnchorPane>

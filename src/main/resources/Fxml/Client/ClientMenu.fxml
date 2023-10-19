@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.MenuController">
+   <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container" stylesheets="@../../Styles/ClientMenu.css">
+      <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" stylesheets="@../../Styles/ClientMenu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <Button fx:id="home_btn" mnemonicParsing="false" text="Home">
+            <graphic>
+               <FontAwesomeIconView glyphName="HOME" />
+            </graphic>
+         </Button>
+         <Button fx:id="translate_btn" mnemonicParsing="false" text="Tra từ">
+            <graphic>
+               <FontAwesomeIconView glyphName="PLAY" />
+            </graphic></Button>
+         <Button fx:id="textTransaction_btn" mnemonicParsing="false" text="Dịch văn bản">
+            <graphic>
+               <FontAwesomeIconView glyphName="" />
+            </graphic>
+         </Button>
+         <Button fx:id="game_btn" mnemonicParsing="false" text="Game">
+            <graphic>
+               <FontAwesomeIconView glyphName="CAR" />
+            </graphic>
+         </Button>
+         <Button fx:id="accounts_btn" mnemonicParsing="false" text="Yêu thích">
+            <graphic>
+               <FontAwesomeIconView glyphName="STAR" />
+            </graphic></Button>
+         <Button fx:id="history_btn" mnemonicParsing="false" text="Lịch sử">
+            <graphic>
+               <FontAwesomeIconView glyphName="HISTORY" />
+            </graphic>
+         </Button>
+         <Button fx:id="save_btn" mnemonicParsing="false" text="Đã lưu">
+            <graphic>
+               <FontAwesomeIconView glyphName="SAVE" />
+            </graphic>
+         </Button>
+         <Line endX="120.0" />
+         <Button fx:id="profile_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Hồ sơ">
+            <graphic>
+               <FontAwesomeIconView glyphName="" text="" />
+            </graphic>
+         </Button>
+         <Button fx:id="layout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Đăng xuất">
+            <graphic>
+               <FontAwesomeIconView glyphName="EXTERNAL_LINK" />
+            </graphic>
+         </Button>
+         <Button fx:id="install_btn" mnemonicParsing="false" prefHeight="33.0" prefWidth="53.0" styleClass="alt_menu_btn" text="Cài đặt">
+            <graphic>
+               <FontAwesomeIconView glyphName="GEAR" size="20" />
+            </graphic>
+         </Button>
+      </VBox>
+      <VBox layoutX="20.0" prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <FontAwesomeIconView glyphName="BOOK" size="25" styleClass="title_container" text="" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title_container" text="Distionary" />
+      </VBox>
+      <VBox prefHeight="120.0" prefWidth="130.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Report Bug ?" />
+         <Label text="Use this to report  any error" />
+         <Button fx:id="report_btn" mnemonicParsing="false" text="Report">
+            <graphic>
+               <FontAwesomeIconView glyphName="PLUS" />
+            </graphic>
+         </Button>
+      </VBox>
+   </AnchorPane>
+</VBox>

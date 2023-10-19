@@ -1,0 +1,110 @@
+.main_menu_container {
+    -fx-background-color: #EEEEEE;
+}
+
+.left_container{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+    -fx-effect : dropshadow(two-pass-box, #AAAAAA,5,0,0,4);
+}
+/*Title / logo Section */
+.title_container{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20 20 0 0;
+    -fx-alignment: top-center;
+    -fx-padding: 10;
+}
+
+.title_container FontAwesomeIconView {
+    -fx-fill : #708be3;
+}
+
+.title_container Text{
+    -fx-fill : #000000;
+    -fx-font-size : 2em;
+}
+
+/* Novigation Section */
+.menu_container{
+    -fx-padding: 10 10 10 20;
+    -fx-spacing : 20;
+}
+.menu_container Button{
+    -fx-pref-width : 115;
+    -fx-pref-height : 40;
+    -fx-background-color : #FFFFFF;
+    -fx-text-fill : #132A13;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center_left;
+    -fx-effect : dropshadow(three-pass-box, #ecdfdf,5,0,0,5);
+}
+
+.menu_container Button:hover{
+    -fx-cursor: hand;
+}
+
+.menu_container Button FontAwesomeIconView{
+    -fx-fill : #708be3;
+}
+
+.alt_menu_btn{
+    -fx-pref-width : 115;
+    -fx-pref-height : 40;
+    -fx-background-color: #708be3;
+    -fx-text-fill : #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-alignment : center_left;
+}
+
+.alt_menu_btn FontAwesomeIconView {
+    -fx-fill : #FFFFFF;
+}
+
+/* Report Bug/Suggestion */
+
+.report_container{
+    -fx-background-color: #EEFFEE;
+    -fx-background-radius: 10;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding : 10 0 10 0;
+}
+
+.report_container Text {
+    -fx-font-weight: bold;
+    -fx-fill: #708be3;
+}
+
+.report_container Label{
+    -fx-text-aligment : center;
+    -fx-wrap-text: true;
+}
+.report_container Button {
+    -fx-pref-width : 80;
+    -fx-background-color : #708be3;
+    -fx-text—fill : #FFFFFF;
+}
+
+.report_container Button:hover{
+    -fx-cursor: hand;
+}
+
+.report_container FontAwesomeIconView{
+    -fx-fill: #FFFFFF;
+}
+.menu_container Button:pressed {
+    -fx-background-color: #F0F0F0; /* Màu nền khi nhấn */
+    -fx-text-fill: #0D2510; /* Màu chữ khi nhấn */
+    -fx-effect: dropshadow(three-pass-box, #ecdfdf, 5, 0, 0, 5);
+    -fx-scale-x: 1.05; /* Tăng kích thước theo chiều ngang */
+    -fx-scale-y: 1.05; /* Tăng kích thước theo chiều dọc */
+}
+
+.alt_menu_btn:pressed {
+    -fx-background-color: #6078B3; /* Màu nền khi nhấn */
+    -fx-text-fill: #F0F0F0; /* Màu chữ khi nhấn */
+    -fx-effect: dropshadow(three-pass-box, #4F65A5, 5, 0, 0, 5);
+    -fx-scale-x: 1.05; /* Tăng kích thước theo chiều ngang */
+    -fx-scale-y: 1.05; /* Tăng kích thước theo chiều dọc */
+}
+

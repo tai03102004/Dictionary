@@ -1,0 +1,8 @@
+.round-layout {
+    -fx-background-color: #dabbbb;
+    -fx-border-radius: 150;
+}
+
+.h-box{
+    -fx-background-color: #efebeb;
+}

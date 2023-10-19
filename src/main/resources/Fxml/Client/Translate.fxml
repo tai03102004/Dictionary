@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.TranslateController">
+    <Text layoutX="425.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Translate" AnchorPane.leftAnchor="414.0" AnchorPane.topAnchor="14.0" />
+    <ListView fx:id="Translate_listview" layoutX="22.0" layoutY="95.0" prefHeight="640.0" prefWidth="830.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="100.0" />
+    <HBox layoutX="55.0" layoutY="137.0" prefHeight="32.0" prefWidth="229.0" styleClass="round-layout"
+          stylesheets="@../../Styles/Home.css">
+        <TextField prefHeight="32.0" prefWidth="213.0" promptText="Search" styleClass="text-field"/>
+        <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="text-field">
+            <Image url="@../../../../../../../../images.png"/>
+        </ImageView>
+    </HBox>
+    <ScrollPane layoutX="55.0" layoutY="186.0" prefHeight="515.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0"/>
+    </ScrollPane>
+   <HBox layoutX="329.0" layoutY="136.0" prefHeight="563.0" prefWidth="483.0" styleClass="h-box" stylesheets="@../../Styles/Home.css" />
+</AnchorPane>
