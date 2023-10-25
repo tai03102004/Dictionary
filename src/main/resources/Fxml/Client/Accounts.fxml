@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
    <Text layoutX="25.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create_client_container" text="id:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-   <VBox fillWidth="false" layoutX="220.0" layoutY="29.0" prefHeight="700.0" prefWidth="600.0" styleClass="create_client_container" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="29.0">
+   <VBox fillWidth="false" layoutX="220.0" layoutY="29.0" prefHeight="700.0" prefWidth="600.0" styleClass="create_container" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="29.0">
       <Text fill="#ab4949" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl" text="Hồ sơ của tôi">
          <font>
             <Font size="18.0" />
@@ -22,7 +22,7 @@
       <Text fill="#9cd7d9" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl1" text="Quản lý thông tin hồ sơ để bảo mật tài khoản" />
       <Separator prefHeight="9.0" prefWidth="470.0" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên đăng nhập" />
-      <TextField fx:id="userName_lbl"/>
+      <TextField fx:id="userName_lbl" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" />
       <TextField fx:id="name_lbl" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
@@ -30,11 +30,11 @@
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại" />
       <TextField fx:id="phone_lbl" />
       <VBox prefHeight="32.0" prefWidth="288.0">
-         <AnchorPane prefHeight="30.0" prefWidth="303.0">
-            <RadioButton layoutX="60.0" mnemonicParsing="false" text="Nam" />
-            <RadioButton layoutX="126.0" mnemonicParsing="false" text="Nữ" />
-            <RadioButton layoutX="177.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="51.0" text="Khác" />
-            <Label text="Giới tính" />
+         <AnchorPane prefHeight="21.0" prefWidth="367.0" styleClass="radius-button">
+            <Label layoutX="2.0" layoutY="6.0" prefHeight="23.0" prefWidth="291.0" text="Giới tính" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
+            <RadioButton fx:id="Nam_lbl" layoutX="92.0" layoutY="3.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="65.0" text="Nam" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
+            <RadioButton fx:id="Nu_lbl" layoutX="174.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="65.0" text="Nữ" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
+            <RadioButton fx:id="Khac_lbl" layoutX="238.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Khác" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="238.0" AnchorPane.topAnchor="1.0" />
          </AnchorPane>
       </VBox>
       <Button mnemonicParsing="false" text="Lưu" />
@@ -42,7 +42,7 @@
    <VBox layoutX="10.0" layoutY="43.0" prefHeight="295.0" prefWidth="199.0" styleClass="create_container">
       <Label text="Tài khoản của tôi">
          <graphic>
-            <FontAwesomeIconView glyphName="" text="" />
+            <FontAwesomeIconView glyphName="DRIVERS_LICENSE_ALT" />
          </graphic>
       </Label>
       <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="179.0" text="Hồ sơ" />

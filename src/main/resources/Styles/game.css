@@ -1,0 +1,66 @@
+/* Custom CSS rules for your FXML */
+
+
+.AnchorPane {
+    -fx-background-color: #ffffff;
+}
+
+/* Tùy chỉnh TextField */
+.text-field {
+    -fx-background-color: #f0f6fc; /* Màu nền của TextField */
+    -fx-border-color: #000000; /* Màu viền của TextField */
+    -fx-border-width: 1px; /* Độ rộng viền của TextField */
+    -fx-border-radius: 5px; /* Độ cong viền của TextField */
+}
+
+/* Tùy chỉnh Circle */
+.circle {
+    -fx-fill: #f0f6fc; /* Màu nền của Circle */
+    -fx-stroke: #000000; /* Màu viền của Circle */
+    -fx-stroke-width: 2px; /* Độ rộng viền của Circle */
+}
+.stack-pane {
+    -fx-alignment: center; /* Căn giữa nội dung */
+}
+
+/* Tùy chỉnh Text bên trong Circle */
+.text-inside-circle {
+    -fx-font-size: 18px; /* Kích thước chữ của Text */
+    -fx-fill: #861111; /* Màu chữ của Text */
+}
+
+/* Tùy chỉnh Text */
+.text {
+    -fx-font-size: 25px; /* Kích thước chữ của Text */
+    -fx-fill: black; /* Màu chữ của Text */
+}
+
+.text_dimmer {
+    -fx-font-size: 23px;
+    -fx-fill : #f57474;
+}
+.text-second {
+    -fx-font-size: 15px;
+    -fx-fill : #66addc;
+}
+
+/* Hiệu ứng khi nút được nhấn */
+.button:pressed {
+    -fx-background-color: #ff5733; /* Màu khi nút được nhấn */
+    -fx-text-fill: #ffffff; /* Màu chữ khi nút được nhấn */
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
+
+.button:hover {
+    -fx-background-color: #4fa1f2; /* Màu khi di chuột qua nút */
+    -fx-text-fill: #ffffff; /* Màu chữ khi di chuột qua nút */
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* image */
+.image_i {
+    -fx-opacity : 0;
+}
+

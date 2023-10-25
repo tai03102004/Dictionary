@@ -1,0 +1,105 @@
+.root {
+    -button-color: #747f8d;
+    -hover-button-color: #2e3338;
+
+    -purple-color: #5865F2;
+    -hover-purple-color: #4752C4;
+
+    -text-color: #555c5d;
+    -hover-text-color: #2e3338;
+
+    -gray-color: #e6e6e6;
+    -title-color: #060607;
+    -hover-background-color: #D4D7DC;
+}
+
+/* ========================= Button ========================= */
+
+.button-lang {
+    -fx-background-color: #D3D3D3;
+    -fx-min-width: 90;
+    -fx-padding: 5;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.button-lang.active {
+    -fx-background-color: white;
+    -fx-text-fill: -hover-text-color;
+}
+
+.button-speak {
+    -fx-background-image: url('../normal/speak.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25;
+    -fx-background-color: -gray-color;
+    -fx-pref-width: 35;
+    -fx-pref-height: 35;
+}
+
+.button-speak:hover {
+    -fx-background-image: url('../hover/speak.png');
+    -fx-background-size: 25;
+}
+
+.button-double-arrow {
+    -fx-background-image: url('../normal/double-arrow.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25;
+    -fx-pref-width: 60;
+    -fx-pref-height: 40;
+}
+
+.button-double-arrow:hover {
+    -fx-background-color: none;
+    -fx-cursor: default;
+}
+
+.button-translate-submit {
+    -fx-graphic: url('../normal/translate-submit.png');
+    -fx-background-color: #63a4ee;
+    -fx-border-radius: 3;
+    -fx-padding: 5;
+    -fx-pref-width: 120;
+    -fx-pref-height: 30;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-transition: all 0.3s; /* Thêm transition cho các thuộc tính thay đổi */
+}
+
+.button-translate-submit:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #4287f5; /* Đổi màu sắc khi hover */
+    -fx-opacity: 1; /* Độ trong suốt mặc định */
+}
+
+.button-translate-submit:pressed {
+    -fx-background-color: #2e60af; /* Đổi màu sắc khi nút được nhấn */
+}
+
+/* ========================= TextField ========================= */
+
+.text-field {
+    -fx-background-color: #e7eef8;
+    -fx-font-size: 15;
+}
+
+/* ========================= TextArea ========================= */
+
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: #e7eef8;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+    -fx-font-size: 15;
+}
+
+.text-area:focused {
+    -fx-background-color:white;
+    -fx-font-size: 15;
+}

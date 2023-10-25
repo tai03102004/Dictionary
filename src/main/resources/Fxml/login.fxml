@@ -12,16 +12,17 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.LoginController">
     <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" stylesheets="@../Styles/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <FontAwesomeIconView glyphName="BOOK" size="35" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Distionary" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary" />
     </VBox>
-    <VBox layoutX="200.0" layoutY="33.0" prefHeight="350.0" prefWidth="350.0" styleClass="login_form_container" stylesheets="@../Styles/login.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+    <VBox layoutX="200.0" layoutY="13.0" prefHeight="368.0" prefWidth="350.0" styleClass="login_form_container" stylesheets="@../Styles/login.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="13.0">
         <Label stylesheets="@../Styles/login.css" text="Choose Your Account Type: " />
-        <ChoiceBox fx:id="acc_selector" prefWidth="150.0" styleClass="input_field" stylesheets="@../Styles/login.css" />
+        <ChoiceBox fx:id="acc_selector" prefWidth="90.0" styleClass="input_field" stylesheets="@../Styles/login.css" />
+      <Label fx:id="Error_lbl" prefHeight="26.0" prefWidth="324.0" styleClass="error_lbl" />
         <Label fx:id="account_dictionary_lbl" text="Account Dictionary: " />
         <TextField fx:id="account_dictionary_fld" styleClass="input_field" stylesheets="@../Styles/login.css" />
         <Label text="Password: " />
         <TextField fx:id="password_fld" styleClass="input_field" stylesheets="@../Styles/login.css" />
         <Button fx:id="login_btn" mnemonicParsing="false" text="Login" />
-        <Label id="choice-prompt_text" fx:id="Error_lbl" styleClass="error_lbl" stylesheets="@../Styles/login.css" text="Error: " />
+      <Button fx:id="cancel_btn" mnemonicParsing="false" text="Cancel" />
     </VBox>
 </AnchorPane>

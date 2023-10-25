@@ -11,15 +11,16 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.DashboardController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.directory.Controllers.client.DashboardController">
    <styleClass>
       <String fx:value="round-layout" />
       <String fx:value="white-background" />
    </styleClass>
    <HBox layoutX="60.0" layoutY="25.0" prefHeight="30.0" prefWidth="242.0" styleClass="round-layout" stylesheets="@../../Styles/Home.css">
-      <TextField prefHeight="31.0" prefWidth="270.0" promptText="Search" styleClass="text-field" stylesheets="@../../Styles/Home.css" />
-      <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../../../../../../../images.png" />
+      <TextField prefHeight="31.0" prefWidth="270.0" promptText="Search" stylesheets="@../../Styles/Home.css" />
+      <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" styleClass="round-layout">
+         <Image url="@../../Images/search.png"/>
       </ImageView>
    </HBox>
    <HBox alignment="CENTER" layoutX="658.0" layoutY="5.0" prefHeight="32.0" prefWidth="192.0">
@@ -32,7 +33,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <Image url="@../../../../../../../../conan-134737.jpg" />
+         <Image url="@../../Images/conan-134737.jpg" />
       </ImageView>
    </HBox>
    <Label layoutX="60.0" layoutY="85.0" prefHeight="50.0" prefWidth="480.0" text="Dưới đây là một số cuốn sách hay giúp bạn luyện tiếng anh hiệu quả" />

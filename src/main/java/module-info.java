@@ -1,10 +1,13 @@
 module com.example.directory {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.base;
+    requires javafx.graphics;
 
     requires de.jensd.fx.glyphs.fontawesome;
     requires java.sql;
     requires org.xerial.sqlitejdbc;
+    requires javafx.web;
 
     opens com.example.directory to javafx.fxml;
     exports com.example.directory;
