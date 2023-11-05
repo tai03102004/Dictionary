@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="Controllers.client.DashboardController">
+            fx:controller="com.example.directory.Controllers.client.DashboardController">
    <styleClass>
       <String fx:value="round-layout" />
       <String fx:value="white-background" />
