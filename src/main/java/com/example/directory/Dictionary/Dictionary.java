@@ -1,19 +1,15 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Dictionary {
-    private static final String splitPattern = "<html>";
     private String path;
     private String history;
     private String bookmark;
 
-    private ArrayList<Word> vocabulary = new ArrayList<>();
-    private ArrayList<Word> historyVocabulary = new ArrayList<>();
-    private ArrayList<Word> bookmarkVocabulary = new ArrayList<>();
+    private HashMap<String,Word> vocabulary = new HashMap<>();
+    private HashMap<String,Word> historyVocabulary = new HashMap<>();
+    private HashMap<String,Word> bookmarkVocabulary = new HashMap<>();
 
     public Dictionary(String path, String history, String bookmark) {
         this.path = path;
@@ -35,15 +31,15 @@ public class Dictionary {
         return path;
     }
 
-    public ArrayList<Word> getBookmarkVocabulary() {
+    public HashMap<String,Word> getBookmarkVocabulary() {
         return bookmarkVocabulary;
     }
 
-    public ArrayList<Word> getHistoryVocabulary() {
+    public HashMap<String,Word> getHistoryVocabulary() {
         return historyVocabulary;
     }
 
-    public ArrayList<Word> getVocabulary() {
+    public HashMap<String,Word> getVocabulary() {
         return vocabulary;
     }
     //-----------------------------------------------------------------------
@@ -61,11 +57,42 @@ public class Dictionary {
         }
     }
 
-    public void UpdateDictionary(String path, ArrayList<Word> arr) {
+    public void loadDataFromHTMLFile(String path, HashMap<String,Word> temp) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] Words = line.split("<html>");
+                String word = Words[0];
+                String definition = "<html>" + Words[1];
+                Word wordObj = new Word(word, definition);
+                temp.put(word,wordObj);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exportWordToHTMLFile(String path, String spelling) {
+        try {
+            File file = new File(path);
+            FileWriter fileWriter = new FileWriter(file, true);
+            Word word = vocabulary.get(spelling);
+            fileWriter.write(word.getWordTarget() + word.getWordExplain() + "\n");
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void UpdateDictionary(String path, HashMap<String,Word> arr) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
-            for (Word word : arr) {
-                writer.write(word.getWordTarget() + word.getWordExplain() + "\n");
+            for (Map.Entry<String, Word> entry : arr.entrySet()) {
+                String key = entry.getKey();
+                Word value = entry.getValue();
+                writer.write(key + value.getWordExplain() + "\n");
             }
             writer.flush();
             writer.close();
@@ -78,23 +105,40 @@ public class Dictionary {
         target = target.toLowerCase();
         meaning = meaning.toLowerCase();
         int index = -1;
-        index = Collections.binarySearch(vocabulary, new Word(target, meaning));
-        if (index > -1) vocabulary.get(index).setWordExplain(meaning);
-        else return;
-
+        Word word = new Word(target,meaning);
+        vocabulary.replace(target,word);
         UpdateDictionary(path, vocabulary);
     }
 
-    public void deleteWord(String target, String path, ArrayList<Word> arr) {
+    public void deleteWord(String target, String path, HashMap<String,Word> arr) {
         target = target.toLowerCase();
-        int index = Collections.binarySearch(arr, new Word(target, null));
-        if (index >= 0) arr.remove(arr.get(index));
-        else return;
+        arr.remove(target);
         UpdateDictionary(path, arr);
     }
 
-    public void addWord(String target, String path, ArrayList<Word> arr) {
-
+    public void addWord(String target, String meaning) {
+        target = target.toLowerCase();
+        vocabulary.put(target,new Word(target, meaning));
+        UpdateDictionary(path,vocabulary);
     }
 
+    public void ReadHistoryFile(){
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(history));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] Words = line.split("<html>");
+                String target = Words[0];
+                String meaning = "<html>" + Words[1];
+                Word word = new Word(target, meaning);
+                historyVocabulary.put(target,word);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
 }

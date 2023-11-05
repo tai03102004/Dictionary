@@ -7,6 +7,8 @@ public class Word implements Comparable<Word>{
         this.word_explain = explain;
     }
 
+
+
     @Override
     public int compareTo(Word o) {
         return this.word_explain.compareToIgnoreCase(o.word_explain);
