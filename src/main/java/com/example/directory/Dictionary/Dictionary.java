@@ -58,7 +58,7 @@ public class Dictionary {
             writer.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 
@@ -74,7 +74,7 @@ public class Dictionary {
                 temp.put(word,wordObj);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 
@@ -87,7 +87,7 @@ public class Dictionary {
             fileWriter.flush();
             fileWriter.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 
@@ -139,7 +139,7 @@ public class Dictionary {
                 historyVocabulary.put(target,word);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 
