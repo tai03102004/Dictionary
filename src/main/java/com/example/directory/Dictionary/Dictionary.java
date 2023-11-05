@@ -24,7 +24,6 @@ public class Dictionary {
     }
 
     //getter of class Dictionary.
-    //Setter of this function will be read in file
     public String getBookmark() {
         return bookmark;
     }
