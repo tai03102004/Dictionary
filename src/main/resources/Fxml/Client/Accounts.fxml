@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.client.AccountsController">
    <Text layoutX="25.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create_client_container" text="id:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
    <VBox fillWidth="false" layoutX="220.0" layoutY="29.0" prefHeight="700.0" prefWidth="600.0" styleClass="create_container" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="29.0">
       <Text fill="#ab4949" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl" text="Hồ sơ của tôi">

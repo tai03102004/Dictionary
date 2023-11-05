@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/search.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.TranslateController">
+<AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/search.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.client.TranslateController">
     <AnchorPane layoutY="-3.0" prefHeight="459.0" prefWidth="257.0" styleClass="second-color" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-3.0">
         <HBox layoutX="19.0" layoutY="18.0" prefHeight="35.0" prefWidth="219.0">
             <AnchorPane prefHeight="35.0" prefWidth="50.0">

@@ -1,7 +1,7 @@
 package Views;
 
-import com.example.directory.Controllers.Admin.AdminController;
-import com.example.directory.Controllers.client.ClientController;
+import Controllers.Admin.AdminController;
+import Controllers.client.ClientController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;

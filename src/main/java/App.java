@@ -1,4 +1,4 @@
-import com.example.directory.Models.Model;
+import Models.Model;
 import java.io.IOException;
 import java.util.Objects;
 import javafx.application.Application;

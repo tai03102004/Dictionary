@@ -21,10 +21,13 @@ public class TranslateController implements Initializable {
     public TextField searchField;
     public ListView wordListView;
     public Label headText;
+
     public Label speaker1Language;
     public Button speaker1;
+
     public Label speaker2Language;
     public Button speaker2;
+
     public Button saveChangeButton;
     public Button bookmarkTrue;
     public Button bookmarkFalse;
