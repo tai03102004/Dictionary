@@ -1,3 +1,5 @@
+package com.example.directory.Dictionary;
+
 public class Word implements Comparable<Word>{
     private String word_target;
     private String word_explain;

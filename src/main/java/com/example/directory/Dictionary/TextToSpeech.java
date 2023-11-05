@@ -1,3 +1,5 @@
+package com.example.directory.Dictionary;
+
 import javazoom.jl.player.Player;
 import java.io.InputStream;
 import java.net.HttpURLConnection;

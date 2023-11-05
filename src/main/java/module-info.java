@@ -8,6 +8,7 @@ module com.example.directory {
     requires java.sql;
     requires org.xerial.sqlitejdbc;
     requires javafx.web;
+    requires jlayer;
 
     opens com.example.directory to javafx.fxml;
     exports com.example.directory;

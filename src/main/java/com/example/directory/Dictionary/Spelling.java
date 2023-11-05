@@ -1,5 +1,12 @@
-import java.io.*;
-import java.util.*;
+package com.example.directory.Dictionary;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
 
 public class Spelling {
 
@@ -67,7 +74,7 @@ public class Spelling {
 
     public static void main(String[] args) throws IOException {
         String word = "heol";
-        Spelling corrector = new Spelling("src/Dictionary Datas/vocab/spelling.txt");
+        Spelling corrector = new Spelling("src/resources/vocab/spelling.txt");
         System.out.println(corrector.correct(word.toLowerCase()));
     }
 }
