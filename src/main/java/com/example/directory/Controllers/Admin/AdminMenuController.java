@@ -31,7 +31,6 @@ public class AdminMenuController implements Initializable {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.ADD_ENTRY);
     }
 
-
     private void onClients() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.CLIENTS);
     }

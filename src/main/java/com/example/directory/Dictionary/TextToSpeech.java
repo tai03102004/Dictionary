@@ -8,8 +8,9 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class TextToSpeech {
-    private static final String us_accent = "en-us";
-    private static final String uk_accent = "en-gb";
+    public static final String us_accent = "en-us";
+    public static final String uk_accent = "en-gb";
+    public static final String vietnamese = "vi";
     public static String language = "en";
     public static void VoiceAudio(String text) {
         try {

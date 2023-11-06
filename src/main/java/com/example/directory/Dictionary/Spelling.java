@@ -68,8 +68,8 @@ public class Spelling {
     }
 
     public static void main(String[] args) throws IOException {
-        String word = "heol";
-        Spelling corrector = new Spelling("src/Dictionary Datas/vocab/spelling.txt");
+        String word = "spesling";
+        Spelling corrector = new Spelling("src/main/resources/vocab/spelling.txt");
         System.out.println(corrector.correct(word.toLowerCase()));
     }
 }

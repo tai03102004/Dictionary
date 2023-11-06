@@ -10,6 +10,7 @@ module com.example.directory {
     requires javafx.web;
     requires jlayer;
 
+    opens com.example.directory.Controllers.client;
     opens com.example.directory to javafx.fxml;
     exports com.example.directory;
     exports com.example.directory.Controllers;
