@@ -144,7 +144,7 @@ public class textTransactionController implements Initializable {
 
     @FXML
     void speak1() throws Exception {
-        if (languageFrom != "") {
+        if (!languageFrom.isEmpty()) {
             TextToSpeech.language = languageFrom;
         } else {
             TextToSpeech.language = "en";
