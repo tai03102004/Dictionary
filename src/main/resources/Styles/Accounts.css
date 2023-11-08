@@ -71,15 +71,15 @@
 /* Container style */
 .create_container {
     -fx-background-color: #EEEEEE;
-    -fx-padding: 10;
-    -fx-spacing: 15;
+    -fx-padding: 30;
+    -fx-spacing: 23;
 }
 /* Button style */
 .create_container Button {
     -fx-background-color: linear-gradient(to right, #c1d3d0, #88b9d5);
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
     -fx-pref-width: 200;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.3em;
     -fx-font-family: "Calibri Light";
     -fx-text-fill: #FFFFFF;
 }

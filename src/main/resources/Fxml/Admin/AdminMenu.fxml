@@ -14,11 +14,6 @@
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary" />
       </VBox>
       <VBox layoutX="40.0" layoutY="257.0" prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-         <Button fx:id="create_client_btn" mnemonicParsing="false" text="Create Client">
-            <graphic>
-               <FontAwesomeIconView glyphName="PLUS" size="20" />
-            </graphic>
-         </Button>
          <Button fx:id="clients_btn" mnemonicParsing="false" text="Clients">
             <graphic>
                <FontAwesomeIconView glyphName="LIST" size="20" />

@@ -1,11 +1,15 @@
 package com.example.directory.Views;
 
 import com.example.directory.Controllers.Admin.AdminController;
+import com.example.directory.Controllers.SignupController;
 import com.example.directory.Controllers.client.ClientController;
+import com.example.directory.Models.Model;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -23,7 +27,6 @@ public class ViewFactory {
 
     private AnchorPane profileView;
     private AnchorPane gameView;
-
     private AnchorPane textTransactionView;
 
     // Admin Views
@@ -102,6 +105,7 @@ public class ViewFactory {
         return gameView;
     }
 
+
     public AnchorPane getSettingView() {
         if (settingView == null ) {
             try {
@@ -132,6 +136,7 @@ public class ViewFactory {
         loader.setController(clientController);
         createStage(loader);
     }
+
 
     /**
      * Admin View Section
@@ -187,6 +192,21 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
         createStage(loader);
     }
+
+    public void showSignUpWindow() {
+        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
+            System.out.println("showSignUpWindow");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/signup.fxml"));
+            createStage(loader);
+        } else {
+            // Hiển thị thông báo lỗi cho loại tài khoản khác "Client"
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Lỗi đăng ký");
+            alert.setHeaderText("Loại tài khoản không có quyền đăng ký.");
+            alert.showAndWait();
+        }
+    }
+
 
     public void createStage(FXMLLoader loader) {
         Scene scene = null;

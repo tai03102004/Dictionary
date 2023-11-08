@@ -11,9 +11,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
-   <Text layoutX="25.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="create_client_container" text="id:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-   <VBox fillWidth="false" layoutX="220.0" layoutY="29.0" prefHeight="700.0" prefWidth="600.0" styleClass="create_container" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="29.0">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
+   <VBox fillWidth="false" layoutX="271.0" layoutY="25.0" prefHeight="700.0" prefWidth="540.0" styleClass="create_container" AnchorPane.leftAnchor="271.0" AnchorPane.topAnchor="25.0">
       <Text fill="#ab4949" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl" text="Hồ sơ của tôi">
          <font>
             <Font size="18.0" />
@@ -21,14 +20,26 @@
       </Text>
       <Text fill="#9cd7d9" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl1" text="Quản lý thông tin hồ sơ để bảo mật tài khoản" />
       <Separator prefHeight="9.0" prefWidth="470.0" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên đăng nhập" />
-      <TextField fx:id="userName_lbl" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên" />
-      <TextField fx:id="name_lbl" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-      <TextField fx:id="email_lbl" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại" />
-      <TextField fx:id="phone_lbl" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên đăng nhập">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TextField fx:id="userName_lbl" prefHeight="26.0" prefWidth="342.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TextField fx:id="name_lbl" prefHeight="26.0" prefWidth="342.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TextField fx:id="email_lbl" prefHeight="26.0" prefWidth="344.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại">
+         <font>
+            <Font size="15.0" />
+         </font></Text>
+      <TextField fx:id="phone_lbl" prefHeight="26.0" prefWidth="346.0" />
       <VBox prefHeight="32.0" prefWidth="288.0">
          <AnchorPane prefHeight="21.0" prefWidth="367.0" styleClass="radius-button">
             <Label layoutX="2.0" layoutY="6.0" prefHeight="23.0" prefWidth="291.0" text="Giới tính" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
@@ -37,13 +48,20 @@
             <RadioButton fx:id="Khac_lbl" layoutX="238.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Khác" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="238.0" AnchorPane.topAnchor="1.0" />
          </AnchorPane>
       </VBox>
-      <Button mnemonicParsing="false" text="Lưu" />
+      <Button fx:id="Save_btn" mnemonicParsing="false" prefHeight="37.0" text="Lưu">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Label fx:id="update_lbl" contentDisplay="CENTER" />
    </VBox>
-   <VBox layoutX="10.0" layoutY="43.0" prefHeight="295.0" prefWidth="199.0" styleClass="create_container">
-      <Label text="Tài khoản của tôi">
+   <VBox layoutX="10.0" layoutY="43.0" prefHeight="295.0" prefWidth="226.0" styleClass="create_container">
+      <Label prefHeight="26.0" prefWidth="168.0" text="Tài khoản của tôi">
          <graphic>
             <FontAwesomeIconView glyphName="DRIVERS_LICENSE_ALT" />
          </graphic>
+         <font>
+            <Font size="10.0" />
+         </font>
       </Label>
       <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="179.0" text="Hồ sơ" />
       <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="179.0" text="Đổi mật khẩu" />

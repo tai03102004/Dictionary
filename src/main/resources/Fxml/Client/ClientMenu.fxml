@@ -50,7 +50,7 @@
                <FontAwesomeIconView glyphName="" text="" />
             </graphic>
          </Button>
-         <Button fx:id="layout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Đăng xuất">
+         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Đăng xuất">
             <graphic>
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" />
             </graphic>

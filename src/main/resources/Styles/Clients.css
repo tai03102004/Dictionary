@@ -1,5 +1,5 @@
 .clients_container {
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #fc8080;
 }
 
 .clients_container Text {
@@ -9,11 +9,11 @@
 }
 
 .clients_container .list-view {
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #f8b1b1;
     -fx-border-width: 0;
 }
 
 .clients_container .list-cell {
-    -fx-background-color: #EEEEEE;
+    -fx-background-color: #f3c5c5;
     -fx-padding: 10 0 10 0;
 }

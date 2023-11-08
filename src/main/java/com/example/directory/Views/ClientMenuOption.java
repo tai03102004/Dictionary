@@ -8,5 +8,7 @@ public enum ClientMenuOption {
     GAME,
 
     TEXTTRANSACTION,
-    SETTING
+    SETTING ,
+
+    LOGOUT,
 }

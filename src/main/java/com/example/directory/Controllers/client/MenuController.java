@@ -2,11 +2,16 @@ package com.example.directory.Controllers.client;
 
 import com.example.directory.Models.Model;
 import com.example.directory.Views.ClientMenuOption;
+import java.util.Optional;
 import javafx.fxml.Initializable;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
 public class MenuController implements Initializable {
     public Button home_btn;
     public Button translate_btn;
@@ -14,11 +19,9 @@ public class MenuController implements Initializable {
     public Button accounts_btn;
     public Button game_btn;
     public Button save_btn;
-
     public Button history_btn;
-
     public Button profile_btn;
-    public Button layout_btn;
+    public Button logout_btn;
     public Button install_btn;
     public Button report_btn;
 
@@ -26,38 +29,33 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
     }
+
     private void addListeners() {
-        home_btn.setOnAction(event -> onHome() );
-        translate_btn.setOnAction(event -> onTranslate());
-        profile_btn.setOnAction(event -> onAccount());
-        game_btn.setOnAction(event -> onGame());
-        textTransaction_btn.setOnAction(event->onTextTransaction());
-        install_btn.setOnAction(event->onSetting());
+        home_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.DASHBOARD));
+        translate_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.TRANSLATE));
+        profile_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.ACCOUNTS));
+        game_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.GAME));
+        textTransaction_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.TEXTTRANSACTION));
+        install_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.SETTING));
+        logout_btn.setOnAction(event -> onLogout());
     }
 
-    private void onSetting() {
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.SETTING);
+    private void onSelectMenuItem(ClientMenuOption option) {
+        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(option);
     }
 
-    private void onAccount() {
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.ACCOUNTS);
+    public void onLogout() {
+        // Get Stage
+        Stage stage = (Stage) home_btn.getScene().getWindow();
+        // Close the CLient Window
+        Model.getInstance().getViewFactory().closeStage(stage);
+
+        // Show Login Window
+        Model.getInstance().getViewFactory().showLoginWindow();
+
+        // Set Client Login Success Flag to false
+        Model.getInstance().setClientLoginSuccessFlag(false);
     }
 
-    private void onHome() {
-        System.out.println("Home");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.DASHBOARD);
-    }
-    private void onTranslate() {
-        System.out.println("Translate");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.TRANSLATE);
-    }
-    private void onTextTransaction() {
-        System.out.println("TextTransaction");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.TEXTTRANSACTION);
-    }
-    private void onGame() {
-        System.out.println("Game");
-        Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(ClientMenuOption.GAME);
-    }
 
 }
