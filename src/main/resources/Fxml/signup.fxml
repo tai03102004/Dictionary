@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="745.0" prefWidth="742.0" stylesheets="@../Styles/SignUp.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.SignupController">
+<AnchorPane prefHeight="784.0" prefWidth="742.0" stylesheets="@../Styles/SignUp.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.SignupController">
    <AnchorPane prefHeight="136.0" prefWidth="742.0" style="-fx-background-color: #F08080;">
       <ImageView fitHeight="86.0" fitWidth="162.0" layoutX="118.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../Images/Book.png" />
@@ -27,7 +27,7 @@
          </ImageView>
       </AnchorPane>
    </AnchorPane>
-   <AnchorPane layoutY="141.0" prefHeight="607.0" prefWidth="200.0" style="-fx-background-color: #FFFFF0;" AnchorPane.topAnchor="141.0">
+   <AnchorPane layoutY="141.0" prefHeight="643.0" prefWidth="200.0" style="-fx-background-color: #FFFFF0;" AnchorPane.topAnchor="141.0">
       <Button fx:id="login_btn" layoutX="63.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="LogIn" />
       <Button fx:id="cancel_btn" layoutX="63.0" layoutY="323.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="Cancel" />
       <Text fill="#9e7878" layoutX="22.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" wrappingWidth="169.650390625">
@@ -66,7 +66,7 @@
       </font>
    </Label>
    <TextField fx:id="PhoneTextField" layoutX="276.0" layoutY="622.0" prefHeight="33.0" prefWidth="367.0" promptText="Phone" AnchorPane.leftAnchor="273.0" />
-   <Button fx:id="SignUp_btn" layoutX="442.0" layoutY="676.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="SignUp" />
+   <Button fx:id="SignUp_btn" layoutX="432.0" layoutY="728.0" mnemonicParsing="false" onAction="#registerButtonOnAction" prefHeight="27.0" prefWidth="95.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="SignUp" />
    <PasswordField fx:id="setPasswordField" layoutX="273.0" layoutY="401.0" prefHeight="33.0" prefWidth="367.0" promptText="Password" AnchorPane.leftAnchor="273.0" />
    <Label fx:id="registrationMessageLabel" alignment="CENTER" layoutX="234.0" layoutY="167.0" prefHeight="27.0" prefWidth="415.0" textFill="#456ab5">
       <font>

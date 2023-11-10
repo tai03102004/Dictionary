@@ -1,11 +1,8 @@
 package com.example.directory.Models;
 
-import com.example.directory.Views.AccountType;
 import com.example.directory.Views.ViewFactory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -32,7 +29,7 @@ public class Model {
         // Client Data Section
         this.clientLoginSuccessFlag =false;
         this.adminLoginSuccessFlag = false;
-        this.client = new Client("","","","","");
+        this.client = new Client("","","","");
         this.clients =  FXCollections.observableArrayList();
         // Admin Data Section
     }
@@ -69,8 +66,7 @@ public class Model {
     }
 
     public void evaluateClientCred(String userName, String password) {
-        CheckingAccount checkingAccount;
-        SavingAccount savingAccount;
+
         ResultSet resultSet = databaseConnection.getClientData(userName,password);
 
         try {
@@ -100,7 +96,7 @@ public class Model {
     public void evaluateAdminCred (String userName, String password) {
         ResultSet resultSet = databaseConnection.getAdminData(userName,password);
         try {
-            if (resultSet.isBeforeFirst()) {
+            if (resultSet.next()) {
                 this.adminLoginSuccessFlag = true;
             }
         } catch (Exception e) {
@@ -120,8 +116,7 @@ public class Model {
                 String UserName = resultSet.getString("UserName");
                 String Email = resultSet.getString("Email");
                 String Phone = resultSet.getString("Phone");
-                String Sex = resultSet.getString("Sex");
-                clients.add(new Client(FullName,UserName,Email,Phone,Sex));
+                clients.add(new Client(FullName,UserName,Email,Phone));
                 this.clientLoginSuccessFlag = true;
             }
         } catch (Exception e) {

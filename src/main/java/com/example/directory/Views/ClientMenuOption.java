@@ -10,5 +10,6 @@ public enum ClientMenuOption {
     TEXTTRANSACTION,
     SETTING ,
 
-    LOGOUT,
+    HISTORY,
+    SAVED,
 }

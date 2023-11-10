@@ -16,7 +16,6 @@ public class MenuController implements Initializable {
     public Button home_btn;
     public Button translate_btn;
     public Button textTransaction_btn;
-    public Button accounts_btn;
     public Button game_btn;
     public Button save_btn;
     public Button history_btn;
@@ -37,6 +36,8 @@ public class MenuController implements Initializable {
         game_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.GAME));
         textTransaction_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.TEXTTRANSACTION));
         install_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.SETTING));
+        history_btn.setOnAction(event->onSelectMenuItem(ClientMenuOption.HISTORY));
+        save_btn.setOnAction(actionEvent -> onSelectMenuItem(ClientMenuOption.SAVED));
         logout_btn.setOnAction(event -> onLogout());
     }
 

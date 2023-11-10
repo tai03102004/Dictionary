@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #E0FFFF;" styleClass="client_cell_container" stylesheets="@../../Styles/ClientCell.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <HBox layoutX="90.0" layoutY="5.0" prefHeight="40.0" prefWidth="550.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="5.0">
@@ -13,15 +13,11 @@
         <Label fx:id="username_lbl" text="dinhtai" />
         <Label fx:id="email_lbl" text="dinhductai2004@gmail.com" />
         <Label fx:id="phone_lbl" text="0819064357" />
-        <Label fx:id="sex_lbl" text="Nam" />
     </HBox>
     <FontAwesomeIconView glyphName="USER" layoutX="26.0" layoutY="29.0" size="20" wrappingWidth="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-    <Button fx:id="deleted_btn" layoutX="684.0" layoutY="12.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="76.0" styleClass="delete_btn" text="Deleted" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="12.0">
-        <graphic>
-          <FontAwesomeIconView glyphName="WINDOW_CLOSE_ALT" size="15" />
-        </graphic>
-      <font>
-         <Font size="11.0" />
-      </font>
-    </Button>
+   <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="681.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0">
+      <image>
+         <Image url="@../../Images/listClient.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

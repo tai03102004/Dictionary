@@ -3,7 +3,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,8 +10,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
-   <VBox fillWidth="false" layoutX="271.0" layoutY="25.0" prefHeight="700.0" prefWidth="540.0" styleClass="create_container" AnchorPane.leftAnchor="271.0" AnchorPane.topAnchor="25.0">
+<AnchorPane prefHeight="763.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.AccountsController">
+   <VBox fillWidth="false" layoutX="271.0" layoutY="25.0" prefHeight="730.0" prefWidth="540.0" styleClass="create_container" AnchorPane.leftAnchor="271.0" AnchorPane.topAnchor="25.0">
       <Text fill="#ab4949" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="address_lbl" text="Hồ sơ của tôi">
          <font>
             <Font size="18.0" />
@@ -24,7 +23,12 @@
          <font>
             <Font size="15.0" />
          </font></Text>
-      <TextField fx:id="userName_lbl" prefHeight="26.0" prefWidth="342.0" />
+      <TextField fx:id="userName_lbl" prefHeight="26.0" prefWidth="342.0" styleClass="userName_lbl" />
+      <Label prefHeight="34.0" styleClass="Labe1l" text="Tên đăng nhập là cố định">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên">
          <font>
             <Font size="15.0" />
@@ -40,21 +44,14 @@
             <Font size="15.0" />
          </font></Text>
       <TextField fx:id="phone_lbl" prefHeight="26.0" prefWidth="346.0" />
-      <VBox prefHeight="32.0" prefWidth="288.0">
-         <AnchorPane prefHeight="21.0" prefWidth="367.0" styleClass="radius-button">
-            <Label layoutX="2.0" layoutY="6.0" prefHeight="23.0" prefWidth="291.0" text="Giới tính" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
-            <RadioButton fx:id="Nam_lbl" layoutX="92.0" layoutY="3.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="65.0" text="Nam" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
-            <RadioButton fx:id="Nu_lbl" layoutX="174.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="65.0" text="Nữ" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="1.0" />
-            <RadioButton fx:id="Khac_lbl" layoutX="238.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Khác" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="238.0" AnchorPane.topAnchor="1.0" />
-         </AnchorPane>
-      </VBox>
-      <Button fx:id="Save_btn" mnemonicParsing="false" prefHeight="37.0" text="Lưu">
+      <VBox prefHeight="32.0" prefWidth="288.0" />
+      <Button fx:id="Save_btn" mnemonicParsing="false" prefHeight="47.0" text="Lưu">
          <font>
-            <Font size="16.0" />
+            <Font size="20.0" />
          </font></Button>
       <Label fx:id="update_lbl" contentDisplay="CENTER" />
    </VBox>
-   <VBox layoutX="10.0" layoutY="43.0" prefHeight="295.0" prefWidth="226.0" styleClass="create_container">
+   <VBox layoutX="25.0" layoutY="41.0" prefHeight="295.0" prefWidth="226.0" styleClass="create_container">
       <Label prefHeight="26.0" prefWidth="168.0" text="Tài khoản của tôi">
          <graphic>
             <FontAwesomeIconView glyphName="DRIVERS_LICENSE_ALT" />
@@ -63,7 +60,7 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="179.0" text="Hồ sơ" />
-      <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="179.0" text="Đổi mật khẩu" />
+      <Button fx:id="profile_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="179.0" text="Hồ sơ" />
+      <Button fx:id="changePassword_btn" mnemonicParsing="false" onAction="#changePassword" prefHeight="37.0" prefWidth="179.0" text="Đổi mật khẩu" />
    </VBox>
 </AnchorPane>

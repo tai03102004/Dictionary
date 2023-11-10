@@ -90,18 +90,18 @@ public class SignupController implements Initializable {
                 if (DatabaseConnection.registerUser(
                         FullNameTextField.getText(),
                         UserNameTextField.getText(),
-                        setPasswordField.getText(),
                         EmailTextField.getText(),
-                        PhoneTextField.getText())) {
+                        PhoneTextField.getText(),
+                        setPasswordField.getText())) {
                     // Registration successful
-                    registrationMessageLabel.setText("You have successfully registered . Login to continue");
+                    registrationMessageLabel.setText("Bạn đã đăng ký thành công, Đăng nhập để tiếp tục");
                 } else {
-                    registrationMessageLabel.setText("Error: Failed to register user.");
+                    registrationMessageLabel.setText("Lỗi: Mời bạn đăng ký lại.");
                     registrationMessageLabel.setStyle("-fx-text-fill: #DC143C;");
                 }
             }
         } else {
-            ConfirmPasswordLabel.setText("Password does not match");
+            ConfirmPasswordLabel.setText("Mật khẩu không trùng nhau");
         }
     }
 }

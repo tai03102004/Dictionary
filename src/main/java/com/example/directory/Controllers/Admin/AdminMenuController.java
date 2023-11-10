@@ -20,12 +20,16 @@ public class AdminMenuController implements Initializable {
     }
     private void addListeners(){
         addEntry_btn.setOnAction(event -> onAddEntry());
+        updateTerm_btn.setOnAction(event -> onUpdateEntry());
         clients_btn.setOnAction(event -> onClients());
         Logout_btn.setOnAction(actionEvent -> onLogout());
     }
 
     private void onAddEntry() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.ADD_ENTRY);
+    }
+    private void onUpdateEntry() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.UPDATE_TERM);
     }
 
     private void onClients() {

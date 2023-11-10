@@ -8,7 +8,7 @@
 }
 
 .login_logo_container Text {
-    -fx-font-size: 2em;
+    -fx-font-size: 2.5em;
     -fx-fill: #FFFFFF;
 }
 .login_eye_container {
@@ -31,6 +31,9 @@
 
 .login_logo_container FontAwesomeIconView {
     -fx-fill: #ECF39E;
+}
+.icon {
+    -fx-font-size: 25px;
 }
 
 /*
@@ -91,7 +94,7 @@ Account Selector ChoiceBox Styles
 }
 
 
-.login_form_container Button {
+.Button {
     -fx-background-color: #708be3;
     -fx-text-fill: #FFFFFF;
     -fx-pref-width: 350;
@@ -99,14 +102,23 @@ Account Selector ChoiceBox Styles
     -fx-font-size: 1.2em ;
 }
 
-.login_form_container Button:hover {
+.Button:hover {
     -fx-cursor: hand;
 }
 
 .error_lbl {
     -fx-text-fill: #FF0000;
 }
+.TextField{
+    -fx-font-size: 1.2em;
+}
 
+.login_form_container PasswordField{
+    -fx-font-size: 1.2em;
+}
 
-.white-background {
+.login_form_container HyperLink{
+    -fx-font-size: 1.2em;
+    padding: 10;
+    -fx-spacing: 20;
 }

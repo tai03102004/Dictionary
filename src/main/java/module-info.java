@@ -9,6 +9,8 @@ module com.example.directory {
     requires org.xerial.sqlitejdbc;
     requires javafx.web;
     requires jlayer;
+    requires java.desktop;
+    requires voicerss.tts;
 
     opens com.example.directory.Controllers.client;
     opens com.example.directory to javafx.fxml;
