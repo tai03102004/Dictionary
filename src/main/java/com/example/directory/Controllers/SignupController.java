@@ -2,17 +2,14 @@ package com.example.directory.Controllers;
 
 import com.example.directory.Models.DatabaseConnection;
 import com.example.directory.Models.Model;
-import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
-import java.util.ResourceBundle;
+import java.util.*;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.regex.Pattern;
@@ -34,11 +31,42 @@ public class SignupController implements Initializable {
     public TextField EmailTextField;
     public TextField UserNameTextField;
     public TextField FullNameTextField;
+    public ComboBox signup_selectQuestion;
+    public TextField signup_answer;
+    public void registerClearFields() {
+        FullNameTextField.setText("");
+        EmailTextField.setText("");
+        UserNameTextField.setText("");
+        setPasswordField.setText("");
+        confirmPasswordField.setText("");
+        signup_selectQuestion.getSelectionModel().clearSelection();
+        signup_answer.setText("");
+        PhoneTextField.setText("");
+    }
+    private String[] questions = {
+            "What is the name of your first pet?",
+            "In what city were you born?",
+            "What is the name of your favorite book?",
+            "What is your favorite movie?",
+    };
+
+
+    public void questions() {
+        List<String> listQ = new ArrayList<>();
+        for (String data : questions) {
+            listQ.add(data);
+        }
+
+        ObservableList listData = FXCollections.observableArrayList(listQ);
+        signup_selectQuestion.setItems(listData);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         // Event handler for cancel_btn
+        questions();
         cancel_btn.setOnAction(event -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirm Close");
@@ -51,6 +79,10 @@ public class SignupController implements Initializable {
                 Platform.exit();
             }
         });
+    }
+
+    public List<String> getQuestionsList() {
+        return Arrays.asList(questions);
     }
 
     public void loginButtonOnAction(ActionEvent event) {
@@ -87,14 +119,22 @@ public class SignupController implements Initializable {
     public void registerButtonOnAction(ActionEvent event) {
         if (setPasswordField.getText().equals(confirmPasswordField.getText())) {
             if (isEmailValid() && isPhoneValid()) {
-                if (DatabaseConnection.registerUser(
-                        FullNameTextField.getText(),
-                        UserNameTextField.getText(),
-                        EmailTextField.getText(),
-                        PhoneTextField.getText(),
-                        setPasswordField.getText())) {
+                String fullName = FullNameTextField.getText();
+                String userName = UserNameTextField.getText();
+                String email = EmailTextField.getText();
+                String phone = PhoneTextField.getText();
+                String password = setPasswordField.getText();
+                String question = signup_selectQuestion.getValue().toString();
+                String answer = signup_answer.getText();
+
+                Date date = new Date();
+                java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime());
+
+                if (DatabaseConnection.registerUser(fullName, userName, email, phone, password, question, answer, timestamp)) {
                     // Registration successful
                     registrationMessageLabel.setText("Bạn đã đăng ký thành công, Đăng nhập để tiếp tục");
+                    registrationMessageLabel.setStyle("-fx-text-fill: #3dcee7;");
+                    registerClearFields();
                 } else {
                     registrationMessageLabel.setText("Lỗi: Mời bạn đăng ký lại.");
                     registrationMessageLabel.setStyle("-fx-text-fill: #DC143C;");
@@ -104,4 +144,5 @@ public class SignupController implements Initializable {
             ConfirmPasswordLabel.setText("Mật khẩu không trùng nhau");
         }
     }
+
 }

@@ -1,5 +1,6 @@
 package com.example.directory.Models;
 
+import com.example.directory.Controllers.LoginController;
 import com.example.directory.Views.ViewFactory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +30,7 @@ public class Model {
         // Client Data Section
         this.clientLoginSuccessFlag =false;
         this.adminLoginSuccessFlag = false;
-        this.client = new Client("","","","");
+        this.client = new Client("","","","","","","");
         this.clients =  FXCollections.observableArrayList();
         // Admin Data Section
     }
@@ -116,7 +117,11 @@ public class Model {
                 String UserName = resultSet.getString("UserName");
                 String Email = resultSet.getString("Email");
                 String Phone = resultSet.getString("Phone");
-                clients.add(new Client(FullName,UserName,Email,Phone));
+                String Question = resultSet.getString("Question");
+                String Answer = resultSet.getString("Answer");
+                String DateTime = resultSet.getString("DateTime");
+
+                clients.add(new Client(FullName,UserName,Email,Phone,Question,Answer,DateTime));
                 this.clientLoginSuccessFlag = true;
             }
         } catch (Exception e) {

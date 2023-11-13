@@ -15,12 +15,20 @@ public class Client implements Initializable {
     private final StringProperty emailName;
     private final StringProperty phoneName;
 
-    public Client(String uName, String fName, String eName, String pName) {
+    private final StringProperty question;
+
+    private final StringProperty answer;
+
+    private final StringProperty dateTime;
+    public Client(String uName, String fName, String eName, String pName,String qt,String as,String date) {
 
         this.userName = new SimpleStringProperty(this,"userName",uName);
         this.fullName = new SimpleStringProperty(this,"fullName",fName);
         this.emailName = new SimpleStringProperty(this,"emailName",eName);
         this.phoneName = new SimpleStringProperty(this,"phoneName",pName);
+        this.question = new SimpleStringProperty(this,"question",qt);
+        this.answer = new SimpleStringProperty(this,"answer",as);
+        this.dateTime = new SimpleStringProperty(this,"dateTime",date);
     }
 
     public StringProperty userNameProperty() {
@@ -39,6 +47,17 @@ public class Client implements Initializable {
         return phoneName;
     }
 
+    public StringProperty questionProperty() {
+        return question;
+    }
+
+    public StringProperty answerProperty() {
+        return answer;
+    }
+
+    public StringProperty dateTimeProperty() {
+        return dateTime;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

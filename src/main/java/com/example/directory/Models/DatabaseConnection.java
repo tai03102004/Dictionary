@@ -79,9 +79,9 @@ public class DatabaseConnection {
         return resultSet;
     }
 
-    public static boolean registerUser(String fullName, String userName ,String email, String phone, String password) {
+    public static boolean registerUser(String fullName, String userName, String email, String phone, String password, String question, String answer, Timestamp date) {
         try (Connection connectionDB = getConnection()) {
-            if (connectionDB != null) { // Kiểm tra xem kết nối đã mở thành công hay chưa
+            if (connectionDB != null) {
                 String checkQuery = "SELECT * FROM Dictionary.Clients WHERE UserName = ? OR Email = ? OR phone = ?";
                 try (PreparedStatement checkStatement = connectionDB.prepareStatement(checkQuery)) {
                     checkStatement.setString(1, userName);
@@ -92,13 +92,20 @@ public class DatabaseConnection {
                             // User with the same username, email, or phone already exists.
                             return false;
                         } else {
-                            String insertQuery = "INSERT INTO Dictionary.Clients (FullName, UserName, Email, Phone,Password) VALUES (?, ?, ?, ?, ?)";
+                            String insertQuery = "INSERT INTO Dictionary.Clients (FullName, UserName, Email, Phone, Password, Question, Answer, Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                             try (PreparedStatement insertStatement = connectionDB.prepareStatement(insertQuery)) {
                                 insertStatement.setString(1, fullName);
                                 insertStatement.setString(2, userName);
-                                insertStatement.setString(5, password);
                                 insertStatement.setString(3, email);
                                 insertStatement.setString(4, phone);
+                                insertStatement.setString(5, password);
+                                insertStatement.setString(6, question);
+                                insertStatement.setString(7, answer);
+
+
+                                insertStatement.setTimestamp(8, date);
+
+
                                 int rowsAffected = insertStatement.executeUpdate();
                                 return rowsAffected > 0;
                             }
@@ -106,12 +113,13 @@ public class DatabaseConnection {
                     }
                 }
             }
-            return false; // Trả về false nếu kết nối không mở thành công
+            return false;
         } catch (SQLException e) {
-            e.printStackTrace(); // In lỗi ra màn hình để kiểm tra lỗi
+            e.printStackTrace();
             return false;
         }
     }
+
 
     public boolean updateClient(String userName, String fullName, String email, String phone) {
         try {
@@ -132,6 +140,117 @@ public class DatabaseConnection {
         }
         return false;
     }
+
+    public boolean updatePassword (String userName,String password) {
+        try {
+            PreparedStatement statement = this.conn.prepareStatement(
+                    "UPDATE Dictionary.Clients SET Password = ? WHERE UserName = ?"
+            );
+            statement.setString(1, password);
+            statement.setString(2, userName);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean reportClient(Double start, String title, String comment, String userName) {
+        try {
+            PreparedStatement statement = this.conn.prepareStatement(
+                    "INSERT INTO Dictionary.Report (Start, Title, Comment, userName) VALUES (?, ?, ?, ?) " +
+                            "ON DUPLICATE KEY UPDATE Start = VALUES(Start), Title = VALUES(Title), Comment = VALUES(Comment)"
+            );
+
+            statement.setDouble(1, start);
+            statement.setString(2, title);
+            statement.setString(3, comment);
+            statement.setString(4, userName);
+
+            int cnt = statement.executeUpdate();
+
+            // Kiểm tra xem có bản ghi nào được trả về hay không
+            if (cnt > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public Reviewable getLastReview() {
+        Reviewable lastReview = null;
+
+        try {
+            PreparedStatement statement = this.conn.prepareStatement(
+                    "SELECT * FROM Dictionary.Report LIMIT 1"
+            );
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                double start = resultSet.getDouble("Start");
+                String title = resultSet.getString("Title");
+                String comment = resultSet.getString("Comment");
+
+                lastReview = new Review(start, title, comment);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return lastReview;
+    }
+
+
+    public boolean forgotPassword(String userName, String question, String answer) {
+        try {
+            PreparedStatement statement = this.conn.prepareStatement(
+                    "SELECT UserName, Question, Answer FROM Dictionary.Clients WHERE UserName = ? AND Question = ? AND Answer = ?"
+            );
+
+            statement.setString(1, userName);
+            statement.setString(2, question);
+            statement.setString(3, answer);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean changePassword(String userName,String password,Timestamp update_date) {
+        try {
+            PreparedStatement statement = this.conn.prepareStatement(
+                    "UPDATE Dictionary.Clients SET Password = ?, updateTime = ? "
+                            + "WHERE UserName = '" + userName + "'"
+            );
+
+            statement.setString(1, password);
+            statement.setString(2, String.valueOf(update_date));
+
+
+            int rowsAffected = statement.executeUpdate();
+
+
+            if (rowsAffected > 0) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 
     public ResultSet infoClient(String userName) {

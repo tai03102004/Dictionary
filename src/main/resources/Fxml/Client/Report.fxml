@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane prefHeight="333.0" prefWidth="459.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.Report">
+    <Pane prefHeight="43.0" prefWidth="459.0" style="-fx-background-color: #F0FFFF;">
+        <Label alignment="CENTER" layoutX="119.0" layoutY="-3.0" prefHeight="49.0" prefWidth="255.0" style="-fx-text-fill: #4B0082; -fx-font-size: 1.2em;" text="Đánh giá ứng dụng" />
+    </Pane>
+    <ImageView fitHeight="72.0" fitWidth="75.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../Images/icon.png" />
+    </ImageView>
+    <Rating fx:id="start_rating" layoutX="153.0" layoutY="50.0" rating="0.0" />
+    <TextArea fx:id="comment_area" layoutX="128.0" layoutY="144.0" prefHeight="121.0" prefWidth="323.0" promptText="Nhận xét (Tuỳ chọn)" />
+    <TextField fx:id="title_tfd" layoutX="131.0" layoutY="107.0" prefHeight="26.0" prefWidth="317.0" promptText="Tiêu đề" />
+    <Button fx:id="cancel_btn" layoutX="221.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="Huỷ" />
+    <Button fx:id="direct_btn" layoutX="306.0" layoutY="288.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="61.0" text="Gửi" />
+</AnchorPane>

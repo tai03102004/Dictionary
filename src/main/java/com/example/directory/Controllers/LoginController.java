@@ -3,17 +3,18 @@ package com.example.directory.Controllers;
 import com.example.directory.Models.DatabaseConnection;
 import com.example.directory.Models.Model;
 import com.example.directory.Views.AccountType;
+import java.io.IOException;
 import java.sql.*;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
@@ -26,13 +27,17 @@ public class LoginController implements Initializable {
     public TextField password_fld;
     public Button login_btn;
     public Button cancel_btn;
+    
     public Label Error_lbl;
     public AnchorPane toggleButton;
     public Button signUp_btn;
 
     public static String user;
+    public static String passwordUser;
     public CheckBox login_selectShowPassword;
     public TextField login_showPassword;
+    public Hyperlink login_forgotPassword;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -67,6 +72,7 @@ public class LoginController implements Initializable {
         else {
             Error_lbl.setText("Bạn không có quyền đăng ký");
         }
+        login_forgotPassword.setOnAction(event -> onForgotPassword());
 
         cancel_btn.setOnAction(event -> onCancel());
     }
@@ -91,6 +97,9 @@ public class LoginController implements Initializable {
 
                 Model.getInstance().evaluateClientCred(account_dictionary_fld.getText(),password_fld.getText());
                     if (Model.getInstance().getClientLoginSuccessFlag()) {
+                        user = account_dictionary_fld.getText();
+                        passwordUser = password_fld.getText();
+                        System.out.println(password);
                         Model.getInstance().getViewFactory().showClientWindow();
 
                         // Close the login stage
@@ -119,19 +128,42 @@ public class LoginController implements Initializable {
             }
         }
     public String getUser() {
-        user = getAccount_dictionary_fld().getText();
         System.out.println(user);
         return user;
     }
-    public TextField getAccount_dictionary_fld() {
-        System.out.println(account_dictionary_fld);
-        return account_dictionary_fld;
+
+    public String getPassword() {
+        return passwordUser;
+    }
+
+    // Khi quên mật khẩu
+    public void onForgotPassword() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/ForgotPassword.fxml"));
+            Parent root = loader.load();
+
+            // Create a new stage for the "Forgot Password" window
+            Stage forgotPasswordStage = new Stage();
+            forgotPasswordStage.setTitle("Forgot Password");
+            forgotPasswordStage.setScene(new Scene(root));
+
+            // Show the "Forgot Password" window
+            forgotPasswordStage.show();
+
+            // Hide the login window
+            Stage loginStage = (Stage) login_forgotPassword.getScene().getWindow();
+            loginStage.hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle the exception as needed
+        }
     }
 
 
     // Huỷ ko đăng nhập vào
 
     public void onCancel() {
+
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Xác nhận thoát");
         alert.setHeaderText("Bạn muốn thoát ứng dụng?");

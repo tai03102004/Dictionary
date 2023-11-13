@@ -42,6 +42,7 @@ public class TranslateController implements Initializable {
     public Button bookmarkFalse;
     public Button editButton;
     public Button removeButton;
+    public WebView definitionView;
 
     protected boolean isEV = true;
     protected static Dictionary evDic = new Dictionary(evPath, enHistoryPath, enBookmarkPath);

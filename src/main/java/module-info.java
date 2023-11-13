@@ -11,6 +11,7 @@ module com.example.directory {
     requires jlayer;
     requires java.desktop;
     requires voicerss.tts;
+    requires org.controlsfx.controls;
 
     opens com.example.directory.Controllers.client;
     opens com.example.directory to javafx.fxml;

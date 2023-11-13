@@ -1,18 +1,23 @@
 package com.example.directory.Controllers.client;
 
+import com.example.directory.Controllers.LoginController;
 import com.example.directory.Models.Model;
 import com.example.directory.Views.ClientMenuOption;
+import java.io.IOException;
 import java.util.Optional;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class MenuController implements Initializable {
+public class MenuController extends AccountsController implements Initializable {
     public Button home_btn;
     public Button translate_btn;
     public Button textTransaction_btn;
@@ -38,6 +43,7 @@ public class MenuController implements Initializable {
         install_btn.setOnAction(event -> onSelectMenuItem(ClientMenuOption.SETTING));
         history_btn.setOnAction(event->onSelectMenuItem(ClientMenuOption.HISTORY));
         save_btn.setOnAction(actionEvent -> onSelectMenuItem(ClientMenuOption.SAVED));
+        report_btn.setOnAction(event->onReport());
         logout_btn.setOnAction(event -> onLogout());
     }
 
@@ -45,11 +51,48 @@ public class MenuController implements Initializable {
         Model.getInstance().getViewFactory().getClientSelectedMenuItem().set(option);
     }
 
+    private Stage reportStage;
+
+    public void onReport() {
+        try {
+            if (reportStage == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Report.fxml"));
+                Parent root = loader.load();
+
+                // Create a new stage for the "Report" window
+                reportStage = new Stage();
+                reportStage.setTitle("Report Window");
+
+                // Tạo một Scene với root là nội dung của FXML và đặt nó vào Stage
+                Scene scene = new Scene(root);
+                reportStage.setScene(scene);
+
+                // Set a listener to handle the close event of the report window
+                reportStage.setOnCloseRequest(event -> {
+                    // Reset the stage reference when the window is closed
+                    reportStage = null;
+                });
+
+                // Hiển thị cửa sổ
+                reportStage.show();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Xử lý ngoại lệ nếu cần thiết
+        }
+    }
+
     public void onLogout() {
         // Get Stage
+        System.out.println("Logout");
         Stage stage = (Stage) home_btn.getScene().getWindow();
+
         // Close the CLient Window
         Model.getInstance().getViewFactory().closeStage(stage);
+
+        super.onLogout();
+
 
         // Show Login Window
         Model.getInstance().getViewFactory().showLoginWindow();

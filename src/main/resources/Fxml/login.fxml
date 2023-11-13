@@ -52,5 +52,5 @@
      <Button fx:id="cancel_btn" layoutX="222.0" layoutY="468.0" mnemonicParsing="false" prefHeight="0.0" styleClass="Button" text="Cancel" />
    <TextField fx:id="login_showPassword" layoutX="216.0" layoutY="297.0" prefHeight="38.0" prefWidth="363.0" promptText="Password" />
    <CheckBox fx:id="login_selectShowPassword" layoutX="216.0" layoutY="356.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="118.0" text="Show Password" />
-   <Hyperlink layoutX="478.0" layoutY="360.0" text="Forgot Password ?" />
+   <Hyperlink fx:id="login_forgotPassword" layoutX="478.0" layoutY="360.0" text="Forgot Password ?" />
 </AnchorPane>

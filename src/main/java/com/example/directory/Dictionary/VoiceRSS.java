@@ -9,7 +9,7 @@ import java.io.*;
 
 public class VoiceRSS {
     private static final String API_KEY = "ee1a861047db41e3aed6cca75554a826";
-    private static final String AUDIO_PATH = "src/resource/media/audio.wav";
+    private static final String AUDIO_PATH = "audio/audio.wav";
 
     public static String voiceNameUS;
     public static String voiceNameUK;

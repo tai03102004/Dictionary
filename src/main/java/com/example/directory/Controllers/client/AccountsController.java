@@ -1,5 +1,6 @@
 package com.example.directory.Controllers.client;
 
+import com.example.directory.Controllers.LoginController;
 import com.example.directory.Models.Model;
 import java.io.IOException;
 import java.net.URL;
@@ -15,7 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class AccountsController implements Initializable {
+public class AccountsController extends LoginController implements Initializable {
     @FXML
     public TextField userName_lbl;
     @FXML
@@ -33,12 +34,23 @@ public class AccountsController implements Initializable {
         return userName_lbl;
     }
 
+    public void onLogout() {
+        clearUserInfo();
+    }
+
+    private void clearUserInfo() {
+        userName_lbl.clear();
+        name_lbl.clear();
+        email_lbl.clear();
+        phone_lbl.clear();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String user = getUser();
+        System.out.println("User from LoginController: " + user);
 
-        ResultSet resultSet = Model.getInstance().getDatabaseConnection().infoClient("dinhtai");
-
-        System.out.println("123123");
+        ResultSet resultSet = Model.getInstance().getDatabaseConnection().infoClient(user);
 
 
         try {
@@ -48,7 +60,7 @@ public class AccountsController implements Initializable {
                 String phone = resultSet.getString("Phone");
 
                 // Điền thông tin vào các trường trên giao diện
-                userName_lbl.setText("dinhtai");
+                userName_lbl.setText(user);
                 userName_lbl.setDisable(true);
                 name_lbl.setText(fullName);
                 email_lbl.setText(email);
@@ -63,7 +75,7 @@ public class AccountsController implements Initializable {
     }
 
     public void updateClient() {
-        System.out.println("ádasd");
+
         String userName = userName_lbl.getText();
         String fullName = name_lbl.getText();
         String email = email_lbl.getText();
