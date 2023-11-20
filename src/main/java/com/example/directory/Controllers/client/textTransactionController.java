@@ -9,6 +9,7 @@ import com.example.directory.Dictionary.TextToSpeech;
 import com.example.directory.Dictionary.TranslateAPI;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -33,6 +34,14 @@ public class textTransactionController implements Initializable {
     public Button langToFourth;
     public Button langToFifth;
 
+    public void showWarning() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Error!");
+        alert.setHeaderText(null);
+        alert.setContentText("Ngôn ngữ dịch và ngôn ngữ cần dịch trùng nhau!");
+        alert.showAndWait();
+    }
+
     public void resetActiveStyleLangFrom() {
         langFromFirst.getStyleClass().removeAll("active");
         langFromSecond.getStyleClass().removeAll("active");
@@ -52,8 +61,8 @@ public class textTransactionController implements Initializable {
     public void detect() {
         resetActiveStyleLangFrom();
         langFromFirst.getStyleClass().add("active");
-        languageFrom = "";
-        text1.setText("Phát hiện n.ngữ");
+        languageFrom = "auto";
+        text1.setText("Phát hiện ngôn ngữ");
     }
 
     @FXML
@@ -62,6 +71,9 @@ public class textTransactionController implements Initializable {
         langFromSecond.getStyleClass().add("active");
         text1.setText("Tiếng Anh");
         languageFrom = "en";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+        }
     }
 
     @FXML
@@ -70,6 +82,9 @@ public class textTransactionController implements Initializable {
         langFromThird.getStyleClass().add("active");
         text1.setText("Tiếng Việt");
         languageFrom = "vi";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+        }
     }
 
     @FXML
@@ -78,6 +93,9 @@ public class textTransactionController implements Initializable {
         langFromFourth.getStyleClass().add("active");
         text1.setText("Tiếng Hàn");
         languageFrom = "ko";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+        }
     }
 
     @FXML
@@ -86,6 +104,10 @@ public class textTransactionController implements Initializable {
         langToFirst.getStyleClass().add("active");
         text2.setText("Tiếng Việt");
         languageTo = "vi";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -97,6 +119,10 @@ public class textTransactionController implements Initializable {
         langToSecond.getStyleClass().add("active");
         text2.setText("Tiếng Anh");
         languageTo = "en";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -108,6 +134,10 @@ public class textTransactionController implements Initializable {
         langToThird.getStyleClass().add("active");
         text2.setText("Tiếng Hàn");
         languageTo = "ko";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -119,6 +149,10 @@ public class textTransactionController implements Initializable {
         langToFourth.getStyleClass().add("active");
         text2.setText("Tiếng Nga");
         languageTo = "ru";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -130,6 +164,10 @@ public class textTransactionController implements Initializable {
         langToFifth.getStyleClass().add("active");
         text2.setText("Tiếng Trung");
         languageTo = "zh";
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -137,6 +175,10 @@ public class textTransactionController implements Initializable {
 
     @FXML
     void translate() throws IOException {
+        if (languageFrom.equals(languageTo)) {
+            showWarning();
+            return;
+        }
         if (!Objects.equals(area1.getText(), "")) {
             area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
         }
@@ -144,11 +186,6 @@ public class textTransactionController implements Initializable {
 
     @FXML
     void speak1() throws Exception {
-        if (!languageFrom.isEmpty()) {
-            TextToSpeech.language = languageFrom;
-        } else {
-            TextToSpeech.language = "en";
-        }
         if (!Objects.equals(area1.getText(), "")) {
             TextToSpeech.VoiceAudio(area1.getText());
         }
@@ -167,9 +204,9 @@ public class textTransactionController implements Initializable {
         langFromFirst.getStyleClass().add("active");
         langToFirst.getStyleClass().add("active");
 
-        text1.setText("Phát hiện n.ngữ");
         area1.setText("");
-        languageFrom = "";
+        text1.setText("Phát hiện ngôn ngữ");
+        languageFrom = "en";
 
         text2.setText("Tiếng Việt");
         languageTo = "vi";

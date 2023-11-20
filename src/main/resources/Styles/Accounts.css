@@ -51,7 +51,7 @@
 
 /* Button style */
 .create_client_container Button {
-    -fx-background-color: linear-gradient(to right, #6d96be, #82a5d7);
+    -fx-background-color: linear-gradient(to right, #48e3de, #5e97e7);
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
     -fx-pref-width: 250;
     -fx-font-size: 1.5em;
@@ -63,6 +63,12 @@
     -fx-cursor: hand;
 }
 
+.create_client_container Button:pressed {
+    -fx-background-color: #4169E1;
+    -fx-effect: dropshadow(three-pass-box, #000000, 3, 0, 0, 3);
+    -fx-font-size: 1.6em;
+}
+
 /* Radius Button style (additional style for specific buttons) */
 .create_client_container .radius-button {
     -fx-background-color: linear-gradient(to right, #FF5733, #FF784D); /* Customize as needed */
@@ -71,15 +77,15 @@
 /* Container style */
 .create_container {
     -fx-background-color: #EEEEEE;
-    -fx-padding: 10;
-    -fx-spacing: 15;
+    -fx-padding: 30;
+    -fx-spacing: 23;
 }
 /* Button style */
 .create_container Button {
     -fx-background-color: linear-gradient(to right, #c1d3d0, #88b9d5);
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
     -fx-pref-width: 200;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.3em;
     -fx-font-family: "Calibri Light";
     -fx-text-fill: #FFFFFF;
 }
@@ -90,4 +96,17 @@
     -fx-font-family: "Calibri Light";
     -fx-font-weight: bold;
     -fx-text-fill: #cb7b7b;
+}
+
+.Labe1l {
+    -fx-pref-width: 400px;
+    -fx-font-size: 1.1em;
+    -fx-font-family: "Calibri Light";
+    -fx-font-weight: bold;
+    -fx-text-fill: #cb7b7b;
+}
+
+.userName_lbl {
+    -fx-opacity: 1.0; /* Đặt độ trong suốt */
+    -fx-font-size: 16px;
 }

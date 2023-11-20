@@ -1,0 +1,4 @@
+Dog	chó
+hello	xin chào
+hi	chào
+pen	bút

@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.directory.Controllers.client.DashboardController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/Home.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.DashboardController">
    <styleClass>
       <String fx:value="round-layout" />
       <String fx:value="white-background" />
@@ -20,25 +19,23 @@
    <HBox layoutX="60.0" layoutY="25.0" prefHeight="30.0" prefWidth="242.0" styleClass="round-layout" stylesheets="@../../Styles/Home.css">
       <TextField prefHeight="31.0" prefWidth="270.0" promptText="Search" stylesheets="@../../Styles/Home.css" />
       <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" styleClass="round-layout">
-         <Image url="@../../Images/search.png"/>
+         <Image url="@../../Images/search.png" />
       </ImageView>
    </HBox>
-   <HBox alignment="CENTER" layoutX="658.0" layoutY="5.0" prefHeight="32.0" prefWidth="192.0">
-      <Label text="David  Henry    " textOverrun="CLIP">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="50.0" fitWidth="50.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <Image url="@../../Images/conan-134737.jpg" />
-      </ImageView>
-   </HBox>
+   <Label fx:id="userName_lbl" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="31.0" prefHeight="18.0" prefWidth="67.0" text="Hi" textOverrun="CLIP">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
    <Label layoutX="60.0" layoutY="85.0" prefHeight="50.0" prefWidth="480.0" text="Dưới đây là một số cuốn sách hay giúp bạn luyện tiếng anh hiệu quả" />
    <ScrollPane layoutX="60.0" layoutY="141.0" prefHeight="200.0" prefWidth="664.0">
       <HBox prefHeight="100.0" prefWidth="200.0" />
    </ScrollPane>
    <ScrollPane layoutX="60.0" layoutY="409.0" prefHeight="250.0" prefWidth="664.0" />
+   <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="790.0" layoutY="15.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <Image url="@../../Images/conan-134737.jpg" />
+   </ImageView>
 </AnchorPane>

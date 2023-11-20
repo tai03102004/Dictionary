@@ -1,42 +1,75 @@
 package com.example.directory.Controllers.client;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
+import com.example.directory.Dictionary.VoiceRSS;
 
 public class Setting implements Initializable {
     public Slider slider;
     public ChoiceBox<String> choiceBoxUK;
     public ChoiceBox<String> choiceBoxUS;
 
+    List<String> voiceUS = Arrays.asList("Linda", "Amy", "Mary", "John", "Mike");
+    List<String> voiceUK = Arrays.asList("Alice", "Nancy", "Lily", "Harry");
+
+    public enum Language {
+        DEFAULT("default-language"),
+        EN_US("en-us"),
+        EN_GB("en-gb");
+
+        private final String code;
+
+        Language(String code) {
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        choiceBoxUK.getItems().addAll("Item1", "Item2", "Item3");
-        choiceBoxUS.getItems().addAll("ItemA", "ItemB", "ItemC");
+        slider.setValue(VoiceRSS.speed);
+        choiceBoxUK.getItems().addAll(voiceUK);
+        choiceBoxUS.getItems().addAll(voiceUS);
+        choiceBoxUK.setValue(VoiceRSS.voiceNameUK);
+        choiceBoxUS.setValue(VoiceRSS.voiceNameUS);
     }
 
-    public void voice(ActionEvent actionEvent) {
-        // Add logic for the "voice" button (e.g., handle the action when this button is clicked)
-        String selectedUKItem = choiceBoxUK.getValue();
-        System.out.println("UK Choice: " + selectedUKItem);
+    private void setVoiceParameters(String voiceName, Language language) throws Exception {
+        VoiceRSS.Name = voiceName;
+        VoiceRSS.language = language.getCode();
+        VoiceRSS.speed = slider.getValue();
+        VoiceRSS.speakWord("information");
     }
 
-    public void voiceus(ActionEvent actionEvent) {
-        // Add logic for the "voiceus" button (e.g., handle the action when this button is clicked)
-        String selectedUSItem = choiceBoxUS.getValue();
-        System.out.println("US Choice: " + selectedUSItem);
+    private void setVoiceParametersFromChoiceBox(ChoiceBox<String> choiceBox, Language language) throws Exception {
+        String selectedVoice = choiceBox.getValue();
+        setVoiceParameters(selectedVoice, language);
     }
 
-    public void voiceuk(ActionEvent actionEvent) {
-        // Add logic for the "voiceuk" button (e.g., handle the action when this button is clicked)
+    public void voice(ActionEvent actionEvent) throws Exception {
+        setVoiceParameters("DefaultVoice", Language.DEFAULT);
+    }
+
+    public void voiceus(ActionEvent actionEvent) throws Exception {
+        setVoiceParametersFromChoiceBox(choiceBoxUS, Language.EN_US);
+    }
+
+    public void voiceuk(ActionEvent actionEvent) throws Exception {
+        setVoiceParametersFromChoiceBox(choiceBoxUK, Language.EN_GB);
     }
 
     public void saveVoice(ActionEvent actionEvent) {
-        // Add logic for the "saveVoice" button (e.g., save the settings)
-        double sliderValue = slider.getValue();
-        System.out.println("Slider Value: " + sliderValue);
+        VoiceRSS.speed = slider.getValue();
+        VoiceRSS.voiceNameUS = choiceBoxUS.getValue() != null ? choiceBoxUS.getValue() : "DefaultVoiceUS";
+        VoiceRSS.voiceNameUK = choiceBoxUK.getValue() != null ? choiceBoxUK.getValue() : "DefaultVoiceUK";
     }
 }

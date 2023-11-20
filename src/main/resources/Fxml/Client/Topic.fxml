@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="GameMenu" prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.TopicController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2afa00" height="94.0" layoutX="303.0" layoutY="525.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff5754" height="94.0" layoutX="303.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffef63" height="94.0" layoutX="303.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3c9efa" height="94.0" layoutX="303.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" width="244.0" />
+      <Button fx:id="Sport" layoutX="317.0" layoutY="437.0" mnemonicParsing="false" onAction="#SportButton" prefHeight="74.0" prefWidth="222.0" text="Sport">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Button fx:id="Technology" layoutX="314.0" layoutY="238.0" mnemonicParsing="false" onAction="#TechnologyButton" prefHeight="74.0" prefWidth="222.0" text="Technology">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <ImageView fitHeight="192.0" fitWidth="192.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
+         <image>
+            <Image url="@../../pics/9742057.png" />
+         </image></ImageView>
+      <ImageView fitHeight="243.0" fitWidth="207.0" layoutX="64.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" rotate="1.5">
+         <image>
+            <Image url="@../../pics/basketball.gif" />
+         </image></ImageView>
+      <ImageView fitHeight="334.0" fitWidth="254.0" layoutX="19.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true" rotate="7.0">
+         <image>
+            <Image url="@../../pics/Hi-Animation-without-background-.gif" />
+         </image></ImageView>
+      <ImageView fitHeight="273.0" fitWidth="236.0" layoutX="607.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true" rotate="17.7">
+         <image>
+            <Image url="@../../pics/graphs.gif" />
+         </image></ImageView>
+      <ImageView fitHeight="355.0" fitWidth="309.0" layoutX="274.0" layoutY="-52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pics/giphy.gif" />
+         </image></ImageView>
+      <Button fx:id="Natural" layoutX="314.0" layoutY="535.0" mnemonicParsing="false" onAction="#NaturalButton" prefHeight="74.0" prefWidth="222.0" text="Natural">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="Economic" layoutX="314.0" layoutY="337.0" mnemonicParsing="false" onAction="#EconomicButton" prefHeight="74.0" prefWidth="222.0" text="Economic">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="256.0" fitWidth="244.0" layoutX="592.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../pics/Computer.gif" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

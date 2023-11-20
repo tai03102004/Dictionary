@@ -1,0 +1,50 @@
+1. ecosystem	hệ sinh thái
+2. biodiversity	sự đa dạng sinh học
+3. conservation	bảo tồn
+4. habitat	môi trường sống
+5. species	loài
+6. environment	môi trường
+7. sustainable	bền vững
+8. climate	khí hậu
+9. natural resources	nguồn tài nguyên tự nhiên
+10. organic	hữu cơ
+11. wildlife	động vật hoang dã
+12. flora	thực vật
+13. fauna	động vật
+14. wilderness	vùng hoang dã
+15. pollution	ô nhiễm
+16. deforestation	sự phá rừng
+17. renewable energy	năng lượng tái tạo
+18. conservationist	nhà bảo tồn
+19. naturalist	học tự nhiên
+20. geology	địa chất học
+21. climate change	biến đổi khí hậu
+22. organic farming	nông nghiệp hữu cơ
+23. geothermal	nhiệt đất
+24. hydroelectric	điện thủy điện
+25. soil erosion	đất bị xói mòn
+26. sustainability	khả năng chịu đựng
+27. ecological footprint	dấu chân sinh thái
+28. wilderness area	khu vực hoang dã
+29. carbon footprint	dấu chân carbon
+30. climate action	hành động vì khí hậu
+31. eco-friendly	thân thiện với môi trường
+32. global warming	nóng lên toàn cầu
+33. conservation biology	sinh thái học bảo tồn
+34. natural disaster	thảm họa tự nhiên
+35. wildlife sanctuary	khu bảo tồn động vật hoang dã
+36. ecosystem services	dịch vụ sinh thái
+37. national park	vườn quốc gia
+38. recycling	tái chế
+39. composting	giữ ẩm
+40. environmentalist	nhà môi trường học
+41. endangered species	loài nguy cơ tuyệt chủng
+42. conservation program	Chương trình bảo tồn
+43. ecological balance	cân bằng sinh thái
+44. wilderness preservation	bảo tồn vùng hoang dã
+45. climate resilience	khả năng chống chịu khí hậu
+46. marine conservation	bảo tồn hải dương học
+47. renewable resource	tài nguyên tái tạo
+48. green energy	năng lượng xanh
+49. air quality	chất lượng không khí
+50. conservation effort	nỗ lực bảo tồn

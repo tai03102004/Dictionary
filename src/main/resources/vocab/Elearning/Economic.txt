@@ -1,0 +1,50 @@
+1. economics	kinh tế học
+2. economy	nền kinh tế
+3. economic growth	tăng trưởng kinh tế
+4. recession	suy thoái kinh tế
+5. inflation	lạm phát
+6. deflation	phát xuất
+7. unemployment	thất nghiệp
+8. employment	việc làm
+9. GDP (Gross Domestic Product)	Sản phẩm quốc nội
+10. fiscal policy	chính sách tài khóa
+11. monetary policy	chính sách tiền tệ
+12. interest rate	lãi suất
+13. budget	kinh phí
+14. deficit	thâm hụt
+15. surplus	thặng dư
+16. trade	thương mại
+17. investment	đầu tư
+18. stock market	thị trường chứng khoán
+19. bond	trái phiếu
+20. currency	tiền tệ
+21. exchange rate	tỉ giá hối đoái
+22. globalization	toàn cầu hóa
+23. outsourcing	gia công
+24. competition	cạnh tranh
+25. market	thị trường
+26. demand	nhu cầu
+27. supply	cung cấp
+28. entrepreneurship	doanh nhân
+29. innovation	sự đổi mới
+30. regulation	sự điều chỉnh
+31. tax	thuế
+32. subsidy	trợ cấp
+33. profit	lợi nhuận
+34. loss	thất thoát
+35. market economy	nền kinh tế thị trường
+36. planned economy	nền kinh tế kế hoạch
+37. mixed economy	nền kinh tế hỗn hợp
+38. consumer	người tiêu dùng
+39. producer	người sản xuất
+40. demand curve	đường cầu
+41. supply curve	đường cung
+42. elasticity	độ đàn hồi
+43. recession-proof	chống lại suy thoái
+44. inflation rate	tỉ lệ lạm phát
+45. hyperinflation	lạm phát siêu cấp
+46. stagflation	khủng hoảng lạm phát
+47. disposable income	thu nhập sẵn dùng
+48. economic indicator	chỉ số kinh tế
+49. economic development	phát triển kinh tế
+50. economic inequality	bất bình đẳng kinh tế

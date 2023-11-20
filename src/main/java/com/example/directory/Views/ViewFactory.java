@@ -2,6 +2,7 @@ package com.example.directory.Views;
 
 import com.example.directory.Controllers.Admin.AdminController;
 import com.example.directory.Controllers.client.ClientController;
+import com.example.directory.Models.Model;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
@@ -23,17 +24,20 @@ public class ViewFactory {
 
     private AnchorPane profileView;
     private AnchorPane gameView;
-
     private AnchorPane textTransactionView;
+
+    private AnchorPane historyView;
+
+    private AnchorPane savedView;
+    private AnchorPane settingView;
 
     // Admin Views
     private final ObjectProperty<AdminMenuOption> adminSelectedMenuItem;
-    private AnchorPane createClientView;
-
     private AnchorPane clientsView;
 
     private AnchorPane addEntryView;
-    private AnchorPane settingView;
+    private AnchorPane updateEntryView;
+
 
     public ViewFactory(){
         this.loginAccountType = AccountType.CLIENT;
@@ -54,6 +58,9 @@ public class ViewFactory {
         return clientSelectedMenuItem;
     }
 
+    // Client
+
+    // Trang chính
     public AnchorPane getHomeView() {
         System.out.println("getHomeView");
         if (homeView == null ){
@@ -65,7 +72,34 @@ public class ViewFactory {
         }
         return homeView;
     }
+    // Trang tra lịch sử
+    public AnchorPane getHistoryView () {
+        System.out.println("getHistoryView");
+        if (historyView == null) {
+            try {
+                historyView = new FXMLLoader(getClass().getResource("/Fxml/Client/History.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return historyView;
+    }
 
+    // Trang lưu từ
+
+    public AnchorPane getSavedView () {
+        System.out.println("getHistoryView");
+        if (savedView == null) {
+            try {
+                savedView = new FXMLLoader(getClass().getResource("/Fxml/Client/Saved.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return savedView;
+    }
+
+    // Tra từ
     public AnchorPane getTextTransactionView() {
         if (textTransactionView == null ){
             try {
@@ -76,7 +110,7 @@ public class ViewFactory {
         }
         return textTransactionView;
     }
-
+    // Dịch văn bản
     public AnchorPane getTranslateView() {
         System.out.println("getTranslateView");
         if (translateView == null ){
@@ -89,18 +123,20 @@ public class ViewFactory {
         }
         return  translateView;
     }
-
+    // Game
     public AnchorPane getGameView() {
         System.out.println("Get Game");
         if (gameView == null ) {
             try {
-                gameView = new FXMLLoader(getClass().getResource("/Fxml/Client/Game.fxml")).load();
+                gameView = new FXMLLoader(getClass().getResource("/Fxml/Client/Topic.fxml")).load();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
         return gameView;
     }
+
+    // Setting
 
     public AnchorPane getSettingView() {
         if (settingView == null ) {
@@ -113,6 +149,7 @@ public class ViewFactory {
         return settingView;
     }
 
+    // Trang tài khoản
     public AnchorPane getAccountView() {
         System.out.println("profileView");
         if (profileView == null ){
@@ -125,6 +162,8 @@ public class ViewFactory {
         return profileView;
     }
 
+    // Phía giao diện Client
+
     public void showClientWindow() {
         System.out.println("showClientWindow");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
@@ -133,6 +172,7 @@ public class ViewFactory {
         createStage(loader);
     }
 
+
     /**
      * Admin View Section
      */
@@ -140,17 +180,7 @@ public class ViewFactory {
         return adminSelectedMenuItem;
     }
 
-    public AnchorPane getCreateClientView() {
-        System.out.println("CreateClientView");
-        if (createClientView == null) {
-            try {
-                createClientView = new FXMLLoader(getClass().getResource("/Fxml/Admin/CreateClient.fxml")).load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return createClientView;
-    }
+    // Thêm từ
 
     public AnchorPane getAddEntryView() {
         System.out.println("AddEntryView");
@@ -164,6 +194,21 @@ public class ViewFactory {
         return addEntryView;
     }
 
+    // Cập nhật từ (Sửa Xoá)
+
+    public AnchorPane getUpdateEntryView() {
+        System.out.println("UpdateEntryView");
+        if (updateEntryView == null) {
+            try {
+                updateEntryView = new FXMLLoader(getClass().getResource("/Fxml/Admin/AdminUpdateEntry.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return updateEntryView;
+    }
+
+    // Thông tin tài khoản bên CLient (sql)
     public AnchorPane getClientsView() {
         System.out.println("getClientsView");
         if(clientsView == null) {
@@ -175,6 +220,8 @@ public class ViewFactory {
         }
         return clientsView;
     }
+
+    // Giao diện trang Admin
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
         AdminController controller = new AdminController();
@@ -182,11 +229,29 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    // Đăng nhập
+
     public void showLoginWindow() {
-        System.out.println("showLoginWindow");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
-        createStage(loader);
+
+            System.out.println("showLoginWindow");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/login.fxml"));
+            createStage(loader);
+
     }
+
+    // Đăng ký
+
+    public void showSignUpWindow() {
+        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
+            System.out.println("showSignUpWindow");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/signup.fxml"));
+            createStage(loader);
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+            createStage(loader);
+        }
+    }
+
 
     public void createStage(FXMLLoader loader) {
         Scene scene = null;

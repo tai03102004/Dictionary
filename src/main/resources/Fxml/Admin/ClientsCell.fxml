@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="50.0" prefWidth="750.0" style="-fx-background-color: #E0FFFF;" styleClass="client_cell_container" stylesheets="@../../Styles/ClientCell.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox layoutX="90.0" layoutY="5.0" prefHeight="40.0" prefWidth="550.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="5.0">
+        <Label fx:id="fullName_lbl" text="Dinh tai" />
+        <Label fx:id="username_lbl" text="dinhtai" />
+        <Label fx:id="email_lbl" text="dinhductai2004@gmail.com" />
+        <Label fx:id="phone_lbl" text="0819064357" />
+    </HBox>
+    <FontAwesomeIconView glyphName="USER" layoutX="26.0" layoutY="29.0" size="20" wrappingWidth="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+   <ImageView fitHeight="36.0" fitWidth="41.0" layoutX="681.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0">
+      <image>
+         <Image url="@../../Images/listClient.png" />
+      </image>
+   </ImageView>
+</AnchorPane>

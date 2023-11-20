@@ -1,0 +1,8 @@
+.login_btn {
+
+    transition: background-color 0.3s;
+}
+
+.login_btn:hover {
+    background-color: #87CEFA;
+}

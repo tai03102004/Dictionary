@@ -1,0 +1,50 @@
+1. technology	công nghệ
+2. innovation	sự đổi mới
+3. automation	tự động hóa
+4. artificial intelligence	trí tuệ nhân tạo
+5. software	phần mềm
+6. hardware	phần cứng
+7. programming	lập trình
+8. algorithm	thuật toán
+9. virtual reality	thực tế ảo
+10. cybersecurity	an ninh mạng
+11. data science	khoa học dữ liệu
+12. cloud computing	điện toán đám mây
+13. internet of things (IoT)	internet vạn vật
+14. biotechnology	công nghệ sinh học
+15. augmented reality	thực tế ảo
+16. nanotechnology	công nghệ nano
+17. blockchain	chuỗi khối
+18. machine learning	học máy
+19. 3D printing	in 3D
+20. robotics	robot học
+21. wearable technology	công nghệ đeo
+22. quantum computing	điện toán lượng tử
+23. automation tools	công cụ tự động hóa
+24. digital transformation	chuyển đổi số
+25. internet security	bảo mật internet
+26. big data	dữ liệu lớn
+27. augmented intelligence	trí tuệ gia tăng
+28. mobile technology	công nghệ di động
+29. smart home	nhà thông minh
+30. user interface	giao diện người dùng
+31. algorithmic trading	giao dịch theo thuật toán
+32. renewable technology	công nghệ tái tạo
+33. e-commerce	thương mại điện tử
+34. software development	phát triển phần mềm
+35. quantum mechanics	cơ học lượng tử
+36. virtual assistant	trợ lý ảo
+37. cybersecurity threat	mối đe doạ an ninh mạng
+38. coding	lập trình mã
+39. tech industry	ngành công nghiệp công nghệ
+40. digital marketing	tiếp thị số
+41. computer vision	tầm nhìn máy tính
+42. software engineer	kỹ sư phần mềm
+43. tech startup	startup công nghệ
+44. automation process	quy trình tự động hóa
+45. IT infrastructure	cơ sở hạ tầng CNTT
+46. network security	bảo mật mạng
+47. tech innovation	đổi mới công nghệ
+48. programming language	ngôn ngữ lập trình
+49. artificial neural network	mạng nơ-ron nhân tạo
+50. coding skills	kỹ năng lập trình

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/setting.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.Admin.AdminUpdateEntryController">
+    <VBox layoutY="9.0" prefHeight="591.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
+        <TabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Sửa, xóa từ vựng">
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+                            <VBox prefHeight="550.0" prefWidth="723.0">
+                                <AnchorPane prefHeight="542.0" prefWidth="690.0">
+                                    <Label layoutX="86.0" layoutY="25.0" styleClass="text-label" text="Từ điển"/>
+                                    <RadioButton fx:id="editEV" layoutX="86.0" layoutY="66.0"
+                                                 mnemonicParsing="false" onAction="#handleClickEVButton"
+                                                 text="Anh - Việt">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="data"/>
+                                        </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="editVE" layoutX="227.0" layoutY="66.0"
+                                                 mnemonicParsing="false" onAction="#handleClickVEButton"
+                                                 text="Việt - Anh" toggleGroup="$data">
+                                    </RadioButton>
+                                    <Label layoutX="396.0" layoutY="25.0" prefHeight="25.0" prefWidth="66.0"
+                                           styleClass="text-label" text="Từ vựng"/>
+                                    <TextField fx:id="editTextEV" layoutX="396.0" layoutY="59.0" prefHeight="35.0"
+                                               prefWidth="187.0" styleClass="text-field-edit"/>
+                                    <TextField fx:id="editTextVE" layoutX="396.0" layoutY="59.0" prefHeight="35.0"
+                                               prefWidth="187.0" styleClass="text-field-edit"/>
+                                    <Button ellipsisString="" layoutX="582.0" layoutY="59.0" mnemonicParsing="false"
+                                            onAction="#handleClickEditArrow" prefHeight="35.0"
+                                            styleClass="button-arrow"/>
+                                    <HBox alignment="CENTER_RIGHT" layoutX="561.0" layoutY="124.0" prefHeight="39.0"
+                                          prefWidth="103.0">
+                                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#save"
+                                                prefHeight="39.0" prefWidth="54.0" styleClass="button-save"
+                                                textFill="#4d99f5">
+                                            <font>
+                                                <Font size="7.0"/>
+                                            </font>
+                                        </Button>
+                                        <Button contentDisplay="CENTER" mnemonicParsing="false"
+                                                onAction="#remove" prefHeight="58.0" prefWidth="57.0"
+                                                styleClass="button-remove" textFill="#8e9297">
+                                            <font>
+                                                <Font size="7.0"/>
+                                            </font>
+                                        </Button>
+                                    </HBox>
+                                    <AnchorPane layoutX="60.0" layoutY="163.0" prefHeight="335.0"
+                                                prefWidth="604.0">
+                                        <WebView fx:id="web" layoutX="-1.0" layoutY="-1.0" prefHeight="338.0"
+                                                 prefWidth="605.0"/>
+                                        <HTMLEditor fx:id="edit"
+                                                    htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;"
+                                                    layoutX="-1.0" prefHeight="337.0" prefWidth="605.0"/>
+                                    </AnchorPane>
+                                </AnchorPane>
+                            </VBox>
+                    </HBox>
+            </Tab>
+        </TabPane>
+    </VBox>
+</AnchorPane>

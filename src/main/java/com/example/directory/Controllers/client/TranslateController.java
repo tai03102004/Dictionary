@@ -1,6 +1,7 @@
 package com.example.directory.Controllers.client;
 
 import com.example.directory.Dictionary.Dictionary;
+import com.example.directory.Dictionary.Spelling;
 import com.example.directory.Dictionary.TextToSpeech;
 import com.example.directory.Dictionary.Word;
 import javafx.collections.FXCollections;
@@ -42,6 +43,7 @@ public class TranslateController implements Initializable {
     public Button bookmarkFalse;
     public Button editButton;
     public Button removeButton;
+    public WebView definitionView;
 
     protected boolean isEV = true;
     protected static Dictionary evDic = new Dictionary(evPath, enHistoryPath, enBookmarkPath);
@@ -58,10 +60,6 @@ public class TranslateController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Không có từ nào được chọn!");
         alert.showAndWait();
-    }
-
-    public void clearPane() {
-
     }
 
 
@@ -93,34 +91,23 @@ public class TranslateController implements Initializable {
     }
 
     public void handleClickListView(MouseEvent mouseEvent) throws IOException { // tim tu
-        String selectedWord = wordListView.getSelectionModel().getSelectedItem();
-
-        if (selectedWord != null) {
-            // Thực hiện tìm kiếm từ trong Dictionary (sử dụng phương thức tìm kiếm)
-            Word foundWord = getCurrentDic().getVocabulary().get(selectedWord);
-
-            if (foundWord != null) {
-                // Đã tìm thấy từ, thực hiện hiển thị định nghĩa hoặc xử lý dữ liệu từ tìm kiếm theo yêu cầu
-                String definition = foundWord.getWordExplain();
-                // Hiển thị định nghĩa trên WebView (hoặc thực hiện xử lý khác)
-                if (definition != null) {
-                    Translate_listview.getEngine().loadContent(definition, "text/html");
-                }
-            }
+        String word = searchField.getText();
+        if (getCurrentDic().getVocabulary().get(word) == null) {
+            Spelling corrector = new Spelling("src/main/resources/vocab/spelling.txt");
+            word = corrector.correct(word);
         }
+        searchField.setText(word);
     }
 
     public void showHistoryWordDefinition(MouseEvent mouseEvent) throws IOException { //in ra definition
-        String selectedWord = wordListView.getSelectionModel().getSelectedItem();
-
-        if (selectedWord != null) {
-            // Lấy định nghĩa từ Dictionary (sử dụng phương thức của Dictionary)
-            String definition = getCurrentDic().getVocabulary().get(selectedWord).getWordExplain();
-
-            // Hiển thị định nghĩa trên WebView
-            if (definition != null) {
-                Translate_listview.getEngine().loadContent(definition, "text/html");
-            }
+        String spelling = wordListView.getSelectionModel().getSelectedItem();
+        if (spelling == null) {
+            return;
+        }
+        String meaning = getCurrentDic().getVocabulary().get(spelling).getWordExplain();
+        definitionView.getEngine().loadContent(meaning, "text/html");
+        if (getCurrentDic().getHistoryVocabulary().get(spelling) == null) {
+            getCurrentDic().addWordToFile(spelling, meaning, getCurrentDic().getHistory());
         }
     }
 

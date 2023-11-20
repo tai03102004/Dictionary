@@ -30,10 +30,6 @@
                <FontAwesomeIconView glyphName="CAR" />
             </graphic>
          </Button>
-         <Button fx:id="accounts_btn" mnemonicParsing="false" text="Yêu thích">
-            <graphic>
-               <FontAwesomeIconView glyphName="STAR" />
-            </graphic></Button>
          <Button fx:id="history_btn" mnemonicParsing="false" text="Lịch sử">
             <graphic>
                <FontAwesomeIconView glyphName="HISTORY" />
@@ -50,7 +46,7 @@
                <FontAwesomeIconView glyphName="" text="" />
             </graphic>
          </Button>
-         <Button fx:id="layout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Đăng xuất">
+         <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Đăng xuất">
             <graphic>
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" />
             </graphic>
@@ -65,7 +61,7 @@
          <FontAwesomeIconView glyphName="BOOK" size="25" styleClass="title_container" text="" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title_container" text="Distionary" />
       </VBox>
-      <VBox prefHeight="120.0" prefWidth="130.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <VBox prefHeight="145.0" prefWidth="132.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Report Bug ?" />
          <Label text="Use this to report  any error" />
          <Button fx:id="report_btn" mnemonicParsing="false" text="Report">

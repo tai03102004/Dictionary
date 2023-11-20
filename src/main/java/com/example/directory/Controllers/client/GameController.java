@@ -1,21 +1,21 @@
 package com.example.directory.Controllers.client;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -24,9 +24,10 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
-public class GameController implements Initializable {
+public class GameController extends TopicController implements Initializable {
 
-
+    @FXML
+    private AnchorPane GameMenu;
     public javafx.scene.shape.Circle Circle;
     public ImageView movingImageView;
     public ImageView anh2_img;
@@ -55,8 +56,7 @@ public class GameController implements Initializable {
     public void addToList() {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new
-                    FileReader("wordsList"));
+            reader = new BufferedReader(new FileReader(getWordsTopic()));
             String line = reader.readLine();
             while (line != null) {
                 words.add(line);
@@ -245,5 +245,13 @@ public class GameController implements Initializable {
             secondProgramWord_text.setText(words.get(wordCounter + 1));
             wordCounter++;
         }
+    }
+
+    @FXML
+    void HandleReturnButton(ActionEvent event) throws IOException{
+        System.out.println("GetGame");
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Client/MainGameMenu.fxml")));
+        GameMenu.getChildren().removeAll();
+        GameMenu.getChildren().setAll(pane);
     }
 }

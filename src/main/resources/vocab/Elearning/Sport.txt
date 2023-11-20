@@ -1,0 +1,50 @@
+1. sport	thể thao
+2. athlete	vận động viên
+3. competition	cuộc thi
+4. championship	championship
+5. team	đội
+6. game	trò chơi
+7. match	trận đấu
+8. tournament	giải đấu
+9. victory	thắng lợi
+10. defeat	thất bại
+11. score	bàn thắng
+12. goal	bàn thắng
+13. referee	trọng tài
+14. coach	huấn luyện viên
+15. training	tập luyện
+16. fitness	thể dục
+17. sportsmanship	tinh thần thể thao
+18. teamwork	làm việc nhóm
+19. endurance	sức bền
+20. agility	linh hoạt
+21. strength	sức mạnh
+22. speed	tốc độ
+23. technique	kỹ thuật
+24. strategy	chiến thuật
+25. halftime	nghỉ giữa trận đấu
+26. overtime	giờ tăng cường
+27. injury	chấn thương
+28. sports equipment	đồ dùng thể thao
+29. sports venue	sân thể thao
+30. fan	cổ động viên
+31. spectator	khán giả
+32. stadium	sân vận động
+33. arena	đấu trường
+34. league	liên đoàn
+35. medal	huy chương
+36. podium	bục đếm huy chương
+37. record	kỷ lục
+38. doping	doping
+39. sports science	khoa học thể thao
+40. sports psychology	tâm lý học thể thao
+41. water sports	thể thao dưới nước
+42. winter sports	thể thao mùa đông
+43. summer sports	thể thao mùa hè
+44. extreme sports	thể thao mạo hiểm
+45. sports festival	lễ hội thể thao
+46. sports club	câu lạc bộ thể thao
+47. sportsmanship award	giải thưởng tinh thần thể thao
+48. disabled sports	thể thao người khuyết tật
+49. e-sports	thể thao điện tử
+50. sports analysis	phân tích thể thao
