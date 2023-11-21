@@ -12,13 +12,13 @@
    <Button fx:id="escapeGame_btn" layoutX="686.0" layoutY="28.0" mnemonicParsing="false" onAction="#toMainScreen" text="Main Menu" />
    <Button fx:id="nextWord" layoutX="705.0" layoutY="349.0" mnemonicParsing="false" onAction="#HandleNextWord" prefHeight="52.0" prefWidth="108.0" text="Next" />
    <Button fx:id="previousWord" layoutX="46.0" layoutY="350.0" mnemonicParsing="false" onAction="#HandlePreviousWord" prefHeight="52.0" prefWidth="108.0" text="Back" />
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" layoutX="298.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
-   <Text fx:id="programWord_text" fill="WHITE" layoutX="298.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" textAlignment="CENTER" wrappingWidth="251.99999999999977" AnchorPane.leftAnchor="298.0" AnchorPane.topAnchor="233.0">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47a6ffa6" height="131.0" layoutX="298.0" layoutY="196.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+   <Text fx:id="programWord_text" fill="#961313" layoutX="298.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" textAlignment="CENTER" wrappingWidth="251.99999999999977" AnchorPane.leftAnchor="298.0" AnchorPane.topAnchor="233.0">
       <font>
          <Font size="30.0" />
       </font></Text>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" layoutX="298.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
-   <Text fx:id="definition_text" fill="#ffd900" layoutX="298.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definition" textAlignment="CENTER" wrappingWidth="251.99999999999977">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#47ffb9a6" height="131.0" layoutX="298.0" layoutY="375.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+   <Text fx:id="definition_text" fill="#961313" layoutX="298.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definition" textAlignment="CENTER" wrappingWidth="251.99999999999977">
       <font>
          <Font size="29.0" />
       </font>
