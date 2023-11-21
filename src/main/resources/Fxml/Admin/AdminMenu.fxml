@@ -41,9 +41,7 @@
          <Button fx:id="reportClient" mnemonicParsing="false" prefWidth="134.0" text="Feedback">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../Images/feedback.png" />
-                  </image>
+                  <Image url="@../../Images/feedback.png"/>
                </ImageView>
             </graphic></Button>
          <Button fx:id="Logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">

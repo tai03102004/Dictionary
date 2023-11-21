@@ -14,9 +14,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 
-public class Saving extends LoginController implements Initializable , Model.DatabaseChangeListener {
+public class Saving extends TranslateController implements Initializable , Model.DatabaseChangeListener {
     public TextField searchWord;
     public ListView<WordItem> listViewWord;
+    public Label UserName;
 
     private Alert deleteConfirmationDialog;
 
@@ -35,7 +36,8 @@ public class Saving extends LoginController implements Initializable , Model.Dat
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        String userName = getUser();
+        String userName = getUserName();
+        UserName.setText(userName);
         List<WordItem> wordItems = Model.getInstance().getDatabaseConnection().accountSaveWordList(userName);
 
         // load từ từ database
@@ -196,6 +198,7 @@ public class Saving extends LoginController implements Initializable , Model.Dat
             Optional<ButtonType> result = confirmDeleteAlert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 deleteSelectedWords();
+
             } else {
                 for (WordItem checkedItem : checkedItems) {
                     checkedItem.setChecked(false);
@@ -215,10 +218,11 @@ public class Saving extends LoginController implements Initializable , Model.Dat
 
         checkedItems.clear();
         deleteButton.setDisable(true);
+
     }
 
     private List<WordItem> retrieveWordsFromDatabase() {
-        return Model.getInstance().getDatabaseConnection().getWordItemsFromDatabase();
+        return Model.getInstance().getDatabaseConnection().getWordItemsFromDatabase(getUserName());
     }
 
 }

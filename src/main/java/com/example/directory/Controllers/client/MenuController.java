@@ -96,6 +96,4 @@ public class MenuController extends AccountsController implements Initializable 
         // Set Client Login Success Flag to false
         Model.getInstance().setClientLoginSuccessFlag(false);
     }
-
-
 }

@@ -60,6 +60,10 @@ public class TranslateController extends LoginController implements Initializabl
     private Task<Void> currentSearchTask;
     private static final long DEBOUNCE_DELAY = 50;
 
+    public String getUserName () {
+        return getUser();
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -139,10 +143,10 @@ public class TranslateController extends LoginController implements Initializabl
             boolean isWordSaved = Model.getInstance().getDatabaseConnection().isWordSaved(searchTerm);
 
             if (isWordSaved) {
-                // Nếu từ đã được lưu, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn xoá không
+                Model.getInstance().getDatabaseConnection().deleteWordItem(searchTerm);
                 showDeleteConfirmation();
+                updateWordListAfterDeletion(searchTerm);
             } else {
-                // Ngược lại, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn lưu từ
                 showSaveConfirmation();
             }
 
@@ -172,7 +176,7 @@ public class TranslateController extends LoginController implements Initializabl
         }
     }
 
-    // Khi mình từ tiếng anh ko có trong database
+    // Khi từ tiếng anh ko có trong database
     private void suggestCorrectWords(String searchTerm) {
         String[] suggestions = hunspell.suggest(searchTerm).toArray(new String[0]);
         showWord(suggestions);
@@ -184,6 +188,7 @@ public class TranslateController extends LoginController implements Initializabl
         // Thêm các từ cần sửa vào danh sách
         suggestedWordsList.setAll(suggestions);
     }
+
     private void showSuggestedWordsList() {
         wordListView.setItems(suggestedWordsList);
     }
@@ -255,15 +260,12 @@ public class TranslateController extends LoginController implements Initializabl
         if (selectedWord != null) {
             searchField.setText(selectedWord);
             performSearch();
-            saveWordToHistory(selectedWord);
+            insertWordToHistory(selectedWord);
         }
     }
-
-    private void saveWordToHistory(String word) {
-        // Lấy thông tin người dùng hiện tại
+    private void insertWordToHistory(String word) {
         String userName = getUser();
 
-        // Lấy định nghĩa của từ từ cơ sở dữ liệu
         DatabaseConnection.SearchResult result = Model.getInstance().getDatabaseConnection().getWordClient(word);
         String definition = result.isFound() ? result.getDefinition() : "";
 
@@ -272,12 +274,6 @@ public class TranslateController extends LoginController implements Initializabl
     }
 
     // End Lịch sử các từ tìm kiếm
-    public void clearPane() {
-        searchField.clear();
-        definitionView.getEngine().loadContent("");
-        headText.setText("Nghĩa của từ");
-        wordListView.getItems().clear();
-    }
     public void handleClickTransButton(ActionEvent actionEvent) {
         clearPane();
     }
@@ -288,9 +284,7 @@ public class TranslateController extends LoginController implements Initializabl
     // US(Speak)
     public void handleClickSpeaker2(ActionEvent actionEvent) {
     }
-    int cnt = 0;
     private void updateBookmarkButtonState(ActionEvent event) {
-        System.out.println(cnt);
         bookmarkTrue.pseudoClassStateChanged(ACTIVE, !bookmarkTrue.getPseudoClassStates().contains(ACTIVE));
         event.consume();
     }
@@ -332,7 +326,10 @@ public class TranslateController extends LoginController implements Initializabl
     // End Save Word
 
     // Delete Save Word
-    // Delete Save Word
+    private void updateWordListAfterDeletion(String deletedWord) {
+        ObservableList<String> wordListItems = wordListView.getItems();
+        wordListItems.remove(deletedWord);
+    }
     private void showDeleteConfirmation() {
         Alert deleteConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
         deleteConfirmation.setTitle("Xác nhận xoá từ");
@@ -341,7 +338,6 @@ public class TranslateController extends LoginController implements Initializabl
 
         deleteConfirmation.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
-                // Người dùng chấp nhận xoá từ
                 showDeleteSuccess();
             }
         });
@@ -355,9 +351,9 @@ public class TranslateController extends LoginController implements Initializabl
         deleteSuccess.show();
     }
 
-    // Delete Save Word
+    // End Delete Save Word
 
-
+    // Feedback Client
     public void suggestionAdmin(ActionEvent actionEvent) {
         Stage suggestionStage = new Stage();
 
@@ -404,9 +400,16 @@ public class TranslateController extends LoginController implements Initializabl
         return saveButton;
     }
 
+    // End Feedback Client
     public void handleHistorySearchBar(KeyEvent keyEvent) {
     }
 
     public void handleClickListView(MouseEvent event) {
+    }
+    public void clearPane() {
+        searchField.clear();
+        definitionView.getEngine().loadContent("");
+        headText.setText("Nghĩa của từ");
+        wordListView.getItems().clear();
     }
 }

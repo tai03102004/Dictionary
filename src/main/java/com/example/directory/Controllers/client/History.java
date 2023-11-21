@@ -17,8 +17,8 @@ public class History extends LoginController implements Initializable , Model.Da
     public TextField searchWord;
     public ListView<WordItem> listViewWord;
 
-    private Alert deleteConfirmationDialog;
     public Button SortViewHistory;
+    public Label UserName;
     private WordItemComparator currentComparator = new AlphabeticalComparator();
 
     private final ObservableList<WordItem> wordList = FXCollections.observableArrayList();
@@ -36,13 +36,14 @@ public class History extends LoginController implements Initializable , Model.Da
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         String userName = getUser();
+        UserName.setText(userName);
+
         List<WordItem> wordItems = Model.getInstance().getDatabaseConnection().accountHistoryWordList(userName);
 
         // load từ từ database
         loadWordsFromDatabase();
         wordList.clear();
 
-        // Add the items retrieved from the database to wordList
         wordList.addAll(wordItems);
         listViewWord.setItems(wordList);
 
@@ -127,7 +128,6 @@ public class History extends LoginController implements Initializable , Model.Da
     }
     @Override
     public void onDataChange() {
-        // Thực hiện cập nhật UI ở đây khi có sự thay đổi trong cơ sở dữ liệu
         loadWordsFromDatabase();
     }
 
@@ -160,7 +160,7 @@ public class History extends LoginController implements Initializable , Model.Da
     // delete
     // alert delete
     private void setUpDeleteConfirmationDialog() {
-        deleteConfirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert deleteConfirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
         deleteConfirmationDialog.setTitle("Confirmation");
         deleteConfirmationDialog.setHeaderText("Delete Word");
         deleteConfirmationDialog.setContentText("Are you sure you want to delete this word?");
@@ -210,6 +210,6 @@ public class History extends LoginController implements Initializable , Model.Da
     }
 
     private List<WordItem> retrieveWordsFromDatabase() {
-        return Model.getInstance().getDatabaseConnection().getWordItemsHistoryFromDatabase();
+        return Model.getInstance().getDatabaseConnection().getWordItemsHistoryFromDatabase(getUser());
     }
 }

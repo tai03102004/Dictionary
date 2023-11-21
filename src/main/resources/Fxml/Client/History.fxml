@@ -35,4 +35,9 @@
          <Font size="15.0" />
       </font>
    </Button>
+   <Label fx:id="UserName" layoutX="42.0" layoutY="29.0" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);" text="hi">
+      <font>
+         <Font name="Arial Italic" size="16.0" />
+      </font>
+   </Label>
 </AnchorPane>

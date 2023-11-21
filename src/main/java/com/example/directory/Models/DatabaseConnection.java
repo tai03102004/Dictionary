@@ -265,12 +265,12 @@ public class DatabaseConnection {
     }
 
     // History Word
-    public boolean saveWordToHistory(String word, String definition, String userName) {
+    public boolean saveWordToHistory(String Target, String Definition, String userName) {
         try (PreparedStatement insertStatement = this.conn.prepareStatement(
                 "INSERT IGNORE Dictionary.HistoryWord (target, definition, UserName) VALUES (?, ?, ?)"
         )) {
-            insertStatement.setString(1, word);
-            insertStatement.setString(2, definition);
+            insertStatement.setString(1, Target);
+            insertStatement.setString(2, Definition);
             insertStatement.setString(3, userName);
 
             int rowsAffected = insertStatement.executeUpdate();
@@ -288,7 +288,7 @@ public class DatabaseConnection {
 
     public boolean isWordInHistory(String word, String userName) {
         try (PreparedStatement statement = this.conn.prepareStatement(
-                "SELECT COUNT(*) FROM Dictionary.HistoryWord WHERE target = ? AND userName = ?"
+                "SELECT COUNT(*) FROM Dictionary.HistoryWord WHERE target = ? AND UserName = ?"
         )) {
             statement.setString(1, word);
             statement.setString(2, userName);
@@ -334,7 +334,7 @@ public class DatabaseConnection {
 
         try {
             PreparedStatement selectStatement = this.conn.prepareStatement(
-                    "SELECT target, definition FROM Dictionary.SaveWord WHERE userName = ?"
+                    "SELECT target, definition FROM Dictionary.SaveWord WHERE UserName = ?"
             );
             selectStatement.setString(1, userName);
 
@@ -385,21 +385,24 @@ public class DatabaseConnection {
         }
         return false;
     }
-    public List<WordItem> getWordItemsFromDatabase() {
+    public List<WordItem> getWordItemsFromDatabase(String userName) {
         List<WordItem> wordItems = new ArrayList<>();
 
         try {
             PreparedStatement selectStatement = this.conn.prepareStatement(
-                    "SELECT target, definition FROM Dictionary.SaveWord"
+                    "SELECT target, definition FROM Dictionary.SaveWord where UserName = ?"
             );
+            selectStatement.setString(1, userName);
             ResultSet selectResultSet = selectStatement.executeQuery();
 
             while (selectResultSet.next()) {
                 String retrievedTarget = selectResultSet.getString("target");
                 String retrievedDefinition = selectResultSet.getString("definition");
-                wordHtml.add(new WordItem(retrievedTarget, retrievedDefinition));
+
                 // Chuẩn hóa nội dung HTML bằng JSoup
                 retrievedDefinition = normalizeHTML(retrievedDefinition);
+
+                // Thêm từ đã chuẩn hóa vào danh sách
                 wordItems.add(new WordItem(retrievedTarget, retrievedDefinition));
             }
         } catch (SQLException e) {
@@ -407,6 +410,7 @@ public class DatabaseConnection {
         }
 
         return wordItems;
+
     }
 
     public static List<WordItem> getWordHtml() {
@@ -443,7 +447,7 @@ public class DatabaseConnection {
 
         try {
             PreparedStatement selectStatement = this.conn.prepareStatement(
-                    "SELECT target, definition FROM Dictionary.HistoryWord WHERE userName = ?"
+                    "SELECT target, definition FROM Dictionary.HistoryWord WHERE UserName = ?"
             );
             selectStatement.setString(1, userName);
 
@@ -464,13 +468,14 @@ public class DatabaseConnection {
 
         return wordItemList;
     }
-    public List<WordItem> getWordItemsHistoryFromDatabase() {
+    public List<WordItem> getWordItemsHistoryFromDatabase(String userName) {
         List<WordItem> wordItems = new ArrayList<>();
 
         try {
             PreparedStatement selectStatement = this.conn.prepareStatement(
-                    "SELECT target, definition FROM Dictionary.HistoryWord"
+                    "SELECT target, definition FROM Dictionary.HistoryWord where UserName = ?"
             );
+            selectStatement.setString(1, userName);
             ResultSet selectResultSet = selectStatement.executeQuery();
 
             while (selectResultSet.next()) {

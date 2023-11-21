@@ -1,7 +1,5 @@
 package com.example.directory.Controllers.client;
 
-import java.util.Comparator;
-
 public class ReverseAlphabeticalComparator implements WordItemComparator {
     @Override
     public int compare(WordItem word1, WordItem word2) {
