@@ -34,6 +34,7 @@ public class Report extends LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        String user = getUser();
         direct_btn.setOnAction(event -> Direct());
         cancel_btn.setOnAction(event -> Cancel());
         Reviewable lastReview = Model.getInstance().getDatabaseConnection().getLastReview();
@@ -46,6 +47,12 @@ public class Report extends LoginController implements Initializable {
             comment_area.setText(comment);
             title_tfd.setText(title);
         }
+        List<String> reviewedUserNames = Model.getInstance().getDatabaseConnection().userNameReport(user);
+        if (reviewedUserNames.isEmpty()) {
+            start_rating.setRating(0);
+            comment_area.clear();
+            title_tfd.clear();
+        }
     }
 
     public void Cancel() {
@@ -54,18 +61,35 @@ public class Report extends LoginController implements Initializable {
     }
 
     public void Direct() {
-        // Assign values to fields
+        // Lấy giá trị từ trường nhập liệu
         userName = getUser();
         start = start_rating.getRating();
         comment = comment_area.getText();
         title = title_tfd.getText();
 
-        boolean success = Model.getInstance().getDatabaseConnection().reportClient(start, title, comment, userName);
 
-        if (success) {
-            showThankYouAlert("Cảm ơn bạn đã đánh giá!");
+
+        // Kiểm tra xem người dùng hiện tại đã đánh giá chưa
+        boolean hasExistingReview = Model.getInstance().getDatabaseConnection().hasExistingReview(userName);
+
+        if (hasExistingReview) {
+            // Cập nhật đánh giá hiện tại nếu đã tồn tại
+            boolean updateSuccess = Model.getInstance().getDatabaseConnection().updateReview(start, title, comment, userName);
+
+            if (updateSuccess) {
+                showThankYouAlert("Cảm ơn bạn đã cập nhật đánh giá!");
+            } else {
+                showThankYouAlert("Cập nhật đánh giá thất bại");
+            }
         } else {
-            showThankYouAlert("Đánh giá thất bại");
+            // Thêm đánh giá mới nếu chưa tồn tại
+            boolean addSuccess = Model.getInstance().getDatabaseConnection().reportClient(start, title, comment, userName);
+
+            if (addSuccess) {
+                showThankYouAlert("Cảm ơn bạn đã đánh giá!");
+            } else {
+                showThankYouAlert("Thêm đánh giá thất bại");
+            }
         }
     }
 

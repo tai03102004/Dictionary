@@ -1,9 +1,10 @@
 package com.example.directory.Models;
 
-import com.example.directory.Controllers.LoginController;
 import com.example.directory.Views.ViewFactory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -15,14 +16,31 @@ public class Model {
 
     // Client Data Selection
     private final Client client;
+    private final WordListReportClient reportClient;
     private boolean clientLoginSuccessFlag;
 
     // Admin Data Selection
 
     private boolean adminLoginSuccessFlag;
     private final ObservableList<Client> clients;
+    private final ObservableList<WordListReportClient> reportClients;
 
     private final DatabaseConnection databaseConnection;
+    public interface DatabaseChangeListener {
+        void onDataChange();
+    }
+
+    private List<DatabaseChangeListener> databaseChangeListeners = new ArrayList<>();
+
+    public void addDatabaseChangeListener(DatabaseChangeListener listener) {
+        databaseChangeListeners.add(listener);
+    }
+
+    public void notifyDatabaseChange() {
+        for (DatabaseChangeListener listener : databaseChangeListeners) {
+            listener.onDataChange();
+        }
+    }
     private Model() {
 
         this.viewFactory = new ViewFactory();
@@ -30,9 +48,12 @@ public class Model {
         // Client Data Section
         this.clientLoginSuccessFlag =false;
         this.adminLoginSuccessFlag = false;
-        this.client = new Client("","","","","","","");
+        this.client = new Client("","","","","","");
         this.clients =  FXCollections.observableArrayList();
+        this.reportClient = new WordListReportClient("","");
+        this.reportClients = FXCollections.observableArrayList();
         // Admin Data Section
+
     }
 
     public static synchronized Model getInstance() {
@@ -86,6 +107,23 @@ public class Model {
      * Admin Method Section .
      */
 
+    public ObservableList<WordListReportClient> getWordListReportClient() {
+        return this.reportClients;
+    }
+    public void setWordListReportClient() {
+        ResultSet resultSet = databaseConnection.getAllClientsDataReport();
+        try {
+            while (resultSet.next()) {
+                String Text = resultSet.getString("Text");
+                String userName = resultSet.getString("UserNameClient");
+
+                reportClients.add(new WordListReportClient(Text,userName));
+                this.clientLoginSuccessFlag = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public boolean getAdminLoginSuccessFlag() {
         return this.adminLoginSuccessFlag;
     }
@@ -119,9 +157,8 @@ public class Model {
                 String Phone = resultSet.getString("Phone");
                 String Question = resultSet.getString("Question");
                 String Answer = resultSet.getString("Answer");
-                String DateTime = resultSet.getString("DateTime");
 
-                clients.add(new Client(FullName,UserName,Email,Phone,Question,Answer,DateTime));
+                clients.add(new Client(FullName,UserName,Email,Phone,Question,Answer));
                 this.clientLoginSuccessFlag = true;
             }
         } catch (Exception e) {

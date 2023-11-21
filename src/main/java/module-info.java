@@ -12,6 +12,9 @@ module com.example.directory {
     requires java.desktop;
     requires voicerss.tts;
     requires org.controlsfx.controls;
+    requires hunspell.bridj;
+    requires org.jsoup;
+    requires javafx.swing;
 
     opens com.example.directory.Controllers.client;
     opens com.example.directory to javafx.fxml;

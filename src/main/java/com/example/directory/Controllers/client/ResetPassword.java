@@ -59,6 +59,7 @@ public class ResetPassword extends LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         String userName = getUser();
         userName_tfd.setText(userName);
+        userName_tfd.setEditable(false);
         userName_tfd.setVisible(true);
         new ResetPassword();
     }

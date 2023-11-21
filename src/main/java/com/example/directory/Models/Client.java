@@ -19,8 +19,7 @@ public class Client implements Initializable {
 
     private final StringProperty answer;
 
-    private final StringProperty dateTime;
-    public Client(String uName, String fName, String eName, String pName,String qt,String as,String date) {
+    public Client(String uName, String fName, String eName, String pName,String qt,String as) {
 
         this.userName = new SimpleStringProperty(this,"userName",uName);
         this.fullName = new SimpleStringProperty(this,"fullName",fName);
@@ -28,7 +27,6 @@ public class Client implements Initializable {
         this.phoneName = new SimpleStringProperty(this,"phoneName",pName);
         this.question = new SimpleStringProperty(this,"question",qt);
         this.answer = new SimpleStringProperty(this,"answer",as);
-        this.dateTime = new SimpleStringProperty(this,"dateTime",date);
     }
 
     public StringProperty userNameProperty() {
@@ -55,9 +53,6 @@ public class Client implements Initializable {
         return answer;
     }
 
-    public StringProperty dateTimeProperty() {
-        return dateTime;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

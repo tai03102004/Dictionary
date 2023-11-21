@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Dictionary {
-    private String path;
-    private String history;
-    private String bookmark;
+    private final String path;
+    private final String history;
+    private final String bookmark;
 
-    private HashMap<String,Word> vocabulary = new HashMap<>();
-    private HashMap<String,Word> historyVocabulary = new HashMap<>();
-    private HashMap<String,Word> bookmarkVocabulary = new HashMap<>();
+    private final HashMap<String,Word> vocabulary = new HashMap<>();
+    private final HashMap<String,Word> historyVocabulary = new HashMap<>();
+    private final HashMap<String,Word> bookmarkVocabulary = new HashMap<>();
 
     public Dictionary(String path, String history, String bookmark) {
         this.path = path;

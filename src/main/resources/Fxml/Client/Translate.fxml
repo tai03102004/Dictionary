@@ -6,78 +6,61 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/search.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.TranslateController">
-    <AnchorPane layoutY="-3.0" prefHeight="459.0" prefWidth="257.0" styleClass="second-color" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-3.0">
-        <HBox layoutX="19.0" layoutY="18.0" prefHeight="35.0" prefWidth="219.0">
+<AnchorPane prefHeight="750.0" prefWidth="828.0" style="-fx-background-color: #F0F8FF;" stylesheets="@../../Styles/search.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.TranslateController">
+    <AnchorPane layoutY="-3.0" prefHeight="459.0" prefWidth="257.0" style="-fx-background-color: #F0F8FF;" styleClass="second-color" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-3.0">
+        <HBox layoutX="21.0" layoutY="30.0" prefHeight="35.0" prefWidth="236.0">
             <AnchorPane prefHeight="35.0" prefWidth="50.0">
                 <Button fx:id="transLanguageEV" ellipsisString="" mnemonicParsing="false" onAction="#handleClickTransButton" styleClass="button-eng-viet" visible="true" />
                 <Button fx:id="transLanguageVE" ellipsisString="" layoutX="-1.0" mnemonicParsing="false" onAction="#handleClickTransButton" styleClass="button-viet-eng" visible="false" />
             </AnchorPane>
-            <TextField fx:id="searchField" onKeyReleased="#handleHistorySearchBar" prefHeight="35.0" prefWidth="219.0" promptText="Search" />
+            <TextField fx:id="searchField" onKeyReleased="#handleHistorySearchBar" prefHeight="35.0" prefWidth="221.0" promptText="Search" style="-fx-border-radius: 50%;" />
         </HBox>
-        <VBox layoutX="19.0" layoutY="58.0" prefHeight="525.0" prefWidth="219.0" style="-fx-background-radius: 3;" styleClass="third-color" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="58.0">
-            <ListView fx:id="wordListView" onMouseClicked="#handleClickListView" onMousePressed="#showHistoryWordDefinition" prefHeight="529.0" prefWidth="236.0" style="-fx-background-color: none;" />
-        </VBox>
-    </AnchorPane>
-    <AnchorPane layoutX="254.0" layoutY="14.0" prefHeight="565.0" prefWidth="492.0" style="-fx-background-radius: 3;" styleClass="first-color" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="254.0" AnchorPane.rightAnchor="19.0" AnchorPane.topAnchor="14.0">
-        <HBox layoutX="25.0" layoutY="17.0" prefHeight="40.0" prefWidth="390.0">
-            <Label fx:id="headText" prefHeight="40.0" prefWidth="390.0" styleClass="title-meaning" text="Nghĩa của từ" textFill="#902929">
-                <font>
-                    <Font size="10.0" />
-                </font>
-            </Label>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
-            <Label fx:id="speaker1Language" styleClass="text-lang-first" text="UK" />
-            <Button fx:id="speaker1" mnemonicParsing="false" onAction="#handleClickSpeaker1" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
-                <font>
-                    <Font size="7.0" />
-                </font>
-            </Button>
-        </HBox>
-        <HBox alignment="CENTER_LEFT" layoutX="72.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
-            <Label fx:id="speaker2Language" styleClass="text-lang-second" text="US" />
-            <Button fx:id="speaker2" mnemonicParsing="false" onAction="#handleClickSpeaker2" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
-                <font>
-                    <Font size="7.0" />
-                </font>
-            </Button>
-        </HBox>
-        <HBox alignment="CENTER" layoutX="371.0" layoutY="40.0" prefHeight="46.0" prefWidth="136.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="40.0">
-            <Button fx:id="saveChangeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleClickSaveButton" prefHeight="35.0" prefWidth="57.0" styleClass="button-save" textFill="#8e9297" visible="false">
-                <font>
-                    <Font size="7.0" />
-                </font>
-            </Button>
-            <AnchorPane prefHeight="46.0" prefWidth="35.0">
-                <Button fx:id="bookmarkTrue" contentDisplay="TOP" layoutX="-1.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleClickBookmarkButton" prefHeight="35.0" prefWidth="57.0" styleClass="button-favourite-true" textFill="#8e9297" visible="false">
+         <ListView fx:id="wordListView" layoutX="19.0" layoutY="93.0" onMouseClicked="#handleClickListView" onMousePressed="#showHistoryWordDefinition" opacity="0.5" prefHeight="634.0" prefWidth="259.0" style="-fx-background-color: #F0FFF0; -fx-effect: dropshadow(gaussian, #D8BFD8, 10, 0, 0, 0.3); -fx-padding: 10px;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="565.0" />
+      <ListView fx:id="wordListViewFalse" layoutX="15.0" layoutY="93.0" onMousePressed="#showHistoryWordDefinitionFalse" opacity="0.5" prefHeight="634.0" prefWidth="259.0" style="-fx-background-color: #F0FFF0; -fx-border-radius: 50%; -fx-effect: dropshadow(gaussian, #D8BFD8, 10, 0, 0, 0.3); -fx-padding: 10px;" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="565.0" />
+       <AnchorPane layoutX="257.0" layoutY="2.0" prefHeight="737.0" prefWidth="533.0" style="-fx-background-radius: 3; -fx-background-color: #F0F8FF;" styleClass="first-color">
+           <HBox layoutX="25.0" layoutY="17.0" prefHeight="40.0" prefWidth="390.0">
+               <Label fx:id="headText" prefHeight="40.0" prefWidth="390.0" styleClass="title-meaning" text="Nghĩa của từ" textFill="#902929">
+                   <font>
+                       <Font size="10.0" />
+                   </font>
+               </Label>
+           </HBox>
+           <HBox alignment="CENTER_LEFT" layoutX="25.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
+               <Label fx:id="speaker1Language" styleClass="text-lang-first" text="UK" />
+               <Button fx:id="speaker1" mnemonicParsing="false" onAction="#handleClickSpeaker1" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
+                   <font>
+                       <Font size="7.0" />
+                   </font>
+               </Button>
+           </HBox>
+           <HBox alignment="CENTER_LEFT" layoutX="72.0" layoutY="58.0" prefHeight="34.0" prefWidth="38.0">
+               <Label fx:id="speaker2Language" styleClass="text-lang-second" text="US" />
+               <Button fx:id="speaker2" mnemonicParsing="false" onAction="#handleClickSpeaker2" prefHeight="30.0" prefWidth="28.0" styleClass="button-speak" textFill="#8e9297">
+                   <font>
+                       <Font size="7.0" />
+                   </font>
+               </Button>
+           </HBox>
+           <HBox alignment="CENTER" layoutX="438.0" layoutY="17.0" prefHeight="46.0" prefWidth="136.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="17.0">
+                <Button fx:id="bookmarkTrue" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleClickBookmarkButton" prefHeight="35.0" prefWidth="57.0" styleClass="button-favourite-true" textFill="#8e9297">
                     <font>
                         <Font size="7.0" />
                     </font>
                 </Button>
-                <Button fx:id="bookmarkFalse" contentDisplay="TOP" layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleClickBookmarkButton" prefHeight="35.0" prefWidth="57.0" styleClass="button-favourite-false" textFill="#8e9297">
-                    <font>
-                        <Font size="7.0" />
-                    </font>
-                </Button>
-            </AnchorPane>
-            <Button fx:id="editButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleClickEditButton" prefHeight="32.0" prefWidth="57.0" styleClass="button-edit" textFill="#4d99f5">
-                <font>
-                    <Font size="7.0" />
-                </font>
-            </Button>
-            <Button fx:id="removeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleClickRemoveButton" prefHeight="32.0" prefWidth="57.0" styleClass="button-remove" textFill="#8e9297">
-                <font>
-                    <Font size="7.0" />
-                </font>
-            </Button>
-        </HBox>
-        <AnchorPane layoutX="10.0" layoutY="87.0" prefHeight="468.0" prefWidth="472.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="87.0">
-            <WebView fx:id="definitionView" prefHeight="618.0" prefWidth="507.0" />
-        </AnchorPane>
+               <AnchorPane prefHeight="46.0" prefWidth="35.0">
+                   <Button fx:id="editButton" contentDisplay="TOP" layoutY="4.0" mnemonicParsing="false" onAction="#suggestionAdmin" prefHeight="32.0" prefWidth="57.0" styleClass="button-edit" textFill="#4d99f5">
+                       <font>
+                           <Font size="7.0" />
+                       </font>
+                   </Button>
+               </AnchorPane>
+           </HBox>
+           <AnchorPane layoutX="10.0" layoutY="87.0" prefHeight="640.0" prefWidth="524.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="87.0">
+               <WebView fx:id="definitionView" layoutX="12.0" opacity="0.77" prefHeight="640.0" prefWidth="534.0" style="-fx-blend-mode: multiply; -fx-effect: dropshadow(gaussian, #ffd700, 10, 0, 0, 0.3); -fx-font-smoothing-type: lcd;" AnchorPane.bottomAnchor="4.0" AnchorPane.topAnchor="5.0" />
+           </AnchorPane>
+       </AnchorPane>
     </AnchorPane>
 </AnchorPane>

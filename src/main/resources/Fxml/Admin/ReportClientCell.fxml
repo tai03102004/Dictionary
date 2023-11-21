@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="255.0" prefWidth="720.0" style="-fx-background-color: #E6E6FA; -fx-border-radius: 5%;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane layoutX="25.0" layoutY="30.0" prefHeight="32.0" prefWidth="35.0">
+      <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../Images/123.png" />
+      </ImageView>
+   </Pane>
+   <Label fx:id="userName" layoutX="72.0" layoutY="46.0" text="Dinh Tai">
+      <font>
+         <Font name="Arial Bold" size="13.0" />
+      </font>
+   </Label>
+   <TextArea fx:id="text" layoutX="61.0" layoutY="83.0" prefHeight="157.0" prefWidth="629.0" style="-fx-border-radius: 5%; -fx-background-color: #F5FFFA;" />
+</AnchorPane>

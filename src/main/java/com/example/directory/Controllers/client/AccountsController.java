@@ -81,15 +81,12 @@ public class AccountsController extends LoginController implements Initializable
         String email = email_lbl.getText();
         String phone = phone_lbl.getText();
 
-        // Gọi phương thức cập nhật trong DatabaseConnection
         boolean success = Model.getInstance().getDatabaseConnection().updateClient(userName, fullName, email, phone);
 
         if (success) {
-            // Cập nhật thành công, thực hiện cập nhật giao diện
             update_lbl.setStyle("-fx-text-fill: blue ; -fx-font-size: 1.3em;-fx-font-weight: bold");
             update_lbl.setText("Cập nhật thông tin thành công");
 
-            // Cập nhật các trường trên giao diện với dữ liệu mới
             name_lbl.setText(fullName);
             email_lbl.setText(email);
             phone_lbl.setText(phone);
@@ -108,7 +105,7 @@ public class AccountsController extends LoginController implements Initializable
 
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/icon.png"))));
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/icon.jpg"))));
         stage.setResizable(false);
         stage.setTitle("Dictionary");
         return stage;

@@ -13,6 +13,7 @@ public class AdminMenuController implements Initializable {
     public Button addEntry_btn;
     public Button updateTerm_btn;
     public Button Logout_btn;
+    public Button reportClient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -22,6 +23,7 @@ public class AdminMenuController implements Initializable {
         addEntry_btn.setOnAction(event -> onAddEntry());
         updateTerm_btn.setOnAction(event -> onUpdateEntry());
         clients_btn.setOnAction(event -> onClients());
+        reportClient.setOnAction(event -> onReportClient());
         Logout_btn.setOnAction(actionEvent -> onLogout());
     }
 
@@ -30,6 +32,9 @@ public class AdminMenuController implements Initializable {
     }
     private void onUpdateEntry() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.UPDATE_TERM);
+    }
+    private void onReportClient() {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOption.REPORT_CLIENT);
     }
 
     private void onClients() {

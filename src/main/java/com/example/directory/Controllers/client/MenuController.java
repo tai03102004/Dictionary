@@ -78,6 +78,7 @@ public class MenuController extends AccountsController implements Initializable 
         }
     }
 
+
     public void onLogout() {
         // Get Stage
         System.out.println("Logout");

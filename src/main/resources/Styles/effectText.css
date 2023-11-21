@@ -1,0 +1,11 @@
+.blinking-text {
+    -fx-font-size: 24px;
+    -fx-text-fill: #3498db; /* Màu chữ */
+    -fx-font-family: "Arial"; /* Font chữ */
+}
+
+@keyframes blink {
+    0% { -fx-opacity: 1; }
+    50% { -fx-opacity: 0; }
+    100% { -fx-opacity: 1; }
+}

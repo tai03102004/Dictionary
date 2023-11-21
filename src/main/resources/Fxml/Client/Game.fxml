@@ -11,6 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
 <AnchorPane fx:id="GameMenu" prefHeight="750.0" prefWidth="850.0" styleClass="AnchorPane" stylesheets="@../../Styles/game.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.GameController">
    <ImageView fitHeight="118.0" fitWidth="184.0" layoutX="241.0" layoutY="640.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../Images/anh-gif.gif" />
@@ -21,15 +22,28 @@
    <Text fx:id="programWord_text" layoutX="251.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" AnchorPane.leftAnchor="251.0" AnchorPane.topAnchor="332.0" />
    <TextField fx:id="userWord_textField" layoutX="251.0" layoutY="394.0" onKeyPressed="#startGame" prefHeight="32.0" prefWidth="275.0" styleClass="text-field" />
    <ImageView fx:id="anh2_img" fitHeight="129.0" fitWidth="184.0" layoutX="296.0" pickOnBounds="true" preserveRatio="true">
+=======
+<AnchorPane prefHeight="750.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" styleClass="AnchorPane" stylesheets="@../../Styles/game.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.GameController">
+   <ImageView fx:id="wrong_img" fitHeight="53.0" fitWidth="60.0" layoutX="362.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" styleClass="image_i">
+      <Image url="@../../Images/wrong.png" />
+   </ImageView>
+   <Text fx:id="programWord_text" layoutX="290.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" AnchorPane.leftAnchor="295.0" AnchorPane.topAnchor="335.0" />
+   <TextField fx:id="userWord_textField" layoutX="239.0" layoutY="393.0" onKeyPressed="#startGame" prefHeight="39.0" prefWidth="323.0" styleClass="text-field" />
+   <ImageView fx:id="anh2_img" fitHeight="129.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);">
+>>>>>>> abeed1d (update)
       <Image url="@../../Images/anh2.gif" />
    </ImageView>
    <Circle fx:id="Circle" fill="#f0f6fc" layoutX="184.0" layoutY="208.0" radius="59.0" stroke="BLACK" strokeType="INSIDE" />
    <Text layoutX="151.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-inside-circle" text="Seconds" wrappingWidth="67.0" />
+<<<<<<< HEAD
    <Text fx:id="wordsPerMin_text" layoutX="382.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="0" />
    <Text layoutX="347.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="word/mins" wrappingWidth="136.048828125" />
    <Text fx:id="accuracy_text" layoutX="520.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="0" />
    <Text layoutX="496.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="\%accuracy" />
    <Text fx:id="secondProgramWord_text" layoutX="498.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_dimmer" text="Word" AnchorPane.topAnchor="334.1806640625" />
+=======
+   <Text fx:id="secondProgramWord_text" layoutX="454.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text_dimmer" text="Word" AnchorPane.topAnchor="335.0" />
+>>>>>>> abeed1d (update)
    <ImageView fx:id="correct_img" fitHeight="53.0" fitWidth="53.0" layoutX="362.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" styleClass="image_i">
       <Image url="@../../Images/check.png" />
    </ImageView>
@@ -38,20 +52,12 @@
          <Font size="16.0" />
       </font>
    </Text>
-   <ImageView fx:id="movingImageView" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="635.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" styleClass="image_gif">
-      <Image url="@../../Images/anh-gif.gif" />
-   </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="600.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../Images/anh.gif" />
-   </ImageView>
-   <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="518.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../Images/anh1.gif" />
-   </ImageView>
    <AmbientLight layoutX="766.0" layoutY="29.0">
       <color>
          <Color red="0.5893640518188477" green="0.827850878238678" blue="0.9868420958518982" />
       </color>
    </AmbientLight>
+<<<<<<< HEAD
    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../Images/anh3.gif" />
    </ImageView>
@@ -60,5 +66,16 @@
    </ImageView>
    <Button fx:id="playAgain_btn" layoutX="319.0" layoutY="493.0" mnemonicParsing="false" onAction="#toMainMenu" text="Play Again" />
    <Button layoutX="681.0" layoutY="7.0" mnemonicParsing="false" onAction="#HandleReturnButton" prefHeight="44.0" prefWidth="170.0" text="Main Menu" textFill="#ac3b3b" />
+=======
+   <Button fx:id="playAgain_btn" layoutX="325.0" layoutY="493.0" mnemonicParsing="false" onAction="#toMainMenu" text="Play Again" />
+   <AnchorPane layoutX="400.0" layoutY="149.0" prefHeight="148.0" prefWidth="323.0">
+      <children>
+         <Text fx:id="wordsPerMin_text" layoutX="40.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="0" />
+         <Text layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="word/mins" wrappingWidth="136.048828125" />
+         <Text layoutX="155.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="\%accuracy" />
+         <Text fx:id="accuracy_text" layoutX="205.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="0" />
+      </children>
+   </AnchorPane>
+>>>>>>> abeed1d (update)
 
 </AnchorPane>

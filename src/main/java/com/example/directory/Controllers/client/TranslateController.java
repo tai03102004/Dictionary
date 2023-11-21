@@ -1,34 +1,40 @@
 package com.example.directory.Controllers.client;
 
-import com.example.directory.Dictionary.Dictionary;
-import com.example.directory.Dictionary.Spelling;
-import com.example.directory.Dictionary.TextToSpeech;
-import com.example.directory.Dictionary.Word;
+import com.atlascopco.hunspell.Hunspell;
+
+import com.example.directory.Controllers.LoginController;
+import com.example.directory.Models.DatabaseConnection;
+import com.example.directory.Models.Model;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
+import javafx.scene.web.WebEngine;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.ResourceBundle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import java.io.IOException;
 
-public class TranslateController implements Initializable {
+public class TranslateController extends LoginController implements Initializable {
 
-    private static final String evPath = "src/main/resources/vocab/eng_vie.txt";
-    private static final String vePath = "src/main/resources/vocab/vie_eng.txt";
-    private static final String enHistoryPath = "src/main/resources/vocab/eng_history.txt";
-    private static final String viHistoryPath = "src/main/resources/vocab/vie_history.txt";
-    private static final String enBookmarkPath = "src/main/resources/vocab/eng_bookmark.txt";
-    private static final String viBookmarkPath = "src/main/resources/vocab/vie_bookmark.txt";
 
-    public WebView Translate_listview;
     public Button transLanguageEV;
     public Button transLanguageVE;
     public TextField searchField;
@@ -38,127 +44,369 @@ public class TranslateController implements Initializable {
     public Button speaker1;
     public Label speaker2Language;
     public Button speaker2;
-    public Button saveChangeButton;
     public Button bookmarkTrue;
-    public Button bookmarkFalse;
-    public Button editButton;
-    public Button removeButton;
     public WebView definitionView;
+    public ListView<String> wordListViewFalse;
+    public Button editButton;
 
-    protected boolean isEV = true;
-    protected static Dictionary evDic = new Dictionary(evPath, enHistoryPath, enBookmarkPath);
-    protected static Dictionary veDic = new Dictionary(vePath, viHistoryPath, viBookmarkPath);
+    private boolean isWordSaved = false;
+
+
+    // Thư viện giúp sửa lỗi chính tả khi nhập
+    private Hunspell hunspell;
+    private final ObservableList<String> suggestedWordsList = FXCollections.observableArrayList();
+    private static final PseudoClass ACTIVE = PseudoClass.getPseudoClass("active");
+
+    private Task<Void> currentSearchTask;
+    private static final long DEBOUNCE_DELAY = 50;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Thêm sự kiện lắng nghe cho searchField khi người dùng gõ phím
+        hunspell = new Hunspell("src/main/resources/vocab/en_US.dic", "src/main/resources/vocab/en_US.aff");
+        searchField.setOnKeyReleased(this::handleSearchFieldKeyReleased);
+        wordListView.setOnMouseClicked(this::handleWordListViewClick);
+        wordListViewFalse.setOnMouseClicked(this::showHistoryWordDefinitionFalse);
+        bookmarkTrue.setOnAction(this::handleClickBookmarkButton);
+        editButton.setOnAction(this::suggestionAdmin);
+    }
+
+
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+    private void handleSearchFieldKeyReleased(KeyEvent event) {
+        showHistoryWordDefinition();
+
+        showHistoryWordDefinition();
+        // Nếu người dùng nhấn Enter hoặc nhấn click từ sẽ vaò
+        if (event.getCode() == KeyCode.ENTER) {
+            String searchTerm = searchField.getText().toLowerCase().trim();
+            addToHistoryAndShow(searchTerm);
+        }
+
+        if (event.getCode().isLetterKey() || event.getCode() == KeyCode.ENTER) {
+            if (currentSearchTask != null && !currentSearchTask.isDone()) {
+                currentSearchTask.cancel(); // Hủy tác vụ hiện tại
+            }
+
+            String searchTerm = searchField.getText().toLowerCase().trim();
+
+            currentSearchTask = createSearchTask(searchTerm);
+
+            executorService.submit(currentSearchTask);
+        } else if (event.getCode() == KeyCode.BACK_SPACE && searchField.getText().isEmpty()) {
+            clearWordListViews();
+        }
+    }
+
+    private Task<Void> createSearchTask(String searchTerm) {
+
+        long lastSearchTime = 0;
+
+        if (System.currentTimeMillis() - lastSearchTime < DEBOUNCE_DELAY) {
+            return null;
+        }
+
+        lastSearchTime = System.currentTimeMillis();
+
+        boolean isSpelledCorrectly = hunspell.spell(searchTerm);
+
+        Platform.runLater(() -> {
+            updateUIBasedOnSpelling(isSpelledCorrectly, searchTerm);
+        });
+
+        return null;
 
     }
 
-    public void WarningAlert() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Error!");
-        alert.setHeaderText(null);
-        alert.setContentText("Không có từ nào được chọn!");
-        alert.showAndWait();
-    }
-
-
-    public void handleClickTransButton(ActionEvent actionEvent) { // Choose EV dictionary or VE dictionary
-        isEV = !isEV;
-        if(isEV) {
-            transLanguageEV.setVisible(true);
-            transLanguageVE.setVisible(false);
-            speaker1Language.setText("UK");
-            speaker2.setVisible(true);
-            speaker2Language.setVisible(true);
+    private void updateUIBasedOnSpelling(boolean isSpelledCorrectly, String searchTerm) {
+        if (!isSpelledCorrectly) {
+            wordListViewFalse.setVisible(true);
+            wordListView.setVisible(false);
+            suggestCorrectWords(searchTerm);
         } else {
-            transLanguageEV.setVisible(false);
-            transLanguageVE.setVisible(true);
-            speaker1Language.setText("VIE");
-            speaker2.setVisible(false);
-            speaker2Language.setVisible(false);
-        }
-
-    }
-
-    public Dictionary getCurrentDic() {
-        if (isEV) return evDic;
-        else return veDic;
-    }
-
-    public void handleHistorySearchBar(KeyEvent keyEvent) throws IOException {
-
-    }
-
-    public void handleClickListView(MouseEvent mouseEvent) throws IOException { // tim tu
-        String word = searchField.getText();
-        if (getCurrentDic().getVocabulary().get(word) == null) {
-            Spelling corrector = new Spelling("src/main/resources/vocab/spelling.txt");
-            word = corrector.correct(word);
-        }
-        searchField.setText(word);
-    }
-
-    public void showHistoryWordDefinition(MouseEvent mouseEvent) throws IOException { //in ra definition
-        String spelling = wordListView.getSelectionModel().getSelectedItem();
-        if (spelling == null) {
-            return;
-        }
-        String meaning = getCurrentDic().getVocabulary().get(spelling).getWordExplain();
-        definitionView.getEngine().loadContent(meaning, "text/html");
-        if (getCurrentDic().getHistoryVocabulary().get(spelling) == null) {
-            getCurrentDic().addWordToFile(spelling, meaning, getCurrentDic().getHistory());
+            wordListViewFalse.setVisible(false);
+            wordListView.setVisible(true);
+            performSearch();
         }
     }
 
-    public void handleClickSpeaker1(ActionEvent actionEvent) { //UK's accent
-        if(isEV) {
-            TextToSpeech.language = TextToSpeech.uk_accent;
-            TextToSpeech.VoiceAudio(searchField.getText());
-        } else {
-            TextToSpeech.language = TextToSpeech.vietnamese;
-            TextToSpeech.VoiceAudio(searchField.getText());
+    @FXML
+    private void handleClickBookmarkButton(ActionEvent event) {
+        String searchTerm = searchField.getText().toLowerCase().trim();
+        if (!searchTerm.isEmpty()) {
+            boolean isWordSaved = Model.getInstance().getDatabaseConnection().isWordSaved(searchTerm);
+
+            if (isWordSaved) {
+                // Nếu từ đã được lưu, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn xoá không
+                showDeleteConfirmation();
+            } else {
+                // Ngược lại, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn lưu từ
+                showSaveConfirmation();
+            }
+
+            event.consume();
+            updateBookmarkButtonState(event);
         }
     }
 
-    public void handleClickSpeaker2(ActionEvent actionEvent) { //US's accent
-        TextToSpeech.language = TextToSpeech.us_accent;
-        TextToSpeech.VoiceAudio(searchField.getText());
+    private void clearWordListViews() {
+        wordListView.getItems().clear();
+        wordListViewFalse.getItems().clear();
     }
+    private void performSearch() {
+        String searchTerm = searchField.getText().toLowerCase().trim();
+        updateSearchResults(searchTerm);
 
-    public void handleClickSaveButton(ActionEvent actionEvent) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Sửa từ thành công!");
-        alert.showAndWait();
-    }
+        if (!searchTerm.isEmpty()) {
+            // Kiểm tra chính tả sử dụng Hunspell
+            boolean isSpelledCorrectly = hunspell.spell(searchTerm);
 
-    public void handleClickBookmarkButton(ActionEvent actionEvent) throws IOException{
-        String spelling = searchField.getText();
-        if (spelling.equals("")) {
-            WarningAlert();
-            return ;
-        } else {
-
-        }
-
-    }
-
-    public void handleClickEditButton(ActionEvent actionEvent) throws IOException{
-        String spelling = searchField.getText();
-        if (spelling.equals("")) {
-            WarningAlert();
-            return;
+            if (!isSpelledCorrectly) {
+                // Nếu chính tả sai, gợi ý các từ đúng và hiển thị chúng trong wordListView
+                suggestCorrectWords(searchTerm);
+            }
+            // Nếu chính tả đúng hoặc không có từ gợi ý, tiến hành tìm kiếm từ điển và cập nhật giao diện người dùng
+            updateSearchResults(searchTerm);
         }
     }
 
-    public void handleClickRemoveButton(ActionEvent actionEvent) throws IOException{
-        String spelling = searchField.getText();
-        if (spelling.equals("")) {
-            WarningAlert();
-            return;
+    // Khi mình từ tiếng anh ko có trong database
+    private void suggestCorrectWords(String searchTerm) {
+        String[] suggestions = hunspell.suggest(searchTerm).toArray(new String[0]);
+        showWord(suggestions);
+        showSuggestedWordsList();
+    }
+    private void showWord(String[] suggestions) {
+        ObservableList<String> observableSuggestions = FXCollections.observableArrayList(suggestions);
+        wordListViewFalse.setItems(observableSuggestions);
+        // Thêm các từ cần sửa vào danh sách
+        suggestedWordsList.setAll(suggestions);
+    }
+    private void showSuggestedWordsList() {
+        wordListView.setItems(suggestedWordsList);
+    }
+
+    public void showHistoryWordDefinitionFalse(MouseEvent mouseEvent) {
+        String selectedWord = wordListViewFalse.getSelectionModel().getSelectedItem();
+        if (selectedWord != null) {
+            searchField.setText(selectedWord);
+            if (wordListViewFalse.isVisible()) {
+                performSearch();
+            }
         }
     }
 
+    private void updateSearchResults(String searchTerm) {
+        // Thực hiện tìm kiếm từ điển và cập nhật nội dung trang
+        DatabaseConnection.SearchResult result = Model.getInstance().getDatabaseConnection().getWordClient(searchTerm);
+
+        if (result.isFound()) {
+            definitionView.getEngine().loadContent(result.getDefinition());
+        }
+    }
+
+    // End search word
+
+    // History Word
+    private void addToHistoryAndShow(String word) {
+        String userName = getUser();
+
+        if (!Model.getInstance().getDatabaseConnection().isWordInHistory(word, userName)) {
+            DatabaseConnection.SearchResult result = Model.getInstance().getDatabaseConnection().getWordClient(word);
+            String definition = result.isFound() ? result.getDefinition() : "";
+
+            Model.getInstance().getDatabaseConnection().saveWordToHistory(word, definition, userName);
+        }
+    }
+    public void close() {
+        if (hunspell != null) {
+            hunspell.close();
+        }
+        executorService.shutdown();
+        definitionView.getEngine().load(null);
+    }
+
+    // End History Word
+
+    //  Lịch sử các từ tìm kiếm
+
+    public void showHistoryWordDefinition() {
+        String partialKeyword = searchField.getText().toLowerCase().trim();
+
+        List<String> suggestedWords = Model.getInstance().getDatabaseConnection().getSuggestedWords(partialKeyword);
+
+        List<String> filteredSuggestions = suggestedWords.stream()
+                .filter(word -> word.toLowerCase().contains(partialKeyword))
+                .collect(Collectors.toList());
+
+        showWordSuggestionsSuggest(filteredSuggestions);
+    }
+
+    private void showWordSuggestionsSuggest(List<String> suggestions) {
+        ObservableList<String> observableSuggestions = FXCollections.observableArrayList(suggestions);
+        wordListView.setItems(observableSuggestions);
+        performSearch();
+    }
+
+    private void handleWordListViewClick(MouseEvent event) {
+        String selectedWord = wordListView.getSelectionModel().getSelectedItem();
+        if (selectedWord != null) {
+            searchField.setText(selectedWord);
+            performSearch();
+            saveWordToHistory(selectedWord);
+        }
+    }
+
+    private void saveWordToHistory(String word) {
+        // Lấy thông tin người dùng hiện tại
+        String userName = getUser();
+
+        // Lấy định nghĩa của từ từ cơ sở dữ liệu
+        DatabaseConnection.SearchResult result = Model.getInstance().getDatabaseConnection().getWordClient(word);
+        String definition = result.isFound() ? result.getDefinition() : "";
+
+        // Lưu từ vào HistoryWord
+        Model.getInstance().getDatabaseConnection().saveWordToHistory(word, definition, userName);
+    }
+
+    // End Lịch sử các từ tìm kiếm
+    public void clearPane() {
+        searchField.clear();
+        definitionView.getEngine().loadContent("");
+        headText.setText("Nghĩa của từ");
+        wordListView.getItems().clear();
+    }
+    public void handleClickTransButton(ActionEvent actionEvent) {
+        clearPane();
+    }
+
+    // UK(Speak)
+    public void handleClickSpeaker1(ActionEvent actionEvent) {
+    }
+    // US(Speak)
+    public void handleClickSpeaker2(ActionEvent actionEvent) {
+    }
+    int cnt = 0;
+    private void updateBookmarkButtonState(ActionEvent event) {
+        System.out.println(cnt);
+        bookmarkTrue.pseudoClassStateChanged(ACTIVE, !bookmarkTrue.getPseudoClassStates().contains(ACTIVE));
+        event.consume();
+    }
+
+    // Save Word
+
+    private void showSaveConfirmation() {
+        Alert saveConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        saveConfirmation.setTitle("Xác nhận lưu từ");
+        saveConfirmation.setHeaderText(null);
+        saveConfirmation.setContentText("Bạn có chắc chắn muốn lưu từ này?");
+
+        saveConfirmation.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Người dùng chấp nhận lưu từ
+                showSaveSuccess();
+            }
+        });
+    }
+    private void showSaveSuccess() {
+        String searchTerm = searchField.getText().toLowerCase().trim();
+        WebEngine webEngine = definitionView.getEngine();
+        String userName = getUser();
+        String definitionContent = (String) webEngine.executeScript("document.documentElement.outerHTML");
+        boolean success = Model.getInstance().getDatabaseConnection().saveWord(searchTerm, definitionContent,userName);
+
+        if (success) {
+            // Xóa từ khỏi danh sách gợi ý để tránh tình trạng lặp lại
+            suggestedWordsList.remove(searchTerm);
+
+            Alert saveSuccess = new Alert(Alert.AlertType.INFORMATION);
+            saveSuccess.setTitle("Lưu từ thành công");
+            saveSuccess.setHeaderText(null);
+            saveSuccess.setContentText("Từ đã được lưu thành công!");
+            saveSuccess.show();
+        }
+    }
+
+    // End Save Word
+
+    // Delete Save Word
+    // Delete Save Word
+    private void showDeleteConfirmation() {
+        Alert deleteConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        deleteConfirmation.setTitle("Xác nhận xoá từ");
+        deleteConfirmation.setHeaderText(null);
+        deleteConfirmation.setContentText("Bạn có chắc chắn muốn xoá từ này?");
+
+        deleteConfirmation.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Người dùng chấp nhận xoá từ
+                showDeleteSuccess();
+            }
+        });
+    }
+
+    private void showDeleteSuccess() {
+        Alert deleteSuccess = new Alert(Alert.AlertType.INFORMATION);
+        deleteSuccess.setTitle("Xoá từ thành công");
+        deleteSuccess.setHeaderText(null);
+        deleteSuccess.setContentText("Từ đã được xoá thành công!");
+        deleteSuccess.show();
+    }
+
+    // Delete Save Word
+
+
+    public void suggestionAdmin(ActionEvent actionEvent) {
+        Stage suggestionStage = new Stage();
+
+        suggestionStage.initModality(Modality.APPLICATION_MODAL);
+        suggestionStage.setTitle("Thêm ghi chú");
+
+        TextArea noteTextArea = new TextArea();
+        noteTextArea.setWrapText(true);
+        noteTextArea.getStyleClass().add("text-area"); // Thêm css
+
+        Button saveButton = getButton(noteTextArea, suggestionStage);
+        saveButton.getStyleClass().add("button");
+
+        VBox suggestionLayout = new VBox(10);
+
+        // Đặt button ở giữa
+        suggestionLayout.getChildren().addAll(noteTextArea, saveButton);
+
+        Scene suggestionScene = new Scene(suggestionLayout, 500, 220);
+
+        // Thêm css
+        suggestionScene.getStylesheets().add("src/main/resources/Styles/styles.css");
+
+        suggestionStage.setScene(suggestionScene);
+        suggestionStage.showAndWait();
+    }
+
+    private Button getButton(TextArea noteTextArea, Stage suggestionStage) {
+        Button saveButton = new Button("Lưu");
+        String userName = getUser();
+        saveButton.setOnAction(event -> {
+            String noteText = noteTextArea.getText();
+            // Xử lý lưu dữ liệu
+            boolean success = Model.getInstance().getDatabaseConnection().getReportAdmin(noteText, userName);
+            if (success) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Thông báo");
+                alert.setHeaderText(null);
+                alert.setContentText("Cám ơn bạn đã phản hồi.");
+                alert.showAndWait();
+                suggestionStage.close();
+            }
+        });
+        return saveButton;
+    }
+
+    public void handleHistorySearchBar(KeyEvent keyEvent) {
+    }
+
+    public void handleClickListView(MouseEvent event) {
+    }
 }
