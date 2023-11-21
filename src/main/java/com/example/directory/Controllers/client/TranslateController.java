@@ -1,9 +1,5 @@
 package com.example.directory.Controllers.client;
 
-import com.example.directory.Dictionary.Dictionary;
-import com.example.directory.Dictionary.Spelling;
-import com.example.directory.Dictionary.TextToSpeech;
-import com.example.directory.Dictionary.Word;
 import com.atlascopco.hunspell.Hunspell;
 
 import com.example.directory.Controllers.LoginController;
@@ -34,6 +30,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 public class TranslateController extends LoginController implements Initializable {
 
@@ -51,6 +48,9 @@ public class TranslateController extends LoginController implements Initializabl
     public WebView definitionView;
     public ListView<String> wordListViewFalse;
     public Button editButton;
+
+    private boolean isWordSaved = false;
+
 
     // Thư viện giúp sửa lỗi chính tả khi nhập
     private Hunspell hunspell;
@@ -72,7 +72,6 @@ public class TranslateController extends LoginController implements Initializabl
         editButton.setOnAction(this::suggestionAdmin);
     }
 
-    // search word
 
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -132,6 +131,26 @@ public class TranslateController extends LoginController implements Initializabl
             performSearch();
         }
     }
+
+    @FXML
+    private void handleClickBookmarkButton(ActionEvent event) {
+        String searchTerm = searchField.getText().toLowerCase().trim();
+        if (!searchTerm.isEmpty()) {
+            boolean isWordSaved = Model.getInstance().getDatabaseConnection().isWordSaved(searchTerm);
+
+            if (isWordSaved) {
+                // Nếu từ đã được lưu, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn xoá không
+                showDeleteConfirmation();
+            } else {
+                // Ngược lại, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn lưu từ
+                showSaveConfirmation();
+            }
+
+            event.consume();
+            updateBookmarkButtonState(event);
+        }
+    }
+
     private void clearWordListViews() {
         wordListView.getItems().clear();
         wordListViewFalse.getItems().clear();
@@ -263,9 +282,6 @@ public class TranslateController extends LoginController implements Initializabl
         clearPane();
     }
 
-    public void handleClickListView(MouseEvent mouseEvent) {
-    }
-
     // UK(Speak)
     public void handleClickSpeaker1(ActionEvent actionEvent) {
     }
@@ -279,57 +295,8 @@ public class TranslateController extends LoginController implements Initializabl
         event.consume();
     }
 
-
     // Save Word
-    @FXML
-    private void handleClickBookmarkButton(ActionEvent event) {
-        String searchTerm = searchField.getText().toLowerCase().trim();
-        if (!searchTerm.isEmpty()) {
-            boolean isWordSaved = Model.getInstance().getDatabaseConnection().isWordSaved(searchTerm);
-            
-    }
 
-    public Dictionary getCurrentDic() {
-        if (isEV) return evDic;
-        else return veDic;
-    }
-
-    public void handleHistorySearchBar(KeyEvent keyEvent) throws IOException {
-
-    }
-
-    public void handleClickListView(MouseEvent mouseEvent) throws IOException { // tim tu
-        String word = searchField.getText();
-        if (getCurrentDic().getVocabulary().get(word) == null) {
-            Spelling corrector = new Spelling("src/main/resources/vocab/spelling.txt");
-            word = corrector.correct(word);
-=======
-            if (isWordSaved) {
-                // Nếu từ đã được lưu, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn xoá không
-                showDeleteConfirmation();
-            } else {
-                // Ngược lại, hiển thị cửa sổ xác nhận để hỏi người dùng có muốn lưu từ
-                showSaveConfirmation();
-            }
-
-            event.consume();
-            updateBookmarkButtonState(event);
->>>>>>> abeed1d (update)
-        }
-        searchField.setText(word);
-    }
-
-<<<<<<< HEAD
-    public void showHistoryWordDefinition(MouseEvent mouseEvent) throws IOException { //in ra definition
-        String spelling = wordListView.getSelectionModel().getSelectedItem();
-        if (spelling == null) {
-            return;
-        }
-        String meaning = getCurrentDic().getVocabulary().get(spelling).getWordExplain();
-        definitionView.getEngine().loadContent(meaning, "text/html");
-        if (getCurrentDic().getHistoryVocabulary().get(spelling) == null) {
-            getCurrentDic().addWordToFile(spelling, meaning, getCurrentDic().getHistory());
-=======
     private void showSaveConfirmation() {
         Alert saveConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
         saveConfirmation.setTitle("Xác nhận lưu từ");
@@ -359,12 +326,12 @@ public class TranslateController extends LoginController implements Initializabl
             saveSuccess.setHeaderText(null);
             saveSuccess.setContentText("Từ đã được lưu thành công!");
             saveSuccess.show();
->>>>>>> abeed1d (update)
         }
     }
 
     // End Save Word
 
+    // Delete Save Word
     // Delete Save Word
     private void showDeleteConfirmation() {
         Alert deleteConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
@@ -390,8 +357,6 @@ public class TranslateController extends LoginController implements Initializabl
 
     // Delete Save Word
 
-    public void handleHistorySearchBar(KeyEvent keyEvent) {
-    }
 
     public void suggestionAdmin(ActionEvent actionEvent) {
         Stage suggestionStage = new Stage();
@@ -437,5 +402,11 @@ public class TranslateController extends LoginController implements Initializabl
             }
         });
         return saveButton;
+    }
+
+    public void handleHistorySearchBar(KeyEvent keyEvent) {
+    }
+
+    public void handleClickListView(MouseEvent event) {
     }
 }
