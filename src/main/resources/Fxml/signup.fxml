@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="741.0" prefWidth="742.0" stylesheets="@../Styles/SignUp.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.SignupController">
-   <AnchorPane prefHeight="136.0" prefWidth="742.0" style="-fx-background-color: #F08080;">
+   <AnchorPane prefHeight="136.0" prefWidth="742.0" style="-fx-background-color: #F08080;" AnchorPane.topAnchor="0.0">
       <ImageView fitHeight="86.0" fitWidth="162.0" layoutX="118.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../Images/Book.png" />
       </ImageView>
@@ -22,13 +22,13 @@
             <Font size="21.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="655.0" prefHeight="141.0" prefWidth="87.0" style="-fx-background-color: #808080;">
-         <ImageView fitHeight="150.0" fitWidth="86.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+      <AnchorPane layoutX="640.0" layoutY="1.0" prefHeight="141.0" prefWidth="87.0" style="-fx-background-color: #808080; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0)ef;">
+         <ImageView fitHeight="142.0" fitWidth="113.0" layoutX="1.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 10, 0, 0, 0);">
             <Image url="@../Images/Avatar.jpeg" />
          </ImageView>
       </AnchorPane>
    </AnchorPane>
-   <AnchorPane layoutY="141.0" prefHeight="643.0" prefWidth="200.0" style="-fx-background-color: #FFFFF0;" AnchorPane.topAnchor="141.0">
+   <AnchorPane layoutY="142.0" prefHeight="642.0" prefWidth="200.0" style="-fx-background-color: #FFFFF0;" AnchorPane.topAnchor="142.0">
       <Button fx:id="login_btn" layoutX="63.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="LogIn" />
       <Button fx:id="cancel_btn" layoutX="63.0" layoutY="323.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #87CEFA;" styleClass="login_btn" text="Cancel" />
       <Text fill="#9e7878" layoutX="22.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" wrappingWidth="169.650390625">
@@ -36,7 +36,7 @@
             <Font size="15.0" />
          </font>
       </Text>
-      <FontAwesomeIconView glyphName="BOOK" layoutX="79.0" layoutY="162.0" size="55" wrappingWidth="55.0" />
+      <FontAwesomeIconView glyphName="BOOK" layoutX="79.0" layoutY="162.0" size="60" wrappingWidth="55.0" />
    </AnchorPane>
    <TextField fx:id="FullNameTextField" layoutX="270.0" layoutY="228.0" prefHeight="33.0" prefWidth="373.0" promptText="FullName" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="228.0" />
    <TextField fx:id="UserNameTextField" layoutX="273.0" layoutY="289.0" prefHeight="33.0" prefWidth="373.0" promptText="UserName" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="289.0" />
