@@ -14,7 +14,7 @@
     <VBox layoutY="9.0" prefHeight="591.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
         <TabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <Tab text="Phát âm">
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white;">
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #F0F8FF;">
                     <VBox prefHeight="542.0" prefWidth="249.0">
                         <AnchorPane prefHeight="551.0" prefWidth="251.0">
                             <Label layoutY="77.0" styleClass="text-label" text="Anh - Anh" />

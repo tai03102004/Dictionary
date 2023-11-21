@@ -1,5 +1,6 @@
 package com.example.directory.Controllers.client;
 
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,14 +99,13 @@ public class GameController extends TopicController implements Initializable {
 
 
         // Bắt đầu đếm thời gian lại
-        if (executor != null) {
+        if (executor != null && !executor.isShutdown()) {
             executor.shutdown();
         }
         timer = 60;
-
-        // Bắt đầu đếm thời gian lại
         executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(r, 0, 1, TimeUnit.SECONDS);
+
     }
 
     @Override
@@ -113,7 +113,6 @@ public class GameController extends TopicController implements Initializable {
 
         playAgain_btn.setVisible(false);
         playAgain_btn.setDisable(true);
-
 
         addToList();
         Collections.shuffle(words);
@@ -124,9 +123,14 @@ public class GameController extends TopicController implements Initializable {
 
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
-        saveData = new File("src/data/"+formatter.format(date).strip()+".txt");
+        saveData = new File("src/data/" + formatter.format(date).strip() + ".txt");
 
         try {
+            // Kiểm tra xem thư mục chứa tệp đã tồn tại chưa
+            if (!saveData.getParentFile().exists()) {
+                saveData.getParentFile().mkdirs();
+            }
+
             if (saveData.createNewFile()) {
                 System.out.println("File created: " + saveData.getName());
             } else {
@@ -178,52 +182,74 @@ public class GameController extends TopicController implements Initializable {
     private boolean isAnimationRunning = false;
 
     private void fadeCorrectAnimation() {
-        if (isAnimationRunning) {
-            return;
+
+        if (!isAnimationRunning) {
+
+            isAnimationRunning = true;
+
+            AnimationTimer timer = new AnimationTimer() {
+
+                @Override
+                public void handle(long now) {
+                    if (correct_img.getOpacity() < 1) {
+                        correct_img.setOpacity(correct_img.getOpacity() + 0.05);
+                    } else {
+                        correct_img.setOpacity(0);
+                        stop();
+                        isAnimationRunning = false;
+                    }
+                }
+
+            };
+
+            timer.start();
+
         }
-        isAnimationRunning = true;
-        Timeline timeline = new Timeline();
 
-        KeyFrame keyFrame1 = new KeyFrame(Duration.ZERO, new KeyValue(correct_img.opacityProperty(), 0.0));
-        KeyFrame keyFrame2 = new KeyFrame(Duration.millis(200), new KeyValue(correct_img.opacityProperty(), 1.0));
-        KeyFrame keyFrame3 = new KeyFrame(Duration.millis(400), event -> {
-            correct_img.setOpacity(0.0);
-            isAnimationRunning = false;
-        }, new KeyValue(correct_img.opacityProperty(), 0.0));
-
-        timeline.getKeyFrames().addAll(keyFrame1, keyFrame2, keyFrame3);
-        timeline.play();
     }
 
     private void fadeWrongAnimation() {
-        if (isAnimationRunning) {
-            return;
+
+        if (!isAnimationRunning) {
+
+            isAnimationRunning = true;
+
+            AnimationTimer timer = new AnimationTimer() {
+
+                @Override
+                public void handle(long now) {
+
+                    if (wrong_img.getOpacity() < 1) {
+                        wrong_img.setOpacity(wrong_img.getOpacity() + 0.05);
+                    } else if (wrong_img.getOpacity() >= 1 && wrong_img.getOpacity() < 2) {
+                        wrong_img.setOpacity(wrong_img.getOpacity() - 0.05);
+                    } else {
+                        wrong_img.setOpacity(0);
+                        stop();
+                        isAnimationRunning = false;
+                    }
+
+                }
+
+            };
+
+            timer.start();
+
         }
-        isAnimationRunning = true;
-        Timeline timeline = new Timeline();
 
-        KeyFrame keyFrame1 = new KeyFrame(Duration.ZERO, new KeyValue(wrong_img.opacityProperty(), 0.0));
-        KeyFrame keyFrame2 = new KeyFrame(Duration.millis(200), new KeyValue(wrong_img.opacityProperty(), 0.5));
-        KeyFrame keyFrame3 = new KeyFrame(Duration.millis(400), new KeyValue(wrong_img.opacityProperty(), 1.0));
-        KeyFrame keyFrame4 = new KeyFrame(Duration.millis(600), event -> {
-            wrong_img.setOpacity(0.0);
-            isAnimationRunning = false;
-        }, new KeyValue(wrong_img.opacityProperty(), 0.0));
-
-        timeline.getKeyFrames().addAll(keyFrame1, keyFrame2, keyFrame3, keyFrame4);
-        timeline.play();
     }
 
     public void startGame(KeyEvent ke) {
         anh2_img.setVisible(false);
         if (first == 1) {
             first = 0;
-            executor.scheduleAtFixedRate(r, 0, 1, TimeUnit.SECONDS);
+            executor.scheduleAtFixedRate(r, 0, 2, TimeUnit.SECONDS);
         }
 
         if (ke.getCode().equals(KeyCode.ENTER) ||ke.getCode().equals(KeyCode.SPACE) ) {
             if (!isStarted) {
-                executor.scheduleAtFixedRate(r, 0, 1, TimeUnit.SECONDS);
+                executor.scheduleAtFixedRate(r, 0, 2, TimeUnit.SECONDS);
+
                 isStarted = true;
             }
             String s = userWord_textField.getText();

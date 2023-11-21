@@ -2,13 +2,14 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-   fx:controller="com.example.directory.Controllers.Admin.AdminMenuController">
-   <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="176.0" styleClass="main_menu_container" stylesheets="@../../Styles/ClientMenu.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.Admin.AdminMenuController">
+   <AnchorPane prefHeight="730.0" prefWidth="0.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="BOOK" size="30" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary" />
@@ -21,14 +22,30 @@
          </Button>
          <Button fx:id="addEntry_btn" mnemonicParsing="false" text="Add Entry">
             <graphic>
-               <FontAwesomeIconView glyphName="" />
+               <ImageView fitHeight="18.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../Images/add.png" />
+                  </image>
+               </ImageView>
             </graphic>
          </Button>
-         <Button fx:id="updateTerm_btn" mnemonicParsing="false" text="Update Term">
+         <Button fx:id="updateTerm_btn" mnemonicParsing="false" prefWidth="138.0" text="Update Term">
             <graphic>
-               <FontAwesomeIconView glyphName="" />
+               <ImageView fitHeight="13.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../Images/update.jpeg" />
+                  </image>
+               </ImageView>
             </graphic>
          </Button>
+         <Button fx:id="reportClient" mnemonicParsing="false" prefWidth="134.0" text="Feedback">
+            <graphic>
+               <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../Images/feedback.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
          <Button fx:id="Logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout">
             <graphic>
                <FontAwesomeIconView glyphName="EXTERNAL_LINK" />

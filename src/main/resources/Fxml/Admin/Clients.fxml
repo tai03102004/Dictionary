@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F8F8FF;" styleClass="clients_container" stylesheets="@../../Styles/Clients.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.Admin.ClientsController">
-    <ListView fx:id="clients_listview" layoutX="14.0" layoutY="44.0" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: #FFF0F5;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0" />
-    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+    <ListView fx:id="clients_listview" layoutX="48.0" layoutY="99.0" prefHeight="599.0" prefWidth="754.0" style="-fx-background-color: #d4edda; -fx-effect: dropshadow(gaussian, #155724, 5, 0, 0, 0);" AnchorPane.leftAnchor="48.0" AnchorPane.topAnchor="99.0" />
+    <Text layoutX="26.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="33.796875">
+      <font>
+         <Font name="Georgia Bold" size="23.0" />
+      </font></Text>
+   <TextField fx:id="searchTF" layoutX="563.0" layoutY="29.0" prefHeight="28.0" prefWidth="213.0" promptText="Search" />
+    <ImageView fitHeight="28.0" fitWidth="33.0" layoutX="776.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../../Images/search.png" />
+    </ImageView>
 </AnchorPane>

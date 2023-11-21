@@ -9,7 +9,7 @@ import java.io.*;
 
 public class VoiceRSS {
     private static final String API_KEY = "ee1a861047db41e3aed6cca75554a826";
-    private static final String AUDIO_PATH = "audio/audio.wav";
+    private static final String AUDIO_PATH = "src/main/resources/audio/audio.wav";
 
     public static String voiceNameUS;
     public static String voiceNameUK;
@@ -18,7 +18,7 @@ public class VoiceRSS {
     public static double speed = 1;
 
     public static void main(String[] args) throws Exception {
-        speakWord("hi");
+        speakWord("hi i am Tai");
     }
 
     public static void speakWord(String word) throws Exception {
@@ -51,6 +51,7 @@ public class VoiceRSS {
     private static void playAudio() {
         try (InputStream input = new FileInputStream(AUDIO_PATH)) {
             AudioInputStream audio = AudioSystem.getAudioInputStream(input);
+            System.out.println("Fail");
             Clip clip = AudioSystem.getClip();
             clip.open(audio);
             clip.start();

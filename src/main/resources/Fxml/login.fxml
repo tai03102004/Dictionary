@@ -16,8 +16,11 @@
 
 <AnchorPane fx:id="toggleButton" prefHeight="616.0" prefWidth="618.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.LoginController">
     <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" stylesheets="@../Styles/login.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <FontAwesomeIconView glyphName="BOOK" size="35" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary" />
+        <FontAwesomeIconView glyphName="BOOK" size="50" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dictionary">
+         <font>
+            <Font name="Georgia Bold" size="30.0" />
+         </font></Text>
     </VBox>
     <Label alignment="CENTER_RIGHT" layoutX="235.0" layoutY="557.0" prefHeight="26.0" prefWidth="182.0" text="SignUp Using?   " />
     <Line endX="31.0" endY="2.4852471351623535" layoutX="340.0" layoutY="526.0" startX="-112.0" startY="1.6568313837051392" AnchorPane.bottomAnchor="86.80764609575272" AnchorPane.topAnchor="526.9497246146202" />

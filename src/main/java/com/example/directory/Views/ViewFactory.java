@@ -38,6 +38,8 @@ public class ViewFactory {
     private AnchorPane addEntryView;
     private AnchorPane updateEntryView;
 
+    private AnchorPane reportEntryView;
+
 
     public ViewFactory(){
         this.loginAccountType = AccountType.CLIENT;
@@ -207,7 +209,18 @@ public class ViewFactory {
         }
         return updateEntryView;
     }
-
+    // Đánh giá bên phía người dùng
+    public AnchorPane getReportClient() {
+        System.out.println("ReportClientView");
+        if (reportEntryView == null) {
+            try {
+                reportEntryView = new FXMLLoader(getClass().getResource("/Fxml/Admin/ReportClient.fxml")).load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return reportEntryView;
+    }
     // Thông tin tài khoản bên CLient (sql)
     public AnchorPane getClientsView() {
         System.out.println("getClientsView");
@@ -262,7 +275,7 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/icon.png"))));
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/icon.jpg"))));
         stage.setResizable(false);
         stage.setTitle("Dictionary");
         stage.show();

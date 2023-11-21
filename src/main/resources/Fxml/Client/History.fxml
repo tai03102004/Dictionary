@@ -9,28 +9,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;"
-            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.directory.Controllers.client.History">
-   <TextField layoutX="110.0" layoutY="73.0" prefHeight="37.0" prefWidth="630.0" text="         Tìm kiếm trong thư mục">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.History">
+   <TextField fx:id="searchWord" layoutX="110.0" layoutY="73.0" prefHeight="37.0" prefWidth="630.0" promptText="Tìm kiếm trong thư mục">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
    </TextField>
-   <ListView layoutX="106.0" layoutY="176.0" prefHeight="541.0" prefWidth="638.0"
-             style="-fx-background-color: #E6E6FA;"/>
-   <Button layoutX="782.0" layoutY="29.0" mnemonicParsing="false"
-           style="-fx-cursor: cursor; -fx-background-color: #F0FFFF;">
+   <ListView fx:id="listViewWord" layoutX="106.0" layoutY="176.0" prefHeight="526.0" prefWidth="638.0" style="-fx-background-color: #E6E6FA; -fx-effect: innershadow(gaussian, #ffffff, 10, 0.5, 0, 0); -fx-background-radius: 1%;" />
+   <Button fx:id="SortViewHistory" layoutX="782.0" layoutY="29.0" mnemonicParsing="false" style="-fx-cursor: cursor; -fx-background-color: #F0FFFF;">
       <graphic>
          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../../Images/list.png"/>
+            <Image url="@../../Images/list.png" />
          </ImageView>
       </graphic>
    </Button>
-   <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="113.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true"
-              AnchorPane.bottomAnchor="650.0" AnchorPane.topAnchor="83.0">
-      <Image url="@../../Images/images.png"/>
+   <ImageView fitHeight="34.0" fitWidth="33.0" layoutX="708.0" layoutY="75.0" opacity="0.37" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="641.0" AnchorPane.topAnchor="75.0">
+      <Image url="@../../Images/images.png" />
    </ImageView>
-   <Label layoutX="113.0" layoutY="12.0" prefHeight="34.0" prefWidth="288.0" text="Lịch sử tìm kiếm"/>
+   <Label alignment="CENTER" layoutX="272.0" layoutY="12.0" prefHeight="34.0" prefWidth="288.0" styleClass="blinking-text" stylesheets="@../../Styles/effectText.css" text="Từ đã tra">
+      <font>
+         <Font size="19.0" />
+      </font></Label>
+   <Button fx:id="deleteButton" layoutX="755.0" layoutY="713.0" mnemonicParsing="false" opacity="0.76" prefHeight="27.0" prefWidth="52.0" style="-fx-background-color: #90EE90;" text="Xoá">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Button>
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/translate.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.textTransactionController">
+<AnchorPane prefHeight="750.0" prefWidth="800.0" style="-fx-background-color: #F0F8FF;" styleClass="second-color" stylesheets="@../../Styles/translate.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.textTransactionController">
     <VBox layoutX="29.0" layoutY="29.0" prefHeight="224.0" prefWidth="708.0" AnchorPane.bottomAnchor="347.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="29.0">
         <HBox prefHeight="30.0" prefWidth="708.0">
             <Button fx:id="langFromFirst" mnemonicParsing="false" onAction="#detect" prefHeight="30.0" prefWidth="145.0" styleClass="button-lang" text="Phát hiện ngôn ngữ" />

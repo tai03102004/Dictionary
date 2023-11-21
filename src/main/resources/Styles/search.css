@@ -11,6 +11,7 @@
     -gray-color: #e6e6e6;
     -title-color: #060607;
     -hover-background-color: #D4D7DC;
+    -hover-text-color: #2e3338;
 }
 
 .first-color {
@@ -29,7 +30,7 @@
 
 .text-field {
     -fx-background-image: url('../normal/search-bar.png');
-    -fx-background-size: 22;
+    -fx-background-size: 22px;
     -fx-background-color: #e3e5e8;
     -fx-background-repeat: no-repeat;
     -fx-background-position: right center;
@@ -37,7 +38,7 @@
 
     -fx-border-radius: 0 3 3 0;
     -fx-border-width: 1;
-    -fx-font-size: 15;
+    -fx-font-size: 15px;
 }
 
 .text-field:focused {
@@ -47,16 +48,19 @@
 /* ========================= ListView ========================= */
 
 .list-cell {
-    -fx-background-color: none;
+    -fx-background-color: transparent;
     -fx-text-fill: -text-color;
-    -fx-font-size: 13;
+    -fx-font-size: 13px;
 }
 
-.list-cell:filled:hover, .list-cell:filled:selected:focused, .list-cell:filled:selected {
+.list-cell:filled:hover,
+.list-cell:filled:selected:focused,
+.list-cell:filled:selected {
     -fx-background-color: -hover-background-color;
     -fx-text-fill: -hover-text-color;
     -fx-cursor: hand;
 }
+
 
 /* ========================= Text ========================= */
 
@@ -144,21 +148,15 @@
     -fx-background-color: none;
 }
 
-.button-favourite-false {
-    -fx-graphic: url('../normal/favourite.png');
-}
-
-.button-favourite-false:hover {
-    -fx-graphic: url('../hover/favourite.png');
-}
-
 .button-favourite-true {
+    -fx-graphic: url('../normal/favourite.png');
+}
+
+.button-favourite-true:pressed {
     -fx-graphic: url('../hover/favourite.png');
 }
 
-.button-favourite-true:hover {
-    -fx-graphic: url('../normal/favourite.png');
-}
+
 
 .button-save {
     -fx-graphic: url('../normal/save.png');
