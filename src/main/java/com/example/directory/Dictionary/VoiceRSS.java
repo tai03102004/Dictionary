@@ -49,7 +49,7 @@ public class VoiceRSS {
     }
 
     private static void playAudio() {
-        try (InputStream input = new FileInputStream(AUDIO_PATH)) {
+        try (InputStream input = new BufferedInputStream(new FileInputStream(AUDIO_PATH))) {
             AudioInputStream audio = AudioSystem.getAudioInputStream(input);
             System.out.println("Fail");
             Clip clip = AudioSystem.getClip();
@@ -60,4 +60,3 @@ public class VoiceRSS {
         }
     }
 }
-
