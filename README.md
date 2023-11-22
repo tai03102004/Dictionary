@@ -50,38 +50,38 @@
       2. Before entering the two features of adding, editing, and deleting words, I will default to this:<br>
         1.1 . The default field word is English - Vietnamese, can be added or not<br>
         2.1 . Deleted word status ( true : word does not exist , false : word exists )<br>
-           +) First : Add words<br>
-              1. If you tick deleted, it means true that the word will not exist and vice versa<br>
-              2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br>
-              3 . In the HTML Editor, it will add the definitions you add to the word (You can add whatever makes it meaningful and interesting).<br>
-                 => If you want to save a word, just press the button on the Save icon<br>
-                 => To reset the word, just click on the Reset word icon<br>
+   +) First : Add words<br>
+      1. If you tick deleted, it means true that the word will not exist and vice versa<br>
+      2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br>
+      3 . In the HTML Editor, it will add the definitions you add to the word (You can add whatever makes it meaningful and interesting).<br>
+         => If you want to save a word, just press the button on the Save icon<br>
+         => To reset the word, just click on the Reset word icon<br>
 
-           +) Second: Edit, delete words<br>
-              1. It is similar to adding words about code logic<br>
-                But there are a few other features that are only changing the Deleted Word icon on the login, which I find quite interesting because it will not delete the word from the                       database but only change the deleted status to true so that the word does not appear (meaning the word does not exist )<br>
+   +) Second: Edit, delete words<br>
+      1. It is similar to adding words about code logic<br>
+        But there are a few other features that are only changing the Deleted Word icon on the login, which I find quite interesting because it will not delete the word from the                       database but only change the deleted status to true so that the word does not appear (meaning the word does not exist )<br>
 
-        3. Next will be the section showing user feedback when the program has errors or something wrong<br>
+  3. Next will be the section showing user feedback when the program has errors or something wrong<br>
 
-        4. Finally comes the admin logout section<br>
+  4. Finally comes the admin logout section<br>
 
   # Demo
 
   # Future improvements
-    1. Future improvements<br>
-    2. Add more complex games.<br>
-    3. Improve the user interface.<br>
-    4. Fix unexpected errors<br>
-    5. Improved code to run even faster<br>
+    1. Future improvements
+    2. Add more complex games.
+    3. Improve the user interface.
+    4. Fix unexpected errors
+    5. Improved code to run even faster
 
   # Contributing
-    Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.<br>
+    Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
   # Project status
-    The project is completed.<br>
+    The project is completed.
     
   # Notes
-    The application is written for educational purposes.<br>
+    The application is written for educational purposes.
 
 
   Thank you everyone for visiting. 
