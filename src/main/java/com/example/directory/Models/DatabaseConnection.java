@@ -138,6 +138,27 @@ public class DatabaseConnection {
         return suggestedWords;
     }
 
+    public List<WordsDataBase> getTargetAndDefinition() {
+        List<WordsDataBase> targetAndDefinitions = new ArrayList<>();
+        try {
+            String sql = "SELECT target, definition FROM Dictionary.Words where deleted = false";
+            try (PreparedStatement preparedStatement = this.conn.prepareStatement(sql)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        String target = resultSet.getString("target");
+                        String definition = resultSet.getString("definition");
+                        WordsDataBase wordData = new WordsDataBase(target, definition);
+                        targetAndDefinitions.add(wordData);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return targetAndDefinitions;
+    }
+
+
     // End words
 
 
