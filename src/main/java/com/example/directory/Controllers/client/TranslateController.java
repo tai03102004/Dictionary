@@ -5,6 +5,9 @@ import com.atlascopco.hunspell.Hunspell;
 import com.example.directory.Controllers.LoginController;
 import com.example.directory.Models.DatabaseConnection;
 import com.example.directory.Models.Model;
+import com.example.directory.Models.WordRadixTree;
+import com.example.directory.Models.WordsDataBase;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
@@ -27,14 +30,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.scene.web.WebEngine;
 
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.example.directory.Dictionary.TextToSpeech;
 public class TranslateController extends LoginController implements Initializable {
-
-
     public Button transLanguageEV;
     public Button transLanguageVE;
     public TextField searchField;
@@ -50,6 +53,20 @@ public class TranslateController extends LoginController implements Initializabl
     public Button editButton;
 
     private boolean isWordSaved = false;
+
+    public List<WordsDataBase> Words = new ArrayList<>();
+
+    // Radix Tree : Tìm kiếm nhanh hơn
+    public WordRadixTree wordRadixTree = new WordRadixTree();
+
+    // Lấy hết từ trong database
+    public void loadAllWordsFromDatabase() {
+        List<WordsDataBase> allWords = Model.getInstance().getDatabaseConnection().getTargetAndDefinition();
+        for (WordsDataBase wordData : allWords) {
+            wordRadixTree.addWord(wordData.getTarget(), wordData.getDefinition());
+        }
+    }
+
 
 
     // Thư viện giúp sửa lỗi chính tả khi nhập
@@ -67,7 +84,7 @@ public class TranslateController extends LoginController implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Thêm sự kiện lắng nghe cho searchField khi người dùng gõ phím
+        loadAllWordsFromDatabase();
         hunspell = new Hunspell("src/main/resources/vocab/en_US.dic", "src/main/resources/vocab/en_US.aff");
         searchField.setOnKeyReleased(this::handleSearchFieldKeyReleased);
         wordListView.setOnMouseClicked(this::handleWordListViewClick);
@@ -80,8 +97,6 @@ public class TranslateController extends LoginController implements Initializabl
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private void handleSearchFieldKeyReleased(KeyEvent event) {
-        showHistoryWordDefinition();
-
         showHistoryWordDefinition();
         // Nếu người dùng nhấn Enter hoặc nhấn click từ sẽ vaò
         if (event.getCode() == KeyCode.ENTER) {
@@ -164,14 +179,11 @@ public class TranslateController extends LoginController implements Initializabl
         updateSearchResults(searchTerm);
 
         if (!searchTerm.isEmpty()) {
-            // Kiểm tra chính tả sử dụng Hunspell
             boolean isSpelledCorrectly = hunspell.spell(searchTerm);
 
             if (!isSpelledCorrectly) {
-                // Nếu chính tả sai, gợi ý các từ đúng và hiển thị chúng trong wordListView
                 suggestCorrectWords(searchTerm);
             }
-            // Nếu chính tả đúng hoặc không có từ gợi ý, tiến hành tìm kiếm từ điển và cập nhật giao diện người dùng
             updateSearchResults(searchTerm);
         }
     }
@@ -185,12 +197,11 @@ public class TranslateController extends LoginController implements Initializabl
     private void showWord(String[] suggestions) {
         ObservableList<String> observableSuggestions = FXCollections.observableArrayList(suggestions);
         wordListViewFalse.setItems(observableSuggestions);
-        // Thêm các từ cần sửa vào danh sách
         suggestedWordsList.setAll(suggestions);
     }
 
     private void showSuggestedWordsList() {
-        wordListView.setItems(suggestedWordsList);
+        showLimitedWordList(suggestedWordsList);
     }
 
     public void showHistoryWordDefinitionFalse(MouseEvent mouseEvent) {
@@ -204,12 +215,16 @@ public class TranslateController extends LoginController implements Initializabl
     }
 
     private void updateSearchResults(String searchTerm) {
-        // Thực hiện tìm kiếm từ điển và cập nhật nội dung trang
-        DatabaseConnection.SearchResult result = Model.getInstance().getDatabaseConnection().getWordClient(searchTerm);
+        String definition = wordRadixTree.searchWord(searchTerm);
 
-        if (result.isFound()) {
-            definitionView.getEngine().loadContent(result.getDefinition());
+        if (definition != null) {
+            definitionView.getEngine().loadContent(definition);
         }
+    }
+    private void showLimitedWordList(List<String> words) {
+        List<String> limitedWords = words.stream().limit(10).collect(Collectors.toList());
+        ObservableList<String> observableWords = FXCollections.observableArrayList(limitedWords);
+        wordListView.setItems(observableWords);
     }
 
     // End search word
