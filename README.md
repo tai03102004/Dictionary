@@ -34,7 +34,10 @@
     <pre>4.First, by default, the dictionary will return to the home page first. This is a page designed to please viewers and has a few highlights such as having DarkMode and LightMode modes when bored, which also helps relieve traffic.<br></pre>
     <pre>5.Next, let's experience the word lookup feature (Eng-Viet). In this word lookup section, users will experience features such as saving words and commenting if words have any errors so that the Admin can know and promptly correct the errors. The dictionary has added the Hunspell library in java to be able to detect word errors and find words with similar formats. (users cannot leave comments blank)<br></pre>
     <pre>6. In this section you will experience the text translation feature with many options for you and many languages. You can download and experience this unique feature (including voice so you can read along).<br></pre>
-    <pre>7. game :<br></pre>
+    <pre>7. game : in this client, you can entertain yourself or learn somw words from the topic you like, Right after you click on the "Game" button, you will get to the Topic screen where you can choose the topic that you like. Then it will lead you to another screen where you have 3 options to choose :
+      + Topic: You can return to the topic screen and choose another topic.
+      +English learning: Where you can learn some Topic's words that you like.
+      +Speed key test: Where you can test your ability in speed typing and learn those words from English learning that you have learnt.<br></pre>
     <pre>8. Next is the history you looked up. When you just click or enter in the word lookup section, the words you have looked up will appear in the history section. In this section, there is also a search for the searched word (it will filter the words to suggest which word you should choose or if not, it will return an empty ListView) or sort by criteria (in ascending alphabetical order). (or descending)<br></pre>
     <pre>9. Right after that, you will get to the saved words section. The logic is no different from History, which also has sorting and searching (When you save words in the word lookup section, just click on the star and your words will be saved here).<br></pre>
     <pre>10. The next section will be the User Profile section. Here you have 2 main items:<br></pre>
