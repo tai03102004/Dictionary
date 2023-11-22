@@ -72,8 +72,8 @@
   <pre>4. Finally comes the admin logout section<br></pre>
 
   <h2>Demo</h2>
-    <a href="https://www.youtube.com/watch?v=K6YK1sOT2vQ&ab_channel=T%C3%A0i%C4%90inh">Demo the rest </a>
-    <a href="https://www.youtube.com/watch?v=eE32f9RnzmA&ab_channel=Th%E1%BA%AFngNguy%E1%BB%85n">Demo Game</a>
+    <p><a href="https://www.youtube.com/watch?v=K6YK1sOT2vQ&ab_channel=T%C3%A0i%C4%90inh">Demo the rest </a></p>
+    <p><a href="https://www.youtube.com/watch?v=eE32f9RnzmA&ab_channel=Th%E1%BA%AFngNguy%E1%BB%85n">Demo Game</a></p>
 
   <h2>Future improvements</h2>
     <p>1. Future improvements</p>
