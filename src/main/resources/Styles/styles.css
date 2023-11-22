@@ -1,7 +1,21 @@
+
 .text-area {
-    -fx-background-color: #f5f5f5;
+    -fx-background-color: #ff9191;
 }
 
 .button {
-    -fx-background-color: #3131ee;
+    -fx-background-color: #7575ef;
+    -fx-padding: 10px 20px;
+}
+
+.button:hover {
+    -fx-background-color: #4a4af6;
+}
+
+.button:pressed {
+    -fx-background-color: #3f3ff6;
+}
+
+.button:focused {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 0);
 }
