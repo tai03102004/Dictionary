@@ -161,6 +161,8 @@ public class GameController extends TopicController implements Initializable {
                     userWord_textField.setDisable(true);
                     userWord_textField.setText("Game over");
                     anh2_img.setVisible(true);
+
+                    Model.getInstance().getDatabaseConnection().saveScore(LoginController.user,counter);
                     try {
                         FileWriter myWriter = new FileWriter(saveData);
                         myWriter.write(countAll +";");
