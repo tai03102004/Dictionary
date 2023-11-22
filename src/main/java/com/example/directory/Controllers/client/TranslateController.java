@@ -3,10 +3,10 @@ package com.example.directory.Controllers.client;
 import com.atlascopco.hunspell.Hunspell;
 
 import com.example.directory.Controllers.LoginController;
-import com.example.directory.Dictionary.TextToSpeech;
 import com.example.directory.Models.DatabaseConnection;
 import com.example.directory.Models.Model;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
@@ -31,8 +31,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.io.IOException;
-
+import com.example.directory.Dictionary.TextToSpeech;
 public class TranslateController extends LoginController implements Initializable {
 
 
@@ -380,7 +379,7 @@ public class TranslateController extends LoginController implements Initializabl
         Scene suggestionScene = new Scene(suggestionLayout, 500, 220);
 
         // Thêm css
-        suggestionScene.getStylesheets().add("src/main/resources/Styles/styles.css");
+        suggestionScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/styles.css")).toExternalForm());
 
         suggestionStage.setScene(suggestionScene);
         suggestionStage.showAndWait();
@@ -391,19 +390,28 @@ public class TranslateController extends LoginController implements Initializabl
         String userName = getUser();
         saveButton.setOnAction(event -> {
             String noteText = noteTextArea.getText();
-            // Xử lý lưu dữ liệu
-            boolean success = Model.getInstance().getDatabaseConnection().getReportAdmin(noteText, userName);
-            if (success) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Thông báo");
+
+            if (noteText.trim().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Lỗi");
                 alert.setHeaderText(null);
-                alert.setContentText("Cám ơn bạn đã phản hồi.");
+                alert.setContentText("Phản hồi không được để trống.");
                 alert.showAndWait();
-                suggestionStage.close();
+            } else {
+                boolean success = Model.getInstance().getDatabaseConnection().getReportAdmin(noteText, userName);
+                if (success) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Thông báo");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Cám ơn bạn đã phản hồi.");
+                    alert.showAndWait();
+                    suggestionStage.close();
+                }
             }
         });
         return saveButton;
     }
+
 
     // End Feedback Client
     public void handleHistorySearchBar(KeyEvent keyEvent) {
