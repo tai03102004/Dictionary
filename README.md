@@ -1,5 +1,3 @@
-<img width="1021" alt="Ảnh màn hình 2023-11-22 lúc 09 32 15" src="https://github.com/tai03102004/Dictionary/assets/124711101/a9c5a175-c5aa-4186-a897-eaf5942139d9"># Application to support learning English using Java
-
 # Author
 
   1.Dinh Duc Tai - 22021173
