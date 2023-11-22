@@ -15,11 +15,8 @@
   <pre>5.The application use SQL(Dictionary) to store data.<br> </pre>
 
 <h2>UML diagram</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/tai03102004/Dictionary/files/13440706/ImageUML.zip">
-    </li>
-  </ul>
+    
+  <p><a href="https://github.com/tai03102004/Dictionary/files/13440706/ImageUML.zip"></p>
 
 <h2>Installation</h2>
 
