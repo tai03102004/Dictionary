@@ -36,11 +36,11 @@
 }
 
 .choice-box .menu-item:focused {
-    -fx-background-color: -purple-color;
+    -fx-background-color: #5865F2;
 }
 
 .choice-box .menu-item > .label {
-    -fx-text-fill: -text-color;
+    -fx-text-fill: #555c5d;
 }
 
 .choice-box .menu-item:focused > .label {
@@ -48,20 +48,20 @@
 }
 
 .choice-box {
-    -fx-background-color: -gray-color;
-    -fx-mark-color: -purple-color;
+    -fx-background-color: #e6e6e6;
+    -fx-mark-color: #5865F2;
 }
 
 .choice-box > .label {
-    -fx-text-fill: -hover-text-color;
+    -fx-text-fill: #2e3338;
 }
 
 /* ========================= Slider ========================= */
 
 .slider {
     -fx-pref-width: 150;
-    -slider-filled-track-color: -purple-color;
-    -slider-track-color: -gray-color;
+    -slider-filled-track-color: #5865F2;
+    -slider-track-color: #e6e6e6;
 }
 
 .slider .track {
@@ -73,7 +73,7 @@
     -fx-pref-height: 20;
     -fx-pref-width: 8;
     -fx-background-color: -slider-filled-track-color;
-    -fx-border-color: -gray-color;
+    -fx-border-color: #e6e6e6;
     -fx-border-width: 1;
     -fx-border-radius: 3;
 }
@@ -95,7 +95,7 @@
 }
 
 .button-main {
-    -fx-background-color: -purple-color;
+    -fx-background-color: #5865F2;
     -fx-pref-width: 100;
     -fx-border-radius: 3;
     -fx-padding: 6;
@@ -105,7 +105,7 @@
 }
 
 .button-main:hover {
-    -fx-background-color: -hover-purple-color;
+    -fx-background-color: #4752C4;
     -fx-text-fill: white;
 }
 

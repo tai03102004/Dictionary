@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -15,19 +17,31 @@
         <TabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <Tab text="Phát âm">
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #F0F8FF;">
-                    <VBox prefHeight="542.0" prefWidth="249.0">
-                        <AnchorPane prefHeight="551.0" prefWidth="251.0">
-                            <Label layoutY="77.0" styleClass="text-label" text="Anh - Anh" />
-                            <Label layoutX="1.0" layoutY="167.0" styleClass="text-label" text="Anh - Mỹ" />
-                            <Label layoutX="1.0" layoutY="261.0" styleClass="text-label" text="Tốc độ" />
-                            <Slider fx:id="slider" blockIncrement="0.125" layoutX="53.0" layoutY="293.0" majorTickUnit="0.5" max="2.0" min="0.5" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="1.0" />
-                            <Button ellipsisString="" layoutX="221.0" layoutY="293.0" mnemonicParsing="false" onAction="#voice" styleClass="button-speak" />
-                            <Button ellipsisString="" layoutX="221.0" layoutY="205.0" mnemonicParsing="false" onAction="#voiceus" styleClass="button-speak" />
-                            <Button ellipsisString="" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#voiceuk" styleClass="button-speak" />
-                            <Button layoutX="78.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveVoice" styleClass="button-main" text="Lưu" />
-                     <ChoiceBox fx:id="choiceBoxUK" layoutX="51.0" layoutY="207.0" prefWidth="150.0" />
-                     <ChoiceBox fx:id="choiceBoxUS" layoutX="53.0" layoutY="117.0" prefWidth="150.0" />
-                        </AnchorPane>
+                    <VBox prefHeight="567.0" prefWidth="252.0">
+                  <AnchorPane prefHeight="714.0" prefWidth="252.0">
+                     <children>
+                        <Label layoutY="77.0" styleClass="text-label" text="Anh - Anh" />
+                        <Label layoutX="1.0" layoutY="167.0" styleClass="text-label" text="Anh - Mỹ" />
+                        <Label layoutX="1.0" layoutY="261.0" styleClass="text-label" text="Tốc độ" />
+                        <ChoiceBox fx:id="choiceBoxUK" layoutX="51.0" layoutY="116.0" prefWidth="150.0" />
+                        <Slider fx:id="slider" blockIncrement="0.125" layoutX="53.0" layoutY="293.0" majorTickUnit="0.5" max="2.0" min="0.5" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="1.0" />
+                        <ChoiceBox fx:id="choiceBoxUS" layoutX="51.0" layoutY="207.0" prefWidth="150.0" />
+                        <Button ellipsisString="" layoutX="221.0" layoutY="298.0" mnemonicParsing="false" onAction="#voice" styleClass="button-speak" />
+                        <Button ellipsisString="" layoutX="221.0" layoutY="205.0" mnemonicParsing="false" onAction="#voiceus" styleClass="button-speak" />
+                        <Button ellipsisString="" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#voiceuk" styleClass="button-speak" />
+                        <Button layoutX="78.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveVoice" styleClass="button-main" text="Lưu" />
+                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="89.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../normal/UK.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="89.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../normal/US.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
                     </VBox>
                 </HBox>
             </Tab>
