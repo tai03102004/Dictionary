@@ -82,8 +82,11 @@ public class GameController extends TopicController implements Initializable {
     }
     private void resetGame() {
         // Đặt lại tất cả biến và trạng thái ban đầu của trò chơi ở đây
-        playAgain_btn.setVisible(true);
-        playAgain_btn.setDisable(false);
+        playAgain_btn.setVisible(false);
+        playAgain_btn.setDisable(true);
+        anh2_img.setVisible(false);
+        anh2_img2.setVisible(false);
+        anh2_img3.setVisible(false);
 
         wordCounter = 0;
         first = 1;
