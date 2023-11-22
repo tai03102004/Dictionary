@@ -18,16 +18,16 @@
 
 # Installation
 
-  1.Clone the project from the repository.<br>
-  2.Open the project in the IDE.<br>
-  3.Run the project.<br>
-  4.And you must install sql with the same name as the image file below. You add words in the Words file and if you want an account, you can register to add it. And you need to set the Mysql       name and password like the image file below, otherwise you can modify it in the DatabaseConnection class in the Model section.<br>
+  <pre>1.Clone the project from the repository.<br></pre>
+  <pre>2.Open the project in the IDE.<br></pre>
+  <pre>3.Run the project.<br></pre>
+  <pre>4.And you must install sql with the same name as the image file below. You add words in the Words file and if you want an account, you can register to add it. And you need to set the         Mysql name and password like the image file below, otherwise you can modify it in the DatabaseConnection class in the Model section.<br> </pre>
 
 # Usage
   *)Client :<br>
-    1. First you need to create an account in the registration section.<br>
-    2. After successfully creating an account, log in and experience the application's features. (But there is a note when logging in that the Question and Answer sections should be related to things that are easy to remember. Because when you forget your password, there is a Forgot Password section so you can change your password based on your UserName, Question and Answer).<br>
-    3. After successfully logging in, let's now experience the functions of the Dictionary. (note: users should only log in on the Client side).<br>
+    <pre>1. First you need to create an account in the registration section.<br></pre>
+    <pre>2. After successfully creating an account, log in and experience the application's features. (But there is a note when logging in that the Question and Answer sections should be related to things that are easy to remember. Because when you forget your password, there is a Forgot Password section so you can change your password based on your UserName, Question and Answer).<br></pre>
+    <pre>3. After successfully logging in, let's now experience the functions of the Dictionary. (note: users should only log in on the Client side).<br></pre>
     4. First, by default, the dictionary will go to the home page first. This is a page designed to please the viewer, so there are no important features.<br>
     5. Next, let's experience the word lookup feature (Eng-Viet). In this word lookup section, users will experience features such as saving words and commenting if words have any errors so that the Admin can know and promptly correct the errors. The dictionary has added the Hunspell library in java to be able to detect word errors and find words with similar formats.<br>
     6. In this section you will experience the text translation feature with many options for you and many languages. You can download and experience this unique feature (including voice so you can read along).<br>
