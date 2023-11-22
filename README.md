@@ -1,11 +1,11 @@
 <h1>Application to support learning English using Java</h1>
 
-# Author
+<h2>Author</h2>
 
   1.Dinh Duc Tai - 22021173<br>
   2.Nguyen Huu Thang - 22021154<br>
 
-# Description
+<h2>Description</h2>
   The application is designed to support learning English. The application is written in Java and uses the JavaFX library. The application is based on the MVC model. The application has one        types of dictionaries: English-Vietnamese . The application use SQL(Dictionary) to store data.<br>
 
   <pre>1.The application is designed to support learning English.<br> </pre>
@@ -14,19 +14,19 @@
   <pre>4.The application has one types of dictionaries: English-Vietnamese.<br> </pre>
   <pre>5.The application use SQL(Dictionary) to store data.<br> </pre>
 
-# UML diagram
+<h2>UML diagram</h2>
 
 <img width="1021" alt="Ảnh màn hình 2023-11-22 lúc 09 32 15" src="https://github.com/tai03102004/Dictionary/assets/124711101/f9a8de52-3efb-4dee-a42a-a575a317fef0"><br>
 
-# Installation
+<h2>Installation</h2>
 
   <pre>1.Clone the project from the repository.<br></pre>
   <pre>2.Open the project in the IDE.<br></pre>
   <pre>3.Run the project.<br></pre>
   <pre>4.And you must install sql with the same name as the image file below. You add words in the Words file and if you want an account, you can register to add it. And you need to set the         Mysql name and password like the image file below, otherwise you can modify it in the DatabaseConnection class in the Model section.<br> </pre>
 
-# Usage
-   *)  Client :<br>
+<h2>Usage</h2> 
+   <h4> Client :</h4>
     <pre>1. First you need to create an account in the registration section.<br></pre>
     <pre>2. After successfully creating an account, log in and experience the application's features. (But there is a note when logging in that the Question and Answer sections should be related to things that are easy to remember. Because when you forget your password, there is a Forgot Password section so you can change your password based on your UserName, Question and Answer).<br></pre>
     <pre>3. After successfully logging in, let's now experience the functions of the Dictionary. (note: users should only log in on the Client side).<br></pre>
@@ -44,7 +44,7 @@
     <pre>12. Setting <br></pre>
     <pre>13. Finally, there will be user reviews and you can give us 5 stars to give us more motivation to carry out other projects. When you leave a review and want to review it, you must log in again to view it (possibly due to an error I haven't been able to fix).<br></pre>
 
-  *)  Admin:<br>
+  <h4>Admin: </h4> 
     <pre>Note: In admin there will be no registration and forgotten password. Admin is a pre-designated account with only username and password<br></pre>
     <pre>-> Now let's get to the admin features<br></pre>
     <pre>-) Once you have been granted an account, it will have special privileges that only the admin has<br></pre>
@@ -67,26 +67,26 @@
 
   <pre>4. Finally comes the admin logout section<br></pre>
 
-  # Demo
+  <h2>Demo</h2>
 
-  # Future improvements
-    1. Future improvements
-    2. Add more complex games.
-    3. Improve the user interface.
-    4. Fix unexpected errors
-    5. Improved code to run even faster
+  <h2>Future improvements</h2>
+    <p>1. Future improvements</p>
+    <p>2. Add more complex games.</p>
+    <p>3. Improve the user interface.</p>
+    <p>4. Fix unexpected errors</p>
+    <p>5. Improved code to run even faster</p>
 
-  # Contributing
-    Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+  <h2>Contributing</h2>
+    <p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
 
-  # Project status
-    The project is completed.
+  <h2>Project status</h2>
+    <p>The project is completed.</p>
     
-  # Notes
-    The application is written for educational purposes.
+  <h2>Notes</h2>
+    <p>The application is written for educational purposes.</p>
 
 
-  Thank you everyone for visiting. 
+<h3>Thank you everyone for visiting.</h3>
 
 
     
