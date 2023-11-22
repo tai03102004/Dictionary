@@ -171,6 +171,9 @@ public class GameController extends TopicController implements Initializable {
                     anh2_img.setVisible(true);
                     anh2_img2.setVisible(true);
                     anh2_img3.setVisible(true);
+
+                    Model.getInstance().getDatabaseConnection().saveScore(LoginController.user,counter);
+
                     try {
                         FileWriter myWriter = new FileWriter(saveData);
                         myWriter.write(countAll +";");
