@@ -1,7 +1,10 @@
 package com.example.directory.Controllers.client;
 
 import com.example.directory.Controllers.LoginController;
+import com.example.directory.Models.Model;
+import com.example.directory.Models.ScoreEntry;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,18 +23,16 @@ public class RankList extends LoginController implements Initializable {
 
     public void initializeData() {
         String userName = getUser();
+        List<ScoreEntry> scoreboard = Model.getInstance().getDatabaseConnection().getScoreboard();
+        System.out.println(scoreboard);
+        ObservableList<String> rankData = FXCollections.observableArrayList();
 
-        ObservableList<String> rankData = FXCollections.observableArrayList(
-                userName + ": 100 điểm",
-                "Người dùng 2: 90 điểm",
-                "Người dùng 3: 80 điểm"
-        );
+        for (ScoreEntry entry : scoreboard) {
+            String userData = entry.getUsername() + ": " + entry.getScore() + " điểm";
+            rankData.add(userData);
+        }
 
         rankListView.setItems(rankData);
-
-        saveRankDataToDatabase(userName, 100);
-        saveRankDataToDatabase("Người dùng 2", 90);
-        saveRankDataToDatabase("Người dùng 3", 80);
     }
 
     private void saveRankDataToDatabase(String userName, int point) {
