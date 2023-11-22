@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import com.example.directory.Dictionary.TextToSpeech;
-import com.example.directory.Dictionary.TranslateAPI;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -14,7 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class textTransactionController implements Initializable {
+public class textTransactionController extends com.example.directory.Dictionary.TranslateAPI implements Initializable {
     private String languageFrom = "";
     private String languageTo = "";
 
@@ -109,7 +108,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 
@@ -124,7 +123,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 
@@ -139,7 +138,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 
@@ -154,7 +153,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 
@@ -169,7 +168,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 
@@ -180,7 +179,7 @@ public class textTransactionController implements Initializable {
             return;
         }
         if (!Objects.equals(area1.getText(), "")) {
-            area2.setText(TranslateAPI.Translate(languageFrom, languageTo, area1.getText()));
+            area2.setText(Translate(languageFrom, languageTo, area1.getText()));
         }
     }
 

@@ -17,11 +17,11 @@
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="Technology" layoutX="190.0" layoutY="236.0" mnemonicParsing="false" onAction="#TechnologyButton" prefHeight="74.0" prefWidth="222.0" text="Technology">
+      <Button fx:id="Technology" layoutX="190.0" layoutY="236.0" mnemonicParsing="false" onAction="#TechnologyButton" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="Technology">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="Economic" layoutX="449.0" layoutY="273.0" mnemonicParsing="false" onAction="#EconomicButton" prefHeight="74.0" prefWidth="222.0" text="Economic">
+      <Button fx:id="Economic" layoutX="449.0" layoutY="273.0" mnemonicParsing="false" onAction="#EconomicButton" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="Economic">
          <font>
             <Font size="20.0" />
          </font>
@@ -51,7 +51,7 @@
             <Image url="@../../pics/Hi-Animation-without-background-.gif" />
          </image>
       </ImageView>
-      <Button fx:id="Natural" layoutX="449.0" layoutY="375.0" mnemonicParsing="false" onAction="#NaturalButton" prefHeight="74.0" prefWidth="222.0" text="Natural">
+      <Button fx:id="Natural" layoutX="449.0" layoutY="375.0" mnemonicParsing="false" onAction="#NaturalButton" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="Natural">
          <font>
             <Font size="20.0" />
          </font>

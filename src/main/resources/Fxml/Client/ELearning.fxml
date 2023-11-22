@@ -15,12 +15,12 @@
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LAVENDERBLUSH" height="100.0" layoutX="291.0" layoutY="122.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="270.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LAVENDERBLUSH" height="100.0" layoutX="291.0" layoutY="463.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="270.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8b8682" height="52.0" layoutX="108.0" layoutY="327.0" stroke="BLACK" strokeType="INSIDE" width="643.0" />
-   <Button fx:id="escapeGame_btn" layoutX="686.0" layoutY="28.0" mnemonicParsing="false" onAction="#toMainScreen" style="-fx-background-image: #8b8682;" text="Main Menu" />
-   <Button fx:id="nextWord" layoutX="751.0" layoutY="327.0" mnemonicParsing="false" onAction="#HandleNextWord" prefHeight="52.0" prefWidth="102.0" text="Next">
+   <Button fx:id="escapeGame_btn" layoutX="686.0" layoutY="28.0" mnemonicParsing="false" onAction="#toMainScreen" style="-fx-border-color: #000000;" text="Main Menu" textFill="#f7dddd" />
+   <Button fx:id="nextWord" layoutX="751.0" layoutY="327.0" mnemonicParsing="false" onAction="#HandleNextWord" prefHeight="52.0" prefWidth="102.0" style="-fx-border-color: #000000;" text="Next">
       <opaqueInsets>
          <Insets />
       </opaqueInsets></Button>
-   <Button fx:id="previousWord" layoutY="327.0" mnemonicParsing="false" onAction="#HandlePreviousWord" prefHeight="52.0" prefWidth="108.0" text="Back" />
+   <Button fx:id="previousWord" layoutY="327.0" mnemonicParsing="false" onAction="#HandlePreviousWord" prefHeight="52.0" prefWidth="108.0" style="-fx-border-color: #000000;" text="Back" />
    <Text fx:id="programWord_text" fill="#961313" layoutX="298.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" textAlignment="CENTER" wrappingWidth="251.99999999999977" AnchorPane.leftAnchor="298.0" AnchorPane.topAnchor="136.0">
       <font>
          <Font size="30.0" />

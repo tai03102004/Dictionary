@@ -10,64 +10,61 @@
 
 <AnchorPane fx:id="GameMenu" prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.MainGameMenu">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGOLDENRODYELLOW" height="731.0" layoutX="572.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SANDYBROWN" height="731.0" layoutX="295.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="267.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#97ffff" height="731.0" layoutX="27.0" layoutY="4.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="95.0" layoutX="34.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="245.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="95.0" layoutX="576.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="245.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="95.0" layoutX="308.0" layoutY="236.0" stroke="BLACK" strokeType="INSIDE" width="245.0" />
-      <Button fx:id="Game2" layoutX="319.0" layoutY="246.0" mnemonicParsing="false" onAction="#HandleClickButtonToGame2" prefHeight="74.0" prefWidth="222.0" text="English Learning">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGOLDENRODYELLOW" height="731.0" layoutX="584.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="SANDYBROWN" height="731.0" layoutX="307.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" width="267.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#97ffff" height="731.0" layoutX="39.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
+      <Button fx:id="Game2" layoutX="331.0" layoutY="256.0" mnemonicParsing="false" onAction="#HandleClickButtonToGame2" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="English Learning">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="Game1" layoutX="45.0" layoutY="246.0" mnemonicParsing="false" onAction="#HandleClickButtonToGame1" prefHeight="74.0" prefWidth="222.0" text="Speed Key Test">
+      <Button fx:id="Game1" layoutX="57.0" layoutY="256.0" mnemonicParsing="false" onAction="#HandleClickButtonToGame1" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="Speed Key Test">
          <font>
             <Font size="20.0" />
          </font></Button>
-      <Button fx:id="ChooseTopic" layoutX="587.0" layoutY="246.0" mnemonicParsing="false" onAction="#ChooseTopicButton" prefHeight="74.0" prefWidth="222.0" text="Topic" textAlignment="CENTER">
+      <Button fx:id="ChooseTopic" layoutX="599.0" layoutY="256.0" mnemonicParsing="false" onAction="#ChooseTopicButton" prefHeight="74.0" prefWidth="222.0" style="-fx-border-color: #000000;" text="Topic" textAlignment="CENTER">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <ImageView fitHeight="151.0" fitWidth="245.0" layoutX="34.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="151.0" fitWidth="245.0" layoutX="46.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/alphabets-6292689_960_720.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="193.0" fitWidth="252.0" layoutX="30.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="193.0" fitWidth="252.0" layoutX="42.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/typing.gif" />
          </image></ImageView>
-      <ImageView fitHeight="216.0" fitWidth="245.0" layoutX="307.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="216.0" fitWidth="245.0" layoutX="319.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/StackOfBooks.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="193.0" fitWidth="166.0" layoutX="307.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="193.0" fitWidth="166.0" layoutX="319.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/book1.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="201.0" fitWidth="245.0" layoutX="602.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="201.0" fitWidth="245.0" layoutX="614.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/Computer.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="193.0" fitWidth="239.0" layoutX="569.0" layoutY="553.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="193.0" fitWidth="239.0" layoutX="581.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/book%20stack.gif" />
          </image></ImageView>
-      <ImageView fitHeight="142.0" fitWidth="265.0" layoutX="341.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="142.0" fitWidth="265.0" layoutX="353.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/book-56.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="201.0" fitWidth="215.0" layoutX="636.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="201.0" fitWidth="215.0" layoutX="648.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/graphs.gif" />
          </image>
       </ImageView>
-      <ImageView fitHeight="181.0" fitWidth="229.0" layoutX="30.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="181.0" fitWidth="229.0" layoutX="42.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pics/ABC.gif" />
          </image>

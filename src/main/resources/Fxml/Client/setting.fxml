@@ -11,15 +11,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane prefHeight="750.0" prefWidth="800.0" styleClass="second-color" stylesheets="@../../Styles/setting.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.Setting">
     <VBox layoutY="9.0" prefHeight="591.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
         <TabPane prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
             <Tab text="Phát âm">
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #F0F8FF;">
+               <AnchorPane prefHeight="706.0" prefWidth="280.0">
+                  <children>
+                     <ImageView fitHeight="325.0" fitWidth="210.0" layoutX="61.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../pics/setting2.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="234.0" fitWidth="240.0" layoutX="-4.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../pics/setting3.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
                     <VBox prefHeight="567.0" prefWidth="252.0">
-                  <AnchorPane prefHeight="714.0" prefWidth="252.0">
+                  <AnchorPane prefHeight="706.0" prefWidth="284.0">
                      <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="ALICEBLUE" height="298.0" layoutX="-6.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" width="270.0" />
                         <Label layoutY="77.0" styleClass="text-label" text="Anh - Anh" />
                         <Label layoutX="1.0" layoutY="167.0" styleClass="text-label" text="Anh - Mỹ" />
                         <Label layoutX="1.0" layoutY="261.0" styleClass="text-label" text="Tốc độ" />
@@ -30,19 +47,40 @@
                         <Button ellipsisString="" layoutX="221.0" layoutY="205.0" mnemonicParsing="false" onAction="#voiceus" styleClass="button-speak" />
                         <Button ellipsisString="" layoutX="221.0" layoutY="114.0" mnemonicParsing="false" onAction="#voiceuk" styleClass="button-speak" />
                         <Button layoutX="78.0" layoutY="387.0" mnemonicParsing="false" onAction="#saveVoice" styleClass="button-main" text="Lưu" />
-                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="89.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="178.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../normal/UK.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="89.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="22.0" fitWidth="31.0" layoutX="178.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../normal/US.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="234.0" fitWidth="229.0" layoutX="1.0" layoutY="445.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../pics/Hi-Animation-without-background-.gif" />
+                           </image>
+                        </ImageView>
+                        <Line endX="163.20001220703125" endY="-1.52587890625E-5" layoutX="100.0" layoutY="157.0" startX="-106.0" startY="-1.52587890625E-5" strokeWidth="2.0" />
+                        <Line endX="167.20001220703125" endY="-6.103515625E-5" layoutX="96.0" layoutY="261.0" startX="-102.0" startY="-3.0517578125E-5" strokeWidth="2.0" />
                      </children>
                   </AnchorPane>
                     </VBox>
+               <AnchorPane prefHeight="702.0" prefWidth="261.0">
+                  <children>
+                     <ImageView fitHeight="188.0" fitWidth="204.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../pics/st1.png" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="231.0" fitWidth="437.0" layoutX="-33.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                        <image>
+                           <Image url="@../../pics/setting1.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
                 </HBox>
             </Tab>
         </TabPane>

@@ -12,13 +12,23 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="GameMenu" prefHeight="750.0" prefWidth="850.0" style="-fx-background-color: #F0F8FF;" styleClass="AnchorPane" stylesheets="@../../Styles/game.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.directory.Controllers.client.GameController">
+   <ImageView fitHeight="350.0" fitWidth="371.0" layoutX="582.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../pics/alphabets.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="356.0" fitWidth="618.0" layoutX="-1.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../pics/alphabets-6292689_960_720.png" />
+      </image>
+   </ImageView>
    <ImageView fx:id="wrong_img" fitHeight="53.0" fitWidth="60.0" layoutX="362.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" styleClass="image_i">
       <Image url="@../../Images/wrong.png" />
    </ImageView>
    <Text fx:id="programWord_text" layoutX="251.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" AnchorPane.leftAnchor="251.0" AnchorPane.topAnchor="332.0" />
    <TextField fx:id="userWord_textField" layoutX="251.0" layoutY="394.0" onKeyPressed="#startGame" prefHeight="32.0" prefWidth="275.0" styleClass="text-field" />
-   <ImageView fx:id="anh2_img" fitHeight="129.0" fitWidth="184.0" layoutX="296.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../Images/anh2.gif" />
+   <ImageView fx:id="anh2_img" fitHeight="140.0" fitWidth="257.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../pics/3386773.png" />
    </ImageView>
    <Circle fx:id="Circle" fill="#f0f6fc" layoutX="184.0" layoutY="208.0" radius="59.0" stroke="BLACK" strokeType="INSIDE" />
    <Text layoutX="151.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-inside-circle" text="Seconds" wrappingWidth="67.0" />
@@ -40,10 +50,25 @@
          <Color red="0.5893640518188477" green="0.827850878238678" blue="0.9868420958518982" />
       </color>
    </AmbientLight>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-9.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-1.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../Images/anh3.gif" />
    </ImageView>
-   <Button fx:id="playAgain_btn" layoutX="319.0" layoutY="493.0" mnemonicParsing="false" onAction="#toMainMenu" text="Play Again" />
-   <Button layoutX="681.0" layoutY="7.0" mnemonicParsing="false" onAction="#HandleReturnButton" prefHeight="44.0" prefWidth="170.0" text="Main Menu" textFill="#ac3b3b" />
+   <Button fx:id="playAgain_btn" layoutX="319.0" layoutY="493.0" mnemonicParsing="false" onAction="#toMainMenu" style="-fx-background-color: #FAFAD2; -fx-border-color: #000000;" text="Play Again" textAlignment="CENTER" />
+   <Button layoutX="681.0" layoutY="7.0" mnemonicParsing="false" onAction="#HandleReturnButton" prefHeight="44.0" prefWidth="170.0" style="-fx-border-color: #000000; -fx-background-color: # F5F5DC;" text="Main Menu" />
+   <ImageView fx:id="anh2_img1" fitHeight="237.0" fitWidth="192.0" layoutX="644.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../pics/book%20stack.gif" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="anh2_img2" fitHeight="140.0" fitWidth="257.0" layoutX="277.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../pics/3386773.png" />
+      </image>
+   </ImageView>
+   <ImageView fx:id="anh2_img3" fitHeight="140.0" fitWidth="257.0" layoutX="541.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../pics/3386773.png" />
+      </image>
+   </ImageView>
 
 </AnchorPane>
