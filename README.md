@@ -26,7 +26,7 @@
   <pre>4.And you must install sql with the same name as the image file below. You add words in the Words file and if you want an account, you can register to add it. And you need to set the         Mysql name and password like the image file below, otherwise you can modify it in the DatabaseConnection class in the Model section.<br> </pre>
 
 <h2>Usage</h2> 
-   <h4> Client :</h4>
+   <h4><u> Client : </u></h4>
     <pre>1. First you need to create an account in the registration section.<br></pre>
     <pre>2. After successfully creating an account, log in and experience the application's features. (But there is a note when logging in that the Question and Answer sections should be related to things that are easy to remember. Because when you forget your password, there is a Forgot Password section so you can change your password based on your UserName, Question and Answer).<br></pre>
     <pre>3. After successfully logging in, let's now experience the functions of the Dictionary. (note: users should only log in on the Client side).<br></pre>
@@ -44,7 +44,7 @@
     <pre>12. Setting <br></pre>
     <pre>13. Finally, there will be user reviews and you can give us 5 stars to give us more motivation to carry out other projects. When you leave a review and want to review it, you must log in again to view it (possibly due to an error I haven't been able to fix).<br></pre>
 
-  <h4>Admin: </h4> 
+  <h4><u>Admin: </u></h4> 
     <pre>Note: In admin there will be no registration and forgotten password. Admin is a pre-designated account with only username and password<br></pre>
     <pre>-> Now let's get to the admin features<br></pre>
     <pre>-) Once you have been granted an account, it will have special privileges that only the admin has<br></pre>
