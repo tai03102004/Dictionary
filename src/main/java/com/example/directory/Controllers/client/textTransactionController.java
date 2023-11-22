@@ -204,7 +204,7 @@ public class textTransactionController extends com.example.directory.Dictionary.
         langToFirst.getStyleClass().add("active");
 
         area1.setText("");
-        text1.setText("Phát hiện ngôn ngữ");
+        text1.setText("Phát hiện n.ngữ");
         languageFrom = "en";
 
         text2.setText("Tiếng Việt");

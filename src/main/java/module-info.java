@@ -15,6 +15,7 @@ module com.example.directory {
     requires hunspell.bridj;
     requires org.jsoup;
     requires javafx.swing;
+    requires java.persistence;
 
     opens com.example.directory.Controllers.client;
     opens com.example.directory to javafx.fxml;

@@ -21,10 +21,6 @@ public class Setting implements Initializable {
     List<String> voiceUS = Arrays.asList("Linda", "Amy", "Mary", "John", "Mike");
     List<String> voiceUK = Arrays.asList("Alice", "Nancy", "Lily", "Harry");
 
-    public void HandleDrag(javafx.scene.input.MouseEvent mouseEvent) {
-
-    }
-
     public enum Language {
         DEFAULT("default-language"),
         EN_US("en-us"),
@@ -55,6 +51,7 @@ public class Setting implements Initializable {
         VoiceRSS.language = language.getCode();
         VoiceRSS.speed = slider.getValue();
         VoiceRSS.speakWord("information");
+        TextToSpeech.VoiceAudio("information");
     }
 
     private void setVoiceParametersFromChoiceBox(ChoiceBox<String> choiceBox, Language language) throws Exception {

@@ -27,7 +27,7 @@
    </ImageView>
    <Text fx:id="programWord_text" layoutX="251.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Word" AnchorPane.leftAnchor="251.0" AnchorPane.topAnchor="332.0" />
    <TextField fx:id="userWord_textField" layoutX="251.0" layoutY="394.0" onKeyPressed="#startGame" prefHeight="32.0" prefWidth="275.0" styleClass="text-field" />
-   <ImageView fx:id="anh2_img" fitHeight="140.0" fitWidth="257.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="anh2_img" fitHeight="140.0" fitWidth="257.0" layoutX="69.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../../pics/3386773.png" />
    </ImageView>
    <Circle fx:id="Circle" fill="#f0f6fc" layoutX="184.0" layoutY="208.0" radius="59.0" stroke="BLACK" strokeType="INSIDE" />
@@ -54,18 +54,18 @@
       <Image url="@../../Images/anh3.gif" />
    </ImageView>
    <Button fx:id="playAgain_btn" layoutX="319.0" layoutY="493.0" mnemonicParsing="false" onAction="#toMainMenu" style="-fx-background-color: #FAFAD2; -fx-border-color: #000000;" text="Play Again" textAlignment="CENTER" />
-   <Button layoutX="681.0" layoutY="7.0" mnemonicParsing="false" onAction="#HandleReturnButton" prefHeight="44.0" prefWidth="170.0" style="-fx-border-color: #000000; -fx-background-color: # F5F5DC;" text="Main Menu" />
-   <ImageView fx:id="anh2_img1" fitHeight="237.0" fitWidth="192.0" layoutX="644.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+   <Button layoutX="681.0" layoutY="7.0" mnemonicParsing="false" onAction="#HandleReturnButton" prefHeight="44.0" prefWidth="170.0" style="-fx-border-color: #000000; -fx-background-color: #F5F5DC;" text="Main Menu" />
+   <ImageView fitHeight="237.0" fitWidth="192.0" layoutX="644.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../pics/book%20stack.gif" />
+         <Image url="@../../pics/bookstack.gif" />
       </image>
    </ImageView>
-   <ImageView fx:id="anh2_img2" fitHeight="140.0" fitWidth="257.0" layoutX="277.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="anh2_img2" fitHeight="140.0" fitWidth="257.0" layoutX="282.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../pics/3386773.png" />
       </image>
    </ImageView>
-   <ImageView fx:id="anh2_img3" fitHeight="140.0" fitWidth="257.0" layoutX="541.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="anh2_img3" fitHeight="140.0" fitWidth="257.0" layoutX="496.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../pics/3386773.png" />
       </image>
