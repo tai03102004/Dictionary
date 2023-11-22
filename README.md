@@ -89,11 +89,11 @@
       <li>
         <ul>
           This is a collection of images in mysql that I use.
-          <li>[SQL.zip](https://github.com/tai03102004/Dictionary/files/13440378/SQL.zip) (Click on href to view)</li>
+          <li>[SQL.zip](https://github.com/tai03102004/Dictionary/files/13440378/SQL.zip)</li>
         </ul>
         <ul>
           This is a Words file (save it to run from, remember to add a deleted field to make it false)
-          <li><a href="https://raw.githubusercontent.com/HynDuf/dictionary/ui/src/main/resources/sql/dictionary.sql"></li>
+          <a href="https://raw.githubusercontent.com/HynDuf/dictionary/ui/src/main/resources/sql/dictionary.sql">
         </ul>
       </li>
     </ul>
