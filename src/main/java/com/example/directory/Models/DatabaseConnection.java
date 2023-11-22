@@ -122,7 +122,7 @@ public class DatabaseConnection {
     public List<String> getSuggestedWords(String partialKeyword) {
         List<String> suggestedWords = new ArrayList<>();
         try {
-            String sql = "SELECT DISTINCT target FROM Dictionary.Words WHERE target LIKE ? AND deleted = false LIMIT 15";
+            String sql = "SELECT DISTINCT target FROM Dictionary.Words WHERE target LIKE ? AND deleted = false LIMIT 8";
             try (PreparedStatement preparedStatement = this.conn.prepareStatement(sql)) {
                 preparedStatement.setString(1,  partialKeyword + "%");
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -685,6 +685,7 @@ public class DatabaseConnection {
         return userNames;
     }
 
+
     public boolean updateReview(double start, String title, String comment, String userName) {
         try (PreparedStatement preparedStatement = this.conn.prepareStatement(
                 "UPDATE Dictionary.Report SET Start = ?, Title = ?, Comment = ? WHERE userName = ?"
@@ -702,6 +703,46 @@ public class DatabaseConnection {
         }
         return false;
     }
+
+    // Game
+
+    public void saveScore(String username, int score) {
+        try {
+            String sql = "INSERT INTO Dictionary.RankUser (UserName, Point) VALUES (?, ?)";
+            try (PreparedStatement preparedStatement = this.conn.prepareStatement(sql)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setInt(2, score);
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<ScoreEntry> getScoreboard() {
+        List<ScoreEntry> scoreboard = new ArrayList<>();
+
+        try {
+            String sql = "SELECT UserName, Point FROM Dictionary.RankUser ORDER BY Point DESC limit 7";
+            try (PreparedStatement preparedStatement = this.conn.prepareStatement(sql)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        String username = resultSet.getString("UserName");
+                        int score = resultSet.getInt("Point");
+
+                        ScoreEntry entry = new ScoreEntry(username, score);
+                        scoreboard.add(entry);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return scoreboard;
+    }
+
+    // End game
 
     // review Client
     public Reviewable getLastReview() {
