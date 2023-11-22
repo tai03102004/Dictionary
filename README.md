@@ -85,18 +85,22 @@
   <h2>Notes</h2>
     <p>Here I used the search algorithm Radix Tree which is quite fast to find words. But when I click on it, it takes a while to load because it has to load everything from the database</p>
     <ul>
-      Next I will send you the sql files I used.
       <li>
-        <ul>
-          This is a collection of images in mysql that I use.
-          <li>[SQL.zip](https://github.com/tai03102004/Dictionary/files/13440378/SQL.zip)</li>
-        </ul>
-        <ul>
-          This is a Words file (save it to run from, remember to add a deleted field to make it false)
-          <a href="https://raw.githubusercontent.com/HynDuf/dictionary/ui/src/main/resources/sql/dictionary.sql">
-        </ul>
+          Next, I will send you the SQL files I used.
+          <ul>
+              <li>
+                  This is a collection of images in MySQL that I use.
+                  <a href="https://github.com/tai03102004/Dictionary/files/13440378/SQL.zip">SQL.zip</a>
+              </li>
+          </ul>
+          <ul>
+              <li>
+                  This is a Words file (save it to run from, remember to add a deleted field to make it false).
+                  <a href="https://raw.githubusercontent.com/HynDuf/dictionary/ui/src/main/resources/sql/dictionary.sql">Words file</a>
+              </li>
+          </ul>
       </li>
-    </ul>
+  </ul>
 
 
 <h3>Thank you everyone for visiting.</h3>
