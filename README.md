@@ -6,11 +6,11 @@
 # Description
   The application is designed to support learning English. The application is written in Java and uses the JavaFX library. The application is based on the MVC model. The application has one        types of dictionaries: English-Vietnamese . The application use SQL(Dictionary) to store data.<br>
 
-  1.The application is designed to support learning English.<br>
-  2.The application is written in Java and uses the JavaFX library.<br>
-  3.The application is based on the MVC model.<br>
-  4.The application has one types of dictionaries: English-Vietnamese.<br>
-  5.The application use SQL(Dictionary) to store data.<br>
+  <pre>1.The application is designed to support learning English.<br> </pre>
+  <pre>2.The application is written in Java and uses the JavaFX library.<br> </pre>
+  <pre>3.The application is based on the MVC model.<br> </pre>
+  <pre>4.The application has one types of dictionaries: English-Vietnamese.<br> </pre>
+  <pre>5.The application use SQL(Dictionary) to store data.<br> </pre>
 
 # UML diagram
 
