@@ -3,6 +3,7 @@ package com.example.directory.Controllers.client;
 import com.atlascopco.hunspell.Hunspell;
 
 import com.example.directory.Controllers.LoginController;
+import com.example.directory.Dictionary.TextToSpeech;
 import com.example.directory.Models.DatabaseConnection;
 import com.example.directory.Models.Model;
 import java.util.List;
@@ -280,9 +281,13 @@ public class TranslateController extends LoginController implements Initializabl
 
     // UK(Speak)
     public void handleClickSpeaker1(ActionEvent actionEvent) {
+        TextToSpeech.language = TextToSpeech.uk_accent;
+        TextToSpeech.VoiceAudio(searchField.getText());
     }
     // US(Speak)
     public void handleClickSpeaker2(ActionEvent actionEvent) {
+        TextToSpeech.language = TextToSpeech.us_accent;
+        TextToSpeech.VoiceAudio(searchField.getText());
     }
     private void updateBookmarkButtonState(ActionEvent event) {
         bookmarkTrue.pseudoClassStateChanged(ACTIVE, !bookmarkTrue.getPseudoClassStates().contains(ACTIVE));
