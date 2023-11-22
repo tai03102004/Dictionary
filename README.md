@@ -16,8 +16,7 @@
 
 <h2>UML diagram</h2>
 
-![Uploading Ảnh màn hình 2023-11-22 lúc 21.22.24.png…]()
-
+<a href="https://github.com/tai03102004/Dictionary/files/13440706/ImageUML.zip">
 
 <h2>Installation</h2>
 
