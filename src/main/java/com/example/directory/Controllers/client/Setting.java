@@ -1,6 +1,5 @@
 package com.example.directory.Controllers.client;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +19,10 @@ public class Setting implements Initializable {
 
     List<String> voiceUS = Arrays.asList("Linda", "Amy", "Mary", "John", "Mike");
     List<String> voiceUK = Arrays.asList("Alice", "Nancy", "Lily", "Harry");
+
+    public void HandleDrag(javafx.scene.input.MouseEvent mouseEvent) {
+
+    }
 
     public enum Language {
         DEFAULT("default-language"),
@@ -51,7 +54,6 @@ public class Setting implements Initializable {
         VoiceRSS.language = language.getCode();
         VoiceRSS.speed = slider.getValue();
         VoiceRSS.speakWord("information");
-        TextToSpeech.VoiceAudio("information");
     }
 
     private void setVoiceParametersFromChoiceBox(ChoiceBox<String> choiceBox, Language language) throws Exception {
@@ -66,13 +68,11 @@ public class Setting implements Initializable {
     public void voiceus(ActionEvent actionEvent) throws Exception {
         setVoiceParametersFromChoiceBox(choiceBoxUS, Language.EN_US);
         TextToSpeech.language = TextToSpeech.us_accent;
-        TextToSpeech.VoiceAudio("hello");
     }
 
     public void voiceuk(ActionEvent actionEvent) throws Exception {
         setVoiceParametersFromChoiceBox(choiceBoxUK, Language.EN_GB);
         TextToSpeech.language = TextToSpeech.uk_accent;
-        TextToSpeech.VoiceAudio("hello");
     }
 
     public void saveVoice(ActionEvent actionEvent) {
