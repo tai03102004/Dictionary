@@ -48,8 +48,8 @@
     -) Once you have been granted an account, it will have special privileges that only the admin has<br>
       1. First you will see a series of user lists (and you will not be able to see passwords, questions and answers) and you can search for names (only userName is in the 2nd position for each user). so you can find acquaintances :))<br>
       2. Before entering the two features of adding, editing, and deleting words, I will default to this:<br>
-        1.1 . The default field word is English - Vietnamese, can be added or not<br>
-        2.1 . Deleted word status ( true : word does not exist , false : word exists )<br>
+        +) . The default field word is English - Vietnamese, can be added or not<br>
+        +) . Deleted word status ( true : word does not exist , false : word exists )<br>
    +) First : Add words<br>
       1. If you tick deleted, it means true that the word will not exist and vice versa<br>
       2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br>
