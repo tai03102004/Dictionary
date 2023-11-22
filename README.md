@@ -1,7 +1,7 @@
 # Author
 
-  1.Dinh Duc Tai - 22021173
-  2.Nguyen Huu Thang - 22021154
+  1.Dinh Duc Tai - 22021173<br>
+  2.Nguyen Huu Thang - 22021154<br>
 
 # Description
   The application is designed to support learning English. The application is written in Java and uses the JavaFX library. The application is based on the MVC model. The application has one        types of dictionaries: English-Vietnamese . The application use SQL(Dictionary) to store data.
