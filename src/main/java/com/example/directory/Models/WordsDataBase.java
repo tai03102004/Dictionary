@@ -8,4 +8,11 @@ public class WordsDataBase {
         this.target = target;
         this.definition = definition;
     }
+    public String getTarget() {
+        return target;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
 }
