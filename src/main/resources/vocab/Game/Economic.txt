@@ -39,14 +39,17 @@ recession-proof
 inflation rate
 hyperinflation
 stagflation
-disposable income
+disposable 
+income
 Consumer
 Producer
-Demand curve
-Supply curve
+Demand 
+curve
+Supply
 Elasticity
 Recession-proof
-Inflation rate
+Inflation 
+rate
 Hyperinflation
 Stagflation
 Budget
@@ -60,6 +63,7 @@ Inflation
 Deflation
 Unemployment
 Employment
-Stock market
+Stock 
+market
 Bond
 Currency

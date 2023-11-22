@@ -6,7 +6,8 @@ species
 environment
 sustainable
 climate
-natural resources
+natural 
+resources
 organic
 wildlife
 flora
@@ -75,7 +76,7 @@ environment
 environmentalist
 erosion
 endangered
- species
+species
 exhaust
 fossil 
 famine
@@ -114,21 +115,26 @@ pollution
 pollutant
 preservation
 protection
-protection forest
+protection 
+forest
 purity
 rainforest
 sea level
 sewage
-soil erosion
-soil pollution
-solar power
-toxic fume
+soil 
+erosion 
+pollution
+solar 
+power
+toxic 
+fume
 waste 
 treatment 
 facility
 toxic
 polluted
-environment-friendly
+environment
+friendly
 biodegradable
 conversational
 deforestation
