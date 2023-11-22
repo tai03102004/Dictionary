@@ -16,7 +16,8 @@
 
 <h2>UML diagram</h2>
 
-<img width="1021" alt="Ảnh màn hình 2023-11-22 lúc 09 32 15" src="https://github.com/tai03102004/Dictionary/assets/124711101/f9a8de52-3efb-4dee-a42a-a575a317fef0"><br>
+![Uploading Ảnh màn hình 2023-11-22 lúc 21.22.24.png…]()
+
 
 <h2>Installation</h2>
 
