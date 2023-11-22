@@ -119,6 +119,9 @@ public class GameController extends TopicController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        anh2_img.setVisible(false);
+        anh2_img2.setVisible(false);
+        anh2_img3.setVisible(false);
 
         playAgain_btn.setVisible(false);
         playAgain_btn.setDisable(true);
@@ -247,9 +250,7 @@ public class GameController extends TopicController implements Initializable {
     }
 
     public void startGame(KeyEvent ke) {
-        anh2_img.setVisible(false);
-        anh2_img2.setVisible(false);
-        anh2_img3.setVisible(false);
+
         playAgain_btn.setVisible(false);
         playAgain_btn.setDisable(true);
 
