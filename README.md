@@ -24,46 +24,46 @@
   <pre>4.And you must install sql with the same name as the image file below. You add words in the Words file and if you want an account, you can register to add it. And you need to set the         Mysql name and password like the image file below, otherwise you can modify it in the DatabaseConnection class in the Model section.<br> </pre>
 
 # Usage
-  *)Client :<br>
+   *)  Client :<br>
     <pre>1. First you need to create an account in the registration section.<br></pre>
     <pre>2. After successfully creating an account, log in and experience the application's features. (But there is a note when logging in that the Question and Answer sections should be related to things that are easy to remember. Because when you forget your password, there is a Forgot Password section so you can change your password based on your UserName, Question and Answer).<br></pre>
     <pre>3. After successfully logging in, let's now experience the functions of the Dictionary. (note: users should only log in on the Client side).<br></pre>
-    4. First, by default, the dictionary will go to the home page first. This is a page designed to please the viewer, so there are no important features.<br>
-    5. Next, let's experience the word lookup feature (Eng-Viet). In this word lookup section, users will experience features such as saving words and commenting if words have any errors so that the Admin can know and promptly correct the errors. The dictionary has added the Hunspell library in java to be able to detect word errors and find words with similar formats.<br>
-    6. In this section you will experience the text translation feature with many options for you and many languages. You can download and experience this unique feature (including voice so you can read along).<br>
-    7. game :<br>
-    8. Next is the history you looked up. When you just click or enter in the word lookup section, the words you have looked up will appear in the history section. In this section, there is also a search for the searched word (it will filter the words to suggest which word you should choose or if not, it will return an empty ListView) or sort by criteria (in ascending alphabetical order). (or descending)<br>
-    9. Right after that, you will get to the saved words section. The logic is no different from History, which also has sorting and searching (When you save words in the word lookup section, just click on the star and your words will be saved here).<br>
-    10. The next section will be the User Profile section. Here you have 2 main items:<br>
-          . Profile (It is the profile you registered except for the password, Question and Answer (So you should think carefully about the Question and Answer you wrote))<br>
-            - Here you can review what you have registered and can edit it (except your username) if you are not satisfied or satisfied.<br>
-         . Change password (You only need to remember the old password to change the password<br>
-    11. Immediately after that it will be logged out, you just need to press immediately the application will be lost<br>
-    12. Setting <br>
-    13. Finally, there will be user reviews and you can give us 5 stars to give us more motivation to carry out other projects. When you leave a review and want to review it, you must log in again to view it (possibly due to an error I haven't been able to fix).<br>
+    <pre>4. First, by default, the dictionary will go to the home page first. This is a page designed to please the viewer, so there are no important features.<br></pre>
+    <pre>5. Next, let's experience the word lookup feature (Eng-Viet). In this word lookup section, users will experience features such as saving words and commenting if words have any errors so that the Admin can know and promptly correct the errors. The dictionary has added the Hunspell library in java to be able to detect word errors and find words with similar formats.<br></pre>
+    <pre>6. In this section you will experience the text translation feature with many options for you and many languages. You can download and experience this unique feature (including voice so you can read along).<br></pre>
+    <pre>7. game :<br></pre>
+    <pre>8. Next is the history you looked up. When you just click or enter in the word lookup section, the words you have looked up will appear in the history section. In this section, there is also a search for the searched word (it will filter the words to suggest which word you should choose or if not, it will return an empty ListView) or sort by criteria (in ascending alphabetical order). (or descending)<br></pre>
+    <pre>9. Right after that, you will get to the saved words section. The logic is no different from History, which also has sorting and searching (When you save words in the word lookup section, just click on the star and your words will be saved here).<br></pre>
+    <pre>10. The next section will be the User Profile section. Here you have 2 main items:<br></pre>
+          <pre>. Profile (It is the profile you registered except for the password, Question and Answer (So you should think carefully about the Question and Answer you wrote))<br></pre>
+          <pre> - Here you can review what you have registered and can edit it (except your username) if you are not satisfied or satisfied.<br></pre>
+         <pre>. Change password (You only need to remember the old password to change the password<br></pre>
+    <pre>11. Immediately after that it will be logged out, you just need to press immediately the application will be lost<br></pre>
+    <pre>12. Setting <br></pre>
+    <pre>13. Finally, there will be user reviews and you can give us 5 stars to give us more motivation to carry out other projects. When you leave a review and want to review it, you must log in again to view it (possibly due to an error I haven't been able to fix).<br></pre>
 
-  *) Admin:<br>
-    Note: In admin there will be no registration and forgotten password. Admin is a pre-designated account with only username and password<br>
-    -> Now let's get to the admin features<br>
-    -) Once you have been granted an account, it will have special privileges that only the admin has<br>
-      1. First you will see a series of user lists (and you will not be able to see passwords, questions and answers) and you can search for names (only userName is in the 2nd position for each user). so you can find acquaintances :))<br>
-      2. Before entering the two features of adding, editing, and deleting words, I will default to this:<br>
-        +) . The default field word is English - Vietnamese, can be added or not<br>
-        +) . Deleted word status ( true : word does not exist , false : word exists )<br>
+  *)  Admin:<br>
+    <pre>Note: In admin there will be no registration and forgotten password. Admin is a pre-designated account with only username and password<br></pre>
+    <pre>-> Now let's get to the admin features<br></pre>
+    <pre>-) Once you have been granted an account, it will have special privileges that only the admin has<br></pre>
+      <pre>1. First you will see a series of user lists (and you will not be able to see passwords, questions and answers) and you can search for names (only userName is in the 2nd position for each user). so you can find acquaintances :))<br></pre>
+      <pre>2. Before entering the two features of adding, editing, and deleting words, I will default to this:<br></pre>
+        <pre>+) . The default field word is English - Vietnamese, can be added or not<br></pre>
+        <pre>+) . Deleted word status ( true : word does not exist , false : word exists )<br></pre>
    +) First : Add words<br>
-      1. If you tick deleted, it means true that the word will not exist and vice versa<br>
-      2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br>
-      3 . In the HTML Editor, it will add the definitions you add to the word (You can add whatever makes it meaningful and interesting).<br>
-         => If you want to save a word, just press the button on the Save icon<br>
-         => To reset the word, just click on the Reset word icon<br>
+      <pre>1. If you tick deleted, it means true that the word will not exist and vice versa<br></pre>
+      <pre>2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br></pre>
+      <pre>3 . In the HTML Editor, it will add the definitions you add to the word (You can add whatever makes it meaningful and interesting).<br></pre>
+        <pre> => If you want to save a word, just press the button on the Save icon<br></pre>
+         <pre>=> To reset the word, just click on the Reset word icon<br></pre>
 
    +) Second: Edit, delete words<br>
-      1. It is similar to adding words about code logic<br>
-        But there are a few other features that are only changing the Deleted Word icon on the login, which I find quite interesting because it will not delete the word from the                       database but only change the deleted status to true so that the word does not appear (meaning the word does not exist )<br>
+      <pre>1. It is similar to adding words about code logic<br></pre>
+        <pre>But there are a few other features that are only changing the Deleted Word icon on the login, which I find quite interesting because it will not delete the word from the                       database but only change the deleted status to true so that the word does not appear (meaning the word does not exist )<br></pre>
 
-  3. Next will be the section showing user feedback when the program has errors or something wrong<br>
+  <pre>3. Next will be the section showing user feedback when the program has errors or something wrong<br></pre>
 
-  4. Finally comes the admin logout section<br>
+  <pre>4. Finally comes the admin logout section<br></pre>
 
   # Demo
 
