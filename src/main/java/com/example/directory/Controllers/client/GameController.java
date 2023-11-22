@@ -1,5 +1,7 @@
 package com.example.directory.Controllers.client;
 
+import com.example.directory.Controllers.LoginController;
+import com.example.directory.Models.Model;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
