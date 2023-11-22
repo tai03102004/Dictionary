@@ -45,7 +45,7 @@
           <pre> - Here you can review what you have registered and can edit it (except your username) if you are not satisfied or satisfied.<br></pre>
          <pre>. Change password (You only need to remember the old password to change the password<br></pre>
     <pre>11. Immediately after that it will be logged out, you just need to press immediately the application will be lost<br></pre>
-    <pre>12. Setting <br></pre>
+    <pre>12. Setting: In this screen, you can choose the people whose voice you want to hear from and you can fix the speed that you want they to speak.<br></pre>
     <pre>13. Finally, there will be user reviews and you can give us 5 stars to give us more motivation to carry out other projects. When you leave a review and want to review it, you must log in again to view it (possibly due to an error I haven't been able to fix).<br></pre>
 
   <h4><u>Admin: </u></h4> 
