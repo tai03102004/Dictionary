@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -23,17 +25,17 @@ import java.util.concurrent.TimeUnit;
 import javafx.animation.KeyValue;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GameController extends TopicController implements Initializable {
 
+    public Button buttonBtnRank;
     @FXML
     private AnchorPane GameMenu;
     public javafx.scene.shape.Circle Circle;
     public ImageView movingImageView;
     public ImageView anh2_img;
-    public ImageView anh2_img3;
-    public ImageView anh2_img2;
     private int wordCounter = 0;
     private int first = 1;
     public ImageView wrong_img;
@@ -159,8 +161,6 @@ public class GameController extends TopicController implements Initializable {
                     userWord_textField.setDisable(true);
                     userWord_textField.setText("Game over");
                     anh2_img.setVisible(true);
-                    anh2_img2.setVisible(true);
-                    anh2_img3.setVisible(true);
                     try {
                         FileWriter myWriter = new FileWriter(saveData);
                         myWriter.write(countAll +";");
@@ -222,13 +222,17 @@ public class GameController extends TopicController implements Initializable {
 
                 @Override
                 public void handle(long now) {
+
                     if (wrong_img.getOpacity() < 1) {
                         wrong_img.setOpacity(wrong_img.getOpacity() + 0.05);
+                    } else if (wrong_img.getOpacity() >= 1 && wrong_img.getOpacity() < 2) {
+                        wrong_img.setOpacity(wrong_img.getOpacity() - 0.05);
                     } else {
                         wrong_img.setOpacity(0);
                         stop();
                         isAnimationRunning = false;
                     }
+
                 }
 
             };
@@ -241,8 +245,6 @@ public class GameController extends TopicController implements Initializable {
 
     public void startGame(KeyEvent ke) {
         anh2_img.setVisible(false);
-        anh2_img2.setVisible(false);
-        anh2_img3.setVisible(false);
         if (first == 1) {
             first = 0;
             executor.scheduleAtFixedRate(r, 0, 2, TimeUnit.SECONDS);
@@ -282,4 +284,15 @@ public class GameController extends TopicController implements Initializable {
         GameMenu.getChildren().removeAll();
         GameMenu.getChildren().setAll(pane);
     }
+
+    public void rankUser(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/RankList.fxml"));
+        Parent root = loader.load();
+
+        Stage rankListStage = new Stage();
+        rankListStage.setScene(new Scene(root));
+        rankListStage.setTitle("Rank");
+        rankListStage.show();
+    }
+
 }
