@@ -52,14 +52,14 @@
       <pre>2. Before entering the two features of adding, editing, and deleting words, I will default to this:<br></pre>
         <pre>+) . The default field word is English - Vietnamese, can be added or not<br></pre>
         <pre>+) . Deleted word status ( true : word does not exist , false : word exists )<br></pre>
-   +) First : Add words<br>
+   <h5> First : Add words</h5>
       <pre>1. If you tick deleted, it means true that the word will not exist and vice versa<br></pre>
       <pre>2. There are additional words in the vocabulary (if you add the same, it will appear as a duplicate) but if you add the same and want to leave the status true, it's okay, it will               change the word's status.<br></pre>
       <pre>3 . In the HTML Editor, it will add the definitions you add to the word (You can add whatever makes it meaningful and interesting).<br></pre>
         <pre> => If you want to save a word, just press the button on the Save icon<br></pre>
          <pre>=> To reset the word, just click on the Reset word icon<br></pre>
 
-   +) Second: Edit, delete words<br>
+   <h5> Second: Edit, delete words </h5>
       <pre>1. It is similar to adding words about code logic<br></pre>
         <pre>But there are a few other features that are only changing the Deleted Word icon on the login, which I find quite interesting because it will not delete the word from the                       database but only change the deleted status to true so that the word does not appear (meaning the word does not exist )<br></pre>
 
