@@ -16,7 +16,8 @@
 
 <h2>UML diagram</h2>
     
-<p><a href="https://github.com/tai03102004/Dictionary/files/13440706/ImageUML.zip"></p>
+<p><a href="https://github.com/tai03102004/Dictionary/files/13440706/ImageUML.zip">Download UML diagram</a></p>
+
 
 <h2>Installation</h2>
 
